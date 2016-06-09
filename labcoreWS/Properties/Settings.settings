@@ -1,0 +1,54 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="labcoreWS.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="alterno" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=WINTVTIDESBD;Initial Catalog=SAHI_ASI_DES;User ID=Desarrollo;Password=PwdDes;MultipleActiveResultSets=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=WINTVTIDESBD;Initial Catalog=SAHI_ASI_DES;User ID=Desarrollo;Password=PwdDes;MultipleActiveResultSets=True</Value>
+    </Setting>
+    <Setting Name="DBConexionXX" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=TYCHO;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=TYCHO;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3</Value>
+    </Setting>
+    <Setting Name="DBConexion" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=TYCHO;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=TYCHO;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3</Value>
+    </Setting>
+    <Setting Name="LabcoreDBConXX" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=TYCHO;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=TYCHO;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3</Value>
+    </Setting>
+    <Setting Name="LabcoreDBCon" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=TYCHO;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=TYCHO;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3</Value>
+    </Setting>
+    <Setting Name="dbProduccion" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=TYCHO;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=TYCHO;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

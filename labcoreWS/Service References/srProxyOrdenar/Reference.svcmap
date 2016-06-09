@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e0394799-f820-4863-9881-603aaaf564a3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://winpvtiws01:8111/ordenarEstudio.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ordenarEstudio.xsd" MetadataType="Schema" ID="61214a43-2022-4989-be00-24c9e3984331" SourceId="1" SourceUrl="http://winpvtiws01:8111/ordenarEstudio.svc?xsd=xsd1" />
+    <MetadataFile FileName="ordenarEstudio.wsdl" MetadataType="Wsdl" ID="9073c607-acb6-4e74-a279-6a56e6cd21fa" SourceId="1" SourceUrl="http://winpvtiws01:8111/ordenarEstudio.svc?wsdl" />
+    <MetadataFile FileName="ordenarEstudio1.xsd" MetadataType="Schema" ID="ecb7aaea-2cde-4bb5-b892-40860f2c728a" SourceId="1" SourceUrl="http://winpvtiws01:8111/ordenarEstudio.svc?xsd=xsd0" />
+    <MetadataFile FileName="ordenarEstudio.disco" MetadataType="Disco" ID="8e82f377-ea16-479e-86cc-ec460113c7b6" SourceId="1" SourceUrl="http://winpvtiws01:8111/ordenarEstudio.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

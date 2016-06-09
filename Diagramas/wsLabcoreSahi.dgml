@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @3)" Category="CodeSchema_ProjectItem" Bounds="293.102666628127,0,157.631333410412,25.998000077079" FilePath="$(VsSolutionUri)/labcoreWS/wsLabcoreSahi.asmx.cs" Label="wslabcoresahi.asmx.cs" />
+    <Node Id="(@1)" Category="CodeSchema_Project" Bounds="0,279.958000077079,97.6755665144496,26.0022331811163" Label="labcoreWS" />
+    <Node Id="(@2)" Category="CodeSchema_Solution" Bounds="10.5011165905581,223.998000077079,76.6733333333333,25.96" Label="labcoreWS" />
+    <Node Id="(@4 @5 @6 Member=(Name=ordenes OverloadingParameters=[@9]))" Category="CodeSchema_Method" Bounds="25.0650006739298,117.998051098633,83.7066666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="ordenes" FunctionTypeFlags="Method" Icon="Microsoft.VisualStudio.Method.Public" Label="ordenes" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///e:/desarrollo/labcore tat/labcorews/labcorews/wslabcoresahi.asmx.cs&quot; StartLineNumber=25 StartCharacterOffset=8 EndLineNumber=25 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="(@4 @5 @6 Member=logLabcore)" Category="CodeSchema_Field" Bounds="-14.9999983723958,61.9979510986328,99.8366666666667,26" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" Icon="Microsoft.VisualStudio.Field.Private" Label="logLabcore" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///e:/desarrollo/labcore tat/labcorews/labcorews/wslabcoresahi.asmx.cs&quot; StartLineNumber=23 StartCharacterOffset=30 EndLineNumber=23 EndCharacterOffset=30)" UseManualLocation="True" />
+    <Node Id="(@4 @5 @6 Member=reintentoOrdenes)" Category="CodeSchema_Method" Bounds="394.868333333333,114.998000077079,134.1,26" CodeSchemaProperty_IsPublic="True" CommonLabel="reintentoOrdenes" FunctionTypeFlags="Method" Icon="Microsoft.VisualStudio.Method.Public" Label="reintentoOrdenes" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///e:/desarrollo/labcore tat/labcorews/labcorews/wslabcoresahi.asmx.cs&quot; StartLineNumber=338 StartCharacterOffset=8 EndLineNumber=338 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@10" Category="CodeSchema_Method" Bounds="213.578334960937,116.997951098633,96.68,26" CodeSchemaProperty_IsPublic="True" CommonLabel="" FunctionTypeFlags="Method" Icon="Microsoft.VisualStudio.Method.Public" Label="solicitudes" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///e:/desarrollo/labcore tat/labcorews/labcorews/wslabcoresahi.asmx.cs&quot; StartLineNumber=150 StartCharacterOffset=8 EndLineNumber=150 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@11" Category="CodeSchema_Method" Bounds="311.245001627604,235.998051098633,127.346666666667,26" CodeSchemaProperty_IsPrivate="True" CommonLabel="entregaSolicitud" FunctionTypeFlags="Method" Icon="Microsoft.VisualStudio.Method.Private" Label="entregaSolicitud" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///e:/desarrollo/labcore tat/labcorews/labcorews/wslabcoresahi.asmx.cs&quot; StartLineNumber=324 StartCharacterOffset=8 EndLineNumber=324 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@12" Category="CodeSchema_Method" Bounds="570.75,114.998000077079,146.336666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="reintentoSolicitudes" FunctionTypeFlags="Method" Icon="Microsoft.VisualStudio.Method.Public" Label="reintentoSolicitudes" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///e:/desarrollo/labcore tat/labcorews/labcorews/wslabcoresahi.asmx.cs&quot; StartLineNumber=530 StartCharacterOffset=8 EndLineNumber=530 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@7" Category="CodeSchema_Class" Bounds="312.53,55.998000077079,118.776666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="wsLabcoreSahi" Icon="Microsoft.VisualStudio.Class.Public" Label="wsLabcoreSahi" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=&quot;file:///e:/desarrollo/labcore tat/labcorews/labcorews/wslabcoresahi.asmx.cs&quot; StartLineNumber=17 StartCharacterOffset=4 EndLineNumber=17 EndCharacterOffset=4)" />
+  </Nodes>
+  <Links>
+    <Link Source="(@1 @3)" Target="@7" Category="Contains" Bounds="371.918334960938,25.9979991912842,0,21.0000019073486" />
+    <Link Source="(@2)" Target="(@1)" Category="Contains" Bounds="48.8377838134766,249.957992553711,0,21.0000152587891" />
+    <Link Source="@10" Target="@11" Category="CodeSchema_Calls" Bounds="274.262862883073,142.997951507568,82.1136431121005,86.4737288611257" />
+    <Link Source="@12" Target="@11" Category="CodeSchema_Calls" Bounds="412.0270143196,140.998001098633,202.990505128729,91.3080312741416" />
+    <Link Source="@7" Target="(@4 @5 @6 Member=(Name=ordenes OverloadingParameters=[@9]))" Category="Contains" Bounds="117.591288418335,80.9275206916248,195.641551426445,39.7697899937293" />
+    <Link Source="@7" Target="(@4 @5 @6 Member=logLabcore)" Category="Contains" Bounds="93.8352421875348,70.0553098474839,218.694759440069,3.89367547984384" />
+    <Link Source="@7" Target="(@4 @5 @6 Member=reintentoOrdenes)" Category="Contains" Bounds="391.748843420244,81.9980010986328,42.8121535206135,28.0657451073468" />
+    <Link Source="@7" Target="@10" Category="Contains" Bounds="293.231766705029,81.9980006104824,55.2439262774074,30.6352433426625" />
+    <Link Source="@7" Target="@11" Category="Contains" Bounds="372.135001572503,81.9980010986328,2.41668764399407,145.001295515375" />
+    <Link Source="@7" Target="@12" Category="Contains" Bounds="429.857952463642,81.5657856351272,145.33271491276,31.5243753040325" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Calls" Label="Calls" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Called By" OutgoingActionLabel="Calls" />
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Field" Label="Field" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Fields" />
+    <Category Id="CodeSchema_Member" Label="Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Members" />
+    <Category Id="CodeSchema_Method" Label="Method" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="Methods" />
+    <Category Id="CodeSchema_Project" Label="Project" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_ProjectItem" Icon="CodeSchema_Project" NavigationActionLabel="Projects" />
+    <Category Id="CodeSchema_ProjectItem" Label="Project Item" BasedOn="File" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Type" Icon="File" NavigationActionLabel="Project Items" />
+    <Category Id="CodeSchema_Solution" Label="Solution" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" NavigationActionLabel="Solutions" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="File" Label="File" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="File" NavigationActionLabel="Files" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPrivate" Label="Is Private" Description="Flag to indicate the scope is Private" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsStatic" Label="Is Static" Description="Flag to indicate the member is a static member" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="FilePath" Label="File Path" Description="File Path" DataType="System.String" />
+    <Property Id="FunctionTypeFlags" Label="FunctionTypeFlags" Description="FunctionTypeFlags" DataType="System.String" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Language" Label="Language" Description="Language" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="File" Label="File" ValueType="Uri" />
+    <Name Id="Member" Label="Member" ValueType="System.Object" />
+    <Name Id="Name" Label="Name" ValueType="System.String" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="Parameter" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(VsSolutionUri)/labcoreWS/labcoreWS.csproj" />
+    <Alias n="2" Uri="Assembly=$(VsSolutionUri)/labcoreWS.sln" />
+    <Alias n="3" Uri="File=$(VsSolutionUri)/labcorews/wslabcoresahi.asmx.cs" />
+    <Alias n="4" Uri="Assembly=$(0ace6002-8238-4691-bf99-43f0121d7b8b.OutputPathUri)" />
+    <Alias n="5" Id="Namespace=labcoreWS" />
+    <Alias n="6" Id="Type=wsLabcoreSahi" />
+    <Alias n="7" Id="(@4 @5 @6)" />
+    <Alias n="8" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.5/mscorlib.dll" />
+    <Alias n="9" Id="(@8 Namespace=System Type=String)" />
+    <Alias n="10" Id="(@4 @5 @6 Member=(Name=solicitudes OverloadingParameters=[@9]))" />
+    <Alias n="11" Id="(@4 @5 @6 Member=(Name=entregaSolicitud OverloadingParameters=[@9,@9,@9,(@8 Namespace=System Type=Int32)]))" />
+    <Alias n="12" Id="(@4 @5 @6 Member=reintentoSolicitudes)" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="0ace6002-8238-4691-bf99-43f0121d7b8b.OutputPathUri" Value="file:///E:/Desarrollo/Labcore TAT/labcoreWS/labcoreWS/bin/labcoreWS.dll" />
+    <Path Id="FxReferenceAssembliesUri" Value="file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework" />
+    <Path Id="VsSolutionUri" Value="file:///E:/Desarrollo/Labcore TAT/labcoreWS" />
+  </Paths>
+</DirectedGraph>

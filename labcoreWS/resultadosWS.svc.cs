@@ -1,0 +1,369 @@
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Xml;
+using System.Xml.Serialization;
+
+//*****
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Runtime.Remoting.Contexts;
+
+///<comentarios> Servicio para la Entrega de Resultados de laboratorio por el Sistema de Kioscos </comentarios>
+///
+namespace labcoreWS
+{
+    public class resultadosWS : IresultadosWS
+    {
+        public string getResultados(string nroOrden)
+        {
+            //nroOrden = "<?xml version=\"1.0\"?><Resultados xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">  <Nombre>MARIA DEL PILAR</Nombre>  <Apellido>RUBIANO</Apellido>  <status>0</status>  <Resultado>JVBERi0xLjcgDQoxIDAgb2JqDQo8PA0KL1R5cGUgL0NhdGFsb2cNCi9PdXRsaW5lcyAyIDAgUg0K</Resultado>  <Resultado>JVBERi0xLjcgDQoxIDAgb2JqDQo8PA0KL1R5cGUgL0NhdGFsb2cNCi9PdXRsaW5lcyAyIDAgUg0K</Resultado>  <Resultado>JVBERi0xLjcgDQoxIDAgb2JqDQo8PA0KL1R5cGUgL0NhdGFsb2cNCi9PdXRsaW5lcyAyIDAgUg0K</Resultado>  <Resultado>JVBERi0xLjcgDQoxIDAgb2JqDQo8PA0KL1R5cGUgL0NhdGFsb2cNCi9PdXRsaW5lcyAyIDAgUg0K</Resultado></Resultados>";
+            byte tipoDoc = 0;
+            //********
+            string archivo = "C:\\Basura";
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+            sw.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+            sw.WriteLine("Doc solicitado:" + nroOrden +" Evento:"+DateTime.Now.ToString()+ "\r\n");
+            sw.Close();
+            Resultados rpta = new Resultados();
+            try
+            {
+                string Confidenciales = string.Empty;
+                string Pendientes = string.Empty;
+                srLabcoreResultados.WSSolicitudesClient clienteWS = new srLabcoreResultados.WSSolicitudesClient();
+                string XMLdocumento = clienteWS.GetResultPdf(nroOrden);
+                ////   string XMLdocumento = "<?xml version=\"1.0\"?><ResultadoPdf><PACIENTE APELLIDO=\"SANCHEZ\" NOMBRE=\"CLAUDIA CRISTINA\" TIPODOCUMENTO=\"CC\" DOCUMENTO=\"39690598\"/><ORDEN RESCONFIDENCIALES=\"0\" RESPENDIENTES=\"0\" NOMBRELABREF=\"\" CODIGOLABREF=\"\" FECHAINGRESO=\"\" NUMEROLABREF=\"\" NUMERO=\"10030074\"/><ResultadoBase64>JVBERi0xLjcgDQoxIDAgb2JqDQo8PA0KL1R5cGUgL0NhdGFsb2cNCi9PdXRsaW5lcyAyIDAgUg0K</ResultadoBase64><ResultadoBase64>JVBERi0xLjcgDQoxIDAgb2JqDQo8PA0KL1R5cGUgL0NhdGFsb2cNCi9PdXRsaW5lcyAyIDAgUg0K</ResultadoBase64><ResultadoBase64>JVBERi0xLjcgDQoxIDAgb2JqDQo8PA0KL1R5cGUgL0NhdGFsb2cNCi9PdXRsaW5lcyAyIDAgUg0K</ResultadoBase64></ResultadoPdf>";
+                System.Xml.XmlDocument doc = new System.Xml.XmlDocument();
+                doc.LoadXml(XMLdocumento);
+                XmlNode Raiz = doc.FirstChild;
+                XmlNodeList registros = doc.GetElementsByTagName("ResultadoPdf");
+                XmlNodeList paciente = ((XmlElement)registros[0]).GetElementsByTagName("PACIENTE");
+
+                XmlElement pacienteWRK = (XmlElement)paciente[0];
+                string Nombre = pacienteWRK.GetAttribute("NOMBRE");
+                string Apellidos = pacienteWRK.GetAttribute("APELLIDO");
+                string Documento = pacienteWRK.GetAttribute("DOCUMENTO");
+
+                XmlNodeList orden = ((XmlElement)registros[0]).GetElementsByTagName("ORDEN");
+                XmlElement ordernWrk = (XmlElement)orden[0];
+                string nroOrdenwRK = ordernWrk.GetAttribute("NUMERO");
+                //rpta.Nombre = Nombre;
+                //rpta.Apellido = Apellidos;
+                
+                Confidenciales = ordernWrk.GetAttribute("RESCONFIDENCIALES");
+                Pendientes = ordernWrk.GetAttribute("RESPENDIENTES");
+
+                System.IO.StreamWriter sw1 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                using (sw1)
+                {
+                    sw1.WriteLine("Recibido Labcore-- Nombre:" + Nombre + "  Apellidos:" + Apellidos + "  Confidenciales:" + Confidenciales + "  Pendientes:" + Pendientes + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                    sw1.Close();
+                }
+                //****************************************** VALIDACION DE NRO DE IMPRESIONES
+                using (SqlConnection conexion = new SqlConnection(Properties.Settings.Default.DBConexion))
+                {
+                    conexion.Open();
+                    string query0 = "SELECT COUNT(NRO_IMP) FROM LABRES_IMP WHERE NRO_ORDEN=" + nroOrdenwRK;
+                    SqlCommand sqlCom0 = new SqlCommand(query0, conexion);
+                    SqlDataReader sqlReader = sqlCom0.ExecuteReader();
+                    if (sqlReader.HasRows)
+                    {
+                        sqlReader.Read();
+                        if (sqlReader.GetInt32(0) > 3)
+                        {
+                            rpta.status = "3";
+                            rpta.Resultado.Add("Estos Resultados Ya se han Impreso, En mas de 3 Oportunidades.");
+                            rpta.Nombre = "";
+                            rpta.Apellido = "";
+                            XmlSerializer salidaImp = new XmlSerializer(rpta.GetType());
+                            StringWriter textWriterImp = new StringWriter();
+                            salidaImp.Serialize(textWriterImp, rpta);
+                            System.IO.StreamWriter sw4 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                            using (sw4)
+                            {
+                                sw4.WriteLine("Resultados Impresos en mas de 3 Oportunidades. \r\n");
+                                sw4.Close();
+                            }
+                            return textWriterImp.ToString();
+                        }
+
+                    }
+                }
+                if (int.Parse(Confidenciales) == 0)
+                {
+                    if (int.Parse(Pendientes) == 0)
+                    {
+                        XmlNodeList resultados = ((XmlElement)registros[0]).GetElementsByTagName("ResultadoBase64");
+
+                        string cadenaBase64 = resultados.Item(0).InnerText;
+                        if (cadenaBase64.Length > 10)
+                        {
+                            Int32 i = 0;
+                            //ResultadosResultado resXX = new ResultadosResultado();
+
+                            foreach (XmlElement resultado in resultados)
+                            {
+                                string valor = resultado.InnerText;
+                                rpta.Resultado.Add(valor);
+                                //rpta.Resultado[i].Value = contenidoResultados[i].Value;
+                                i++;
+                            }
+                            rpta.status = "0";
+                            rpta.Nombre = Nombre;
+                            rpta.Apellido = Apellidos;
+                            using (SqlConnection conexion = new SqlConnection(Properties.Settings.Default.DBConexion))
+                            {
+                                conexion.Open();
+                                string insertar = "INSERT INTO LABRES_IMP (NRO_ORDEN,TIPO_DOC,NRO_DOC,NRO_IMP) VALUES(" + nroOrdenwRK + ",'" + tipoDoc + "','" + Documento + "'," + 1 + ")";
+                                SqlCommand sqlIns0 = new SqlCommand(insertar, conexion);
+                                sqlIns0.ExecuteNonQuery();
+                                System.IO.StreamWriter sw2 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                                using (sw2)
+                                {
+                                    sw2.WriteLine("Guarda--Orden:" + nroOrdenwRK + " Documento:" + Documento + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                                    sw2.Close();
+                                }
+                            }
+                        }
+                        else
+                        {
+                            rpta.status = "4";
+                            rpta.Resultado.Add("");
+                        }
+                    }
+                    else
+                    {
+                        rpta.status = "1";
+                        rpta.Resultado.Add("");
+                    }
+                }
+                else
+                {
+                    rpta.status = "2";
+                    rpta.Resultado.Add("");
+                }
+                XmlSerializer salida = new XmlSerializer(rpta.GetType());
+                StringWriter textWriter = new StringWriter();
+                salida.Serialize(textWriter, rpta);
+
+                System.IO.StreamWriter sw3 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                using (sw3)
+                {
+                    sw3.WriteLine("Envio a Kiosco--Orden:" + nroOrdenwRK + " Documento:" + Documento + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                    if (rpta.Resultado.First<string>().Length>0)
+                    {
+                    sw3.WriteLine("Respuesta:" + rpta.Resultado.First<string>().Substring(0, 10));
+                    }
+                    else
+                    {
+                        sw3.WriteLine(" !! Respuesta: No se Imprime !!");
+                    }
+                    sw3.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw3.WriteLine(archivo + "\r\n");
+                    sw3.Close();
+                }
+                return textWriter.ToString();
+            }
+            catch (SqlException ex1)
+            {
+                // "Error en Datos:" + ex1.Message;
+                rpta.status = "5";
+                rpta.Resultado.Add(ex1.Message);
+                rpta.Nombre = "";
+                rpta.Apellido = "";
+                XmlSerializer salida = new XmlSerializer(rpta.GetType());
+                StringWriter textWriter = new StringWriter();
+                salida.Serialize(textWriter, rpta);
+                // string archivo = "C:\\Basura";
+                System.IO.StreamWriter sw5 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                using (sw5)
+                {
+                    sw5.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw5.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                    sw5.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw5.WriteLine(archivo + "\r\n");
+                    sw5.Close();
+                }
+                return textWriter.ToString();
+            }
+            catch (EndpointNotFoundException ex2)
+            {
+                // "Error en comunicaciones:" + ex2.Message;
+                rpta.status = "5";
+                rpta.Resultado.Add(ex2.Message);
+                rpta.Nombre = "";
+                rpta.Apellido = "";
+                XmlSerializer salida = new XmlSerializer(rpta.GetType());
+                StringWriter textWriter = new StringWriter();
+                salida.Serialize(textWriter, rpta);
+                System.IO.StreamWriter sw6 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                using (sw6)
+                {
+                    sw6.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw6.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                    sw6.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw6.WriteLine(archivo + "\r\n");
+                    sw6.Close();
+                }
+                return textWriter.ToString();
+            }
+            catch (DataException ex3)
+            {
+                //return "Error de Datos:" + ex3.Message;
+                rpta.status = "5";
+                rpta.Resultado.Add(ex3.Message);
+                rpta.Nombre = "";
+                rpta.Apellido = "";
+                XmlSerializer salida = new XmlSerializer(rpta.GetType());
+                StringWriter textWriter = new StringWriter();
+                salida.Serialize(textWriter, rpta);
+                System.IO.StreamWriter sw7 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                using (sw7)
+                {
+                    sw7.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw7.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                    sw7.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw7.WriteLine(archivo + "\r\n");
+                    sw7.Close();
+                }
+                return textWriter.ToString();
+            }
+            catch (FaultException ex4)
+            {
+                //return "Fallo General:" + ex4.Message + "    Razon:" + ex4.Reason.ToString() + "    Accion:" + ex4.Action;
+                rpta.status = "5";
+                rpta.Resultado.Add(ex4.Message);
+                rpta.Nombre = "";
+                rpta.Apellido = "";
+                XmlSerializer salida = new XmlSerializer(rpta.GetType());
+                StringWriter textWriter = new StringWriter();
+                salida.Serialize(textWriter, rpta);
+                System.IO.StreamWriter sw8 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                using (sw8)
+                {
+                    sw8.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw8.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                    sw8.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw8.WriteLine(archivo + "\r\n");
+                    sw8.Close();
+                }
+                return textWriter.ToString();
+            }
+            catch (InvalidMessageContractException ex5)
+            {
+                //return "Error en mensaje:" + ex5.Message;
+                rpta.status = "5";
+                rpta.Resultado.Add(ex5.Message);
+                rpta.Nombre = "";
+                rpta.Apellido = "";
+                XmlSerializer salida = new XmlSerializer(rpta.GetType());
+                StringWriter textWriter = new StringWriter();
+                salida.Serialize(textWriter, rpta);
+                System.IO.StreamWriter sw9 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                using (sw9)
+                {
+                    sw9.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw9.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                    sw9.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw9.WriteLine(archivo + "\r\n");
+                    sw9.Close();
+                }
+                return textWriter.ToString();
+            }
+            catch (IOException ex6)
+            {
+                //return "Excepcion de Entrada /Salida:" + ex6.Message;
+                rpta.status = "5";
+                rpta.Resultado.Add( ex6.Message);
+                rpta.Nombre = "";
+                rpta.Apellido = "";
+                XmlSerializer salida = new XmlSerializer(rpta.GetType());
+                StringWriter textWriter = new StringWriter();
+                salida.Serialize(textWriter, rpta);
+                System.IO.StreamWriter sw10 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                using (sw10)
+                {
+                    sw10.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw10.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                    sw10.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw10.WriteLine(archivo + "\r\n");
+                    sw10.Close();
+                }
+                return textWriter.ToString();
+            }
+            catch (SerializationException ex7)
+            {
+                //return "Error en la serializacion:" + ex7.Message;
+                rpta.status = "5";
+                rpta.Resultado.Add(ex7.Message);
+                rpta.Nombre = "";
+                rpta.Apellido = "";
+                XmlSerializer salida = new XmlSerializer(rpta.GetType());
+                StringWriter textWriter = new StringWriter();
+                salida.Serialize(textWriter, rpta);
+                System.IO.StreamWriter sw11 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                using (sw11)
+                {
+                    sw11.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw11.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                    sw11.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw11.WriteLine(archivo + "\r\n");
+                    sw11.Close();
+                }
+                return textWriter.ToString();
+            }
+            catch (ServerTooBusyException ex8)
+            {
+                //return "Servidor se encuentra ocupado:" + ex8.Message;
+                rpta.status = "5";
+                rpta.Resultado.Add(ex8.Message);
+                rpta.Nombre = "";
+                rpta.Apellido = "";
+                XmlSerializer salida = new XmlSerializer(rpta.GetType());
+                StringWriter textWriter = new StringWriter();
+                salida.Serialize(textWriter, rpta);
+                System.IO.StreamWriter sw12 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                using (sw12)
+                {
+                    sw12.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw12.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                    sw12.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw12.WriteLine(archivo + "\r\n");
+                    sw12.Close();
+                }
+                return textWriter.ToString();
+            }
+            catch (SystemException ex9)
+            {
+                //return "Error general del Sistema:" + ex9.Message + ex9.StackTrace;
+                rpta.status = "6";
+                rpta.Resultado.Add(ex9.Message);
+                rpta.Nombre = "";
+                rpta.Apellido = "";
+                XmlSerializer salida = new XmlSerializer(rpta.GetType());
+                StringWriter textWriter = new StringWriter();
+                salida.Serialize(textWriter, rpta);
+                System.IO.StreamWriter sw13 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                using (sw13)
+                {
+                    sw13.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw13.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                    sw13.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    sw13.WriteLine(archivo + "\r\n");
+                    sw13.Close();
+                }
+                return textWriter.ToString();
+            }
+        }
+    }
+}
+
+
+
+

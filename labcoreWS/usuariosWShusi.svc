@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="labcoreWS.usuariosWShusi" CodeBehind="usuariosWShusi.svc.cs" %>

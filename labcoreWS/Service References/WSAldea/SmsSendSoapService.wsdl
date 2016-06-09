@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://habitatclient.service.soapws.core.axesnet.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="SmsSendSoapService" targetNamespace="http://habitatclient.service.soapws.core.axesnet.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types />
+  <message name="smsSendSoap">
+    <part name="username" type="xsd:string" />
+    <part name="password" type="xsd:string" />
+    <part name="country" type="xsd:long" />
+    <part name="mobile" type="xsd:string" />
+    <part name="message" type="xsd:string" />
+    <part name="operator" type="xsd:string" />
+  </message>
+  <message name="smsSendSoapResponse">
+    <part name="return" type="xsd:string" />
+  </message>
+  <portType name="ISmsSendSoap">
+    <operation name="smsSendSoap" parameterOrder="username password country mobile message operator">
+      <input wsam:Action="http://habitatclient.service.soapws.core.axesnet.com/ISmsSendSoap/smsSendSoapRequest" message="tns:smsSendSoap" />
+      <output wsam:Action="http://habitatclient.service.soapws.core.axesnet.com/ISmsSendSoap/smsSendSoapResponse" message="tns:smsSendSoapResponse" />
+    </operation>
+  </portType>
+  <binding name="SmsSendSoapPortBinding" type="tns:ISmsSendSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="smsSendSoap">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://habitatclient.service.soapws.core.axesnet.com/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://habitatclient.service.soapws.core.axesnet.com/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SmsSendSoapService">
+    <port name="SmsSendSoapPort" binding="tns:SmsSendSoapPortBinding">
+      <soap:address location="https://apismsi.aldeamo.com/sms/SmsSendSoap" />
+    </port>
+  </service>
+</definitions>
