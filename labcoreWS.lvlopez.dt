@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-16"?>
+<DevTrackerData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SolutionTotalEditTime="PT6M21.3348273S" SolutionTotalViewTime="PT1H5M47.6703303S" SolutionTotalDebugTime="PT4M37.0388704S">
+  <FileVersion>
+    <Major>1</Major>
+    <Minor>0</Minor>
+  </FileVersion>
+  <SessionTimeList />
+  <LastSessionTimeList>
+    <DevTrackerDataItem ViewActiveTime="PT2M32.8290457S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\IordenarEstudio.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-10T17:59:35.7491187-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT29.2612875S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\NLog.config</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-10T18:18:21.0053656-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT50.363395S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\ordenarEstudio.svc.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-10T17:58:45.3777462-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1M23.5893513S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\Utilidades.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-10T18:04:32.0099925-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+  </LastSessionTimeList>
+  <TotalTimeList>
+    <DevTrackerDataItem ViewActiveTime="PT4M37.0388704S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>2</ViewedCount>
+      <Item>Debug Mode</Item>
+      <ItemType>DebugModeItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2017-08-02T12:01:54.2650574-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2M32.8290457S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\IordenarEstudio.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-10T17:59:35.7491187-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT32.5685074S" EditActiveTime="PT1M5.4346924S">
+      <ModifiedDate>2017-08-02T12:01:50.1405016-05:00</ModifiedDate>
+      <ModifiedBy>lvlopez</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\IusuariosWShusi.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-02T11:54:00.2974607-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT29.2612875S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\NLog.config</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-10T18:18:21.0053656-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT55M18.5579864S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>3</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\ordenarEstudio.svc.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-05T12:32:58.0160785-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2.6273766S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\Trazabilidad.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-02T11:53:57.651083-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT5M28.2418112S" EditActiveTime="PT5M15.9001349S">
+      <ModifiedDate>2017-08-02T16:24:50.1105605-05:00</ModifiedDate>
+      <ModifiedBy>lvlopez</ModifiedBy>
+      <EditedCount>2</EditedCount>
+      <ViewedCount>2</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\usuariosWShusi.svc.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-02T11:55:10.5752723-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1M23.5843155S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\Utilidades.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-10T18:04:32.0099925-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+  </TotalTimeList>
+  <HistoryTimeList>
+    <DevTrackerDataItem ViewActiveTime="PT29.2612875S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\NLog.config</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-10T18:18:21.0053656-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1M23.5853474S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\Utilidades.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-10T18:04:32.0099925-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2M32.8290457S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\IordenarEstudio.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-10T17:59:35.7491187-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT50.363395S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\ordenarEstudio.svc.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-10T17:58:45.3777462-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT53M50.3875253S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\ordenarEstudio.svc.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-05T15:58:13.6392107-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT37.8075659S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\ordenarEstudio.svc.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-05T12:32:58.0160785-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1M48.33988S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>Debug Mode</Item>
+      <ItemType>DebugModeItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2017-08-02T16:22:33.8996599-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT3M46.7208176S" EditActiveTime="PT1M17.7429654S">
+      <ModifiedDate>2017-08-02T16:24:50.1105605-05:00</ModifiedDate>
+      <ModifiedBy>lvlopez</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\usuariosWShusi.svc.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-02T16:16:01.0718962-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2M48.6989904S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>Debug Mode</Item>
+      <ItemType>DebugModeItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2017-08-02T12:01:54.2650574-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1M41.5209936S" EditActiveTime="PT3M58.1571695S">
+      <ModifiedDate>2017-08-02T12:01:50.1225377-05:00</ModifiedDate>
+      <ModifiedBy>lvlopez</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\usuariosWShusi.svc.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-02T11:55:10.5752723-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT32.5685074S" EditActiveTime="PT1M5.4346924S">
+      <ModifiedDate>2017-08-02T12:01:50.1405016-05:00</ModifiedDate>
+      <ModifiedBy>lvlopez</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\IusuariosWShusi.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-02T11:54:00.2974607-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2.6273766S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\Trazabilidad.cs</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>C:\Desarrollo\Labcore TAT\labcoreWS\labcoreWS\labcoreWS.csproj</ProjectName>
+      <CreatedDate>2017-08-02T11:53:57.651083-05:00</CreatedDate>
+      <ViewedBy>lvlopez</ViewedBy>
+    </DevTrackerDataItem>
+  </HistoryTimeList>
+</DevTrackerData>

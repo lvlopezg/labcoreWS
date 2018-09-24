@@ -9,16 +9,34 @@ using System.Threading.Tasks;
 
 namespace labcoreWS
 {
+    /// <summary>
+    /// Contrato del servicio para Ordenar Estudios de Laboratorio
+    /// </summary>
     [ServiceContract]
     public interface IordenarEstudio
     {
+        /// <summary>
+        /// Operacion Para Ordenar estudios de Laboratorio
+        /// </summary>
+        /// <param name="solicitud">Numero de la Solicitud de Laboratorio</param>
+        /// <param name="orden">Numero de la Orden de Laboratorio</param>
+        /// <param name="atencion">id de la atencion</param>
+        /// <param name="NroMsg">Numero consecutivo para el control de mensajes</param>
+        /// <returns></returns>
         [OperationContract]
         Task<string> ordenarAsync(string solicitud, string orden, string atencion, Int32 NroMsg);
 
+        /// <summary>
+        /// Operacion de Cambio de Estado de las solicitudes en Proceso
+        /// </summary>
+        /// <param name="msgHL7">Mensaje en HL7 para el cambio de estado</param>
+        /// <returns></returns>
         [OperationContract]
         string cambioEstado(string msgHL7);
     }
-
+    /// <summary>
+    /// Clase para Generar el segmento MSH de HL7
+    /// </summary>
     [DataContract]
     public class MSHClass
     {
@@ -36,22 +54,28 @@ namespace labcoreWS
         private string msh12 = string.Empty;
         private string msh13 = string.Empty;
         private string msh14 = string.Empty;
-        private string msh15 ="AL";
+        private string msh15 = "AL";
         private string msh16 = string.Empty;
         private string msh17 = string.Empty;
         private string msh18 = string.Empty;
         private string msh19 = string.Empty;
         private string msh20 = string.Empty;
+        /// <summary>
+        /// Contructor de la Clase MSHClass
+        /// </summary>
         public MSHClass()
         {
 
         }
-
+        /// <summary>
+        /// Constructor de la Clase MSHClass, con un segmento MSH como parametro
+        /// </summary>
+        /// <param name="segMSH">Segmento MSH para Normaliar en HL7</param>
         public MSHClass(string[] segMSH)
         {
             Utilidades utls = new Utilidades();
             Msh1 = segMSH[0];
-            Msh2= segMSH[1];
+            Msh2 = segMSH[1];
             Msh3 = segMSH[2];
             Msh4 = segMSH[3];
             Msh5 = segMSH[4];
@@ -72,102 +96,161 @@ namespace labcoreWS
             //Msh20 = segMSH[19];
         }
         #region RegionDefMSH
-
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh1
         {
             get { return msh1; }
             set { msh1 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh2
         {
             get { return msh2; }
             set { msh2 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh3
         {
             get { return msh3; }
             set { msh3 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh4
         {
             get { return msh4; }
             set { msh4 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh5
         {
             get { return msh5; }
             set { msh5 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh6
         {
             get { return msh6; }
             set { msh6 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh7
         {
             get { return msh7; }
             set { msh7 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh8
         {
             get { return msh8; }
             set { msh8 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh9
         {
             get { return msh9; }
             set { msh9 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh10
         {
             get { return msh10; }
             set { msh10 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh11
         {
             get { return msh11; }
             set { msh11 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh12
         {
             get { return msh12; }
             set { msh12 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh13
         {
             get { return msh13; }
             set { msh13 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh14
         {
             get { return msh14; }
             set { msh14 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh15
         {
             get { return msh15; }
             set { msh15 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh16
         {
             get { return msh16; }
             set { msh16 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh17
         {
             get { return msh17; }
             set { msh17 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh18
         {
             get { return msh18; }
             set { msh18 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Msh19
         {
             get { return msh19; }
             set { msh19 = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
 
         public string Msh20
         {
@@ -176,15 +259,21 @@ namespace labcoreWS
         }
 
         #endregion
+        /// <summary>
+        /// Formatea el segmento y retorna el resultado
+        /// </summary>
+        /// <returns>Un segmento MSH en HL7</returns>
         public string retornoMSH()
         {
-            string spr="|";
-            string valString = msh1.ToString() + spr + msh2.ToString() + spr + msh3.ToString() + spr + msh4.ToString() + spr + msh5.ToString() + spr + msh6.ToString()   + spr + msh7.ToString() + spr + msh8.ToString()+spr+msh9.ToString()+spr+msh10.ToString()+spr;
-            valString=valString+msh11.ToString()+spr+msh12.ToString()+spr+msh13.ToString()+spr+msh14.ToString()+spr+Msh15.ToString()+spr+msh16.ToString()+spr+msh17.ToString()+spr+msh18.ToString()+spr+msh19.ToString();
+            string spr = "|";
+            string valString = msh1.ToString() + spr + msh2.ToString() + spr + msh3.ToString() + spr + msh4.ToString() + spr + msh5.ToString() + spr + msh6.ToString() + spr + msh7.ToString() + spr + msh8.ToString() + spr + msh9.ToString() + spr + msh10.ToString() + spr;
+            valString = valString + msh11.ToString() + spr + msh12.ToString() + spr + msh13.ToString() + spr + msh14.ToString() + spr + Msh15.ToString() + spr + msh16.ToString() + spr + msh17.ToString() + spr + msh18.ToString() + spr + msh19.ToString();
             return valString;
         }
     }
-    
+    /// <summary>
+    /// clase para generar el segmento HL7 PID
+    /// </summary>
     [DataContract]
     public class PIDClass
     {
@@ -220,11 +309,13 @@ namespace labcoreWS
         private string pid29 = string.Empty;
         private string pid30 = string.Empty;
         #endregion
-
+        /// <summary>
+        /// /Definicion  del constructor de la clase segmento PID del mensaje HL7
+        /// </summary>
         public PIDClass()
         {
         }
-
+        /// /clase para Definicion segmento PID del mensaje HL7
         public PIDClass(string[] segPID)
         {
             Utilidades utls = new Utilidades();
@@ -261,151 +352,241 @@ namespace labcoreWS
         }
 
         #region RegionDefPID
+        /// <summary>
+        /// Campo 1 segmento PID
+        /// </summary>
         public string Pid1
         {
             get { return pid1; }
             set { pid1 = value; }
         }
+        /// <summary>
+        /// Campo 2 segmento PID
+        /// </summary>
         public string Pid2
         {
             get { return pid2; }
             set { pid2 = value; }
         }
+        /// <summary>
+        /// Campo 3 segmento PID
+        /// </summary>
         public string Pid3
         {
             get { return pid3; }
             set { pid3 = value; }
         }
+        /// <summary>
+        /// Campo 4 segmento PID
+        /// </summary>
         public string Pid4
         {
             get { return pid4; }
             set { pid4 = value; }
         }
+        /// <summary>
+        /// Campo 5 segmento PID
+        /// </summary>
         public string Pid5
         {
             get { return pid5; }
             set { pid5 = value; }
         }
+        /// <summary>
+        /// Campo 6 segmento PID
+        /// </summary>
         public string Pid6
         {
             get { return pid6; }
             set { pid6 = value; }
         }
+        /// <summary>
+        /// Campo 7 segmento PID
+        /// </summary>
         public string Pid7
         {
             get { return pid7; }
             set { pid7 = value; }
         }
+        /// <summary>
+        /// Campo 8 segmento PID
+        /// </summary>
         public string Pid8
         {
             get { return pid8; }
             set { pid8 = value; }
         }
+        /// <summary>
+        /// Campo 9 segmento PID
+        /// </summary>
         public string Pid9
         {
             get { return pid9; }
             set { pid9 = value; }
         }
+        /// <summary>
+        /// Campo 10 segmento PID
+        /// </summary>
         public string Pid10
         {
             get { return pid10; }
             set { pid10 = value; }
         }
+        /// <summary>
+        /// Campo 11 segmento PID
+        /// </summary>
         public string Pid11
         {
             get { return pid11; }
             set { pid11 = value; }
         }
+        /// <summary>
+        /// Campo 12 segmento PID
+        /// </summary>
         public string Pid12
         {
             get { return pid12; }
             set { pid12 = value; }
         }
+        /// <summary>
+        /// Campo 13 segmento PID
+        /// </summary>
         public string Pid13
         {
             get { return pid13; }
             set { pid13 = value; }
         }
+        /// <summary>
+        /// Campo 14 segmento PID
+        /// </summary>
         public string Pid14
         {
             get { return pid14; }
             set { pid14 = value; }
         }
+        /// <summary>
+        /// Campo 15 segmento PID
+        /// </summary>
         public string Pid15
         {
             get { return pid15; }
             set { pid15 = value; }
         }
+        /// <summary>
+        /// Campo 16 segmento PID
+        /// </summary>
         public string Pid16
         {
             get { return pid16; }
             set { pid16 = value; }
         }
+        /// <summary>
+        /// Campo 17 segmento PID
+        /// </summary>
         public string Pid17
         {
             get { return pid17; }
             set { pid17 = value; }
         }
+        /// <summary>
+        /// Campo 18 segmento PID
+        /// </summary>
         public string Pid18
         {
             get { return pid18; }
             set { pid18 = value; }
         }
+        /// <summary>
+        /// Campo 19 segmento PID
+        /// </summary>
         public string Pid19
         {
             get { return pid19; }
             set { pid19 = value; }
         }
+        /// <summary>
+        /// Campo 20 segmento PID
+        /// </summary>
         public string Pid20
         {
             get { return pid20; }
             set { pid20 = value; }
         }
+        /// <summary>
+        /// Campo 21 segmento PID
+        /// </summary>
         public string Pid21
         {
             get { return pid21; }
             set { pid21 = value; }
         }
+        /// <summary>
+        /// Campo 22 segmento PID
+        /// </summary>
         public string Pid22
         {
             get { return pid22; }
             set { pid22 = value; }
         }
+        /// <summary>
+        /// Campo 23 segmento PID
+        /// </summary>
         public string Pid23
         {
             get { return pid23; }
             set { pid23 = value; }
         }
+        /// <summary>
+        /// Campo 24 segmento PID
+        /// </summary>
         public string Pid24
         {
             get { return pid24; }
             set { pid24 = value; }
         }
+        /// <summary>
+        /// Campo 25 segmento PID
+        /// </summary>
         public string Pid25
         {
             get { return pid25; }
             set { pid25 = value; }
         }
+        /// <summary>
+        /// Campo 26 segmento PID
+        /// </summary>
         public string Pid26
         {
             get { return pid26; }
             set { pid26 = value; }
         }
+        /// <summary>
+        /// Campo 27 segmento PID
+        /// </summary>
         public string Pid27
         {
             get { return pid27; }
             set { pid27 = value; }
         }
+        /// <summary>
+        /// Campo 28 segmento PID
+        /// </summary>
         public string Pid28
         {
             get { return pid28; }
             set { pid28 = value; }
         }
+        /// <summary>
+        /// Campo 29 segmento PID
+        /// </summary>
         public string Pid29
         {
             get { return pid29; }
             set { pid29 = value; }
         }
+        /// <summary>
+        /// Campo 30 segmento PID
+        /// </summary>
         public string Pid30
         {
             get { return pid30; }
@@ -413,16 +594,22 @@ namespace labcoreWS
         }
 
         #endregion
+        /// <summary>
+        /// Metodo que retorna todo el segmento PID en formato HL7
+        /// </summary>
+        /// <returns></returns>
         public string retornoPid()
         {
             string spr = "|";
-            string valorPid = pid1.ToString()+spr+pid2.ToString()+spr+pid3.ToString()+spr+pid4.ToString()+spr+pid5.ToString()+spr+pid6.ToString()+spr+pid7.ToString()+spr+pid8.ToString()+spr+pid9.ToString()+spr+pid10.ToString()+spr;
-            valorPid = valorPid + pid11.ToString() + spr + pid12.ToString() + spr + pid13.ToString() + spr + pid14.ToString() + spr + pid15.ToString() + spr + pid16.ToString()+spr+pid17.ToString()+spr+pid18.ToString()+spr+pid19.ToString()+spr+pid20.ToString()+spr;
-            valorPid = valorPid + pid21.ToString()+spr+pid22.ToString()+spr+pid23.ToString()+spr+pid24.ToString()+spr+pid25.ToString()+spr+pid26.ToString()+spr+pid27.ToString()+spr+pid28.ToString()+spr+pid29.ToString()+spr+pid30.ToString();
+            string valorPid = pid1.ToString() + spr + pid2.ToString() + spr + pid3.ToString() + spr + pid4.ToString() + spr + pid5.ToString() + spr + pid6.ToString() + spr + pid7.ToString() + spr + pid8.ToString() + spr + pid9.ToString() + spr + pid10.ToString() + spr;
+            valorPid = valorPid + pid11.ToString() + spr + pid12.ToString() + spr + pid13.ToString() + spr + pid14.ToString() + spr + pid15.ToString() + spr + pid16.ToString() + spr + pid17.ToString() + spr + pid18.ToString() + spr + pid19.ToString() + spr + pid20.ToString() + spr;
+            valorPid = valorPid + pid21.ToString() + spr + pid22.ToString() + spr + pid23.ToString() + spr + pid24.ToString() + spr + pid25.ToString() + spr + pid26.ToString() + spr + pid27.ToString() + spr + pid28.ToString() + spr + pid29.ToString() + spr + pid30.ToString();
             return valorPid;
         }
     }
-    
+    /// <summary>
+    /// Clase para generar el segmento PV1 de HL7
+    /// </summary>
     [DataContract]
     public class PV1Class
     {
@@ -479,241 +666,385 @@ namespace labcoreWS
 
         #endregion
         #region RegionDefPV1
+        /// <summary>
+        /// Campo Uno del Segmento PV1
+        /// </summary>
         public string PV11
         {
             get { return pv11; }
             set { pv11 = value; }
         }
+        /// <summary>
+        /// Campo 2 Segmento PV1
+        /// </summary>
         public string PV12
         {
             get { return pv12; }
             set { pv12 = value; }
         }
+        /// <summary>
+        /// Campo 3 del segmento PV1
+        /// </summary>
         public string PV13
         {
             get { return pv13; }
             set { pv13 = value; }
         }
+        /// <summary>
+        /// Campo 4 del Segmento PV1
+        /// </summary>
         public string PV14
         {
             get { return pv14; }
             set { pv14 = value; }
         }
+        /// <summary>
+        /// Campo 5 del Segmento PV1
+        /// </summary>
         public string PV15
         {
             get { return pv15; }
             set { pv15 = value; }
         }
+        /// <summary>
+        /// Campo 6 del Segmento PV1
+        /// </summary>
         public string PV16
         {
             get { return pv16; }
             set { pv16 = value; }
         }
+        /// <summary>
+        /// Campo 7 del Segmento PV1
+        /// </summary>
         public string PV17
         {
             get { return pv17; }
             set { pv17 = value; }
         }
+        /// <summary>
+        /// Campo 8 del Segmento PV1
+        /// </summary>
         public string PV18
         {
             get { return pv18; }
             set { pv18 = value; }
         }
+        /// <summary>
+        /// Campo * del segmento PV1
+        /// </summary>
         public string PV19
         {
             get { return pv19; }
             set { pv19 = value; }
         }
+        /// <summary>
+        /// campo 10 del Segmento PV1
+        /// </summary>
         public string PV110
         {
             get { return pv110; }
             set { pv110 = value; }
         }
+        /// <summary>
+        /// Campo 11 del Segmento PV1
+        /// </summary>
         public string PV111
         {
             get { return pv111; }
             set { pv111 = value; }
         }
+        /// <summary>
+        /// Campo 12 del Segmento PV1
+        /// </summary>
         public string PV112
         {
             get { return pv112; }
             set { pv112 = value; }
         }
+        /// <summary>
+        /// Campo 13 del Segmento PV1
+        /// </summary>
         public string PV113
         {
             get { return pv113; }
             set { pv113 = value; }
         }
+        /// <summary>
+        /// Campo 14 del Segmento PV1
+        /// </summary>
         public string PV114
         {
             get { return pv114; }
             set { pv114 = value; }
         }
+        /// <summary>
+        /// Campo 15 del Segmento PV1
+        /// </summary>
         public string PV115
         {
             get { return pv115; }
             set { pv115 = value; }
         }
+        /// <summary>
+        /// Campo 16 del segmento PV1
+        /// </summary>
         public string PV116
         {
             get { return pv116; }
             set { pv116 = value; }
         }
+        /// <summary>
+        /// Campo 17 del Segmento PV1
+        /// </summary>
         public string PV117
         {
             get { return pv117; }
             set { pv117 = value; }
         }
+        /// <summary>
+        /// Campo 18 del Segmento PV1
+        /// </summary>
         public string PV118
         {
             get { return pv118; }
             set { pv118 = value; }
         }
+        /// <summary>
+        /// Campo 19 del Segmento PV1
+        /// </summary>
         public string PV119
         {
             get { return pv119; }
             set { pv119 = value; }
         }
+        /// <summary>
+        /// Campo 20 del Segmento PV1
+        /// </summary>
         public string PV120
         {
             get { return pv120; }
             set { pv120 = value; }
         }
+        /// <summary>
+        /// Campo 21 del Segmento PV1
+        /// </summary>
         public string PV121
         {
             get { return pv121; }
             set { pv121 = value; }
         }
+        /// <summary>
+        /// Campo 22 del Segmento PV1
+        /// </summary>
         public string PV122
         {
             get { return pv122; }
             set { pv122 = value; }
         }
+        /// <summary>
+        /// Campo 23 del Segmento PV1
+        /// </summary>
         public string PV123
         {
             get { return pv123; }
             set { pv123 = value; }
         }
+        /// <summary>
+        /// Campo 24 del Segmento PV1
+        /// </summary>
         public string PV124
         {
             get { return pv124; }
             set { pv124 = value; }
         }
+        /// <summary>
+        /// Campo 25 del Segmento PV1
+        /// </summary>
         public string PV125
         {
             get { return pv125; }
             set { pv125 = value; }
         }
+        /// <summary>
+        /// Campo 26 del Segmento PV1
+        /// </summary>
         public string PV126
         {
             get { return pv126; }
             set { pv126 = value; }
         }
+        /// <summary>
+        /// Campo 27 del Segmento PV1
+        /// </summary>
         public string PV127
         {
             get { return pv127; }
             set { pv127 = value; }
         }
+        /// <summary>
+        /// Campo 28 del Segmento PV1
+        /// </summary>
         public string PV128
         {
             get { return pv128; }
             set { pv128 = value; }
         }
+        /// <summary>
+        /// Campo 29 del Segmento PV1
+        /// </summary>
         public string PV129
         {
             get { return pv129; }
             set { pv129 = value; }
         }
+        /// <summary>
+        /// Campo 30 del Segmento PV1
+        /// </summary>
         public string PV130
         {
             get { return pv130; }
             set { pv130 = value; }
         }
+        /// <summary>
+        /// Campo 31 del Segmento PV1
+        /// </summary>
         public string PV131
         {
             get { return pv131; }
             set { pv131 = value; }
         }
+        /// <summary>
+        /// Campo 32 del Segmento PV1
+        /// </summary>
         public string PV132
         {
             get { return pv132; }
             set { pv132 = value; }
         }
+        /// <summary>
+        /// Campo 33 del Segmento PV1
+        /// </summary>
         public string PV133
         {
             get { return pv133; }
             set { pv133 = value; }
         }
+        /// <summary>
+        /// Campo 34 del Segmento PV1
+        /// </summary>
         public string PV134
         {
             get { return pv134; }
             set { pv134 = value; }
         }
+        /// <summary>
+        /// Campo 35 del Segmento PV1
+        /// </summary>
         public string PV135
         {
             get { return pv135; }
             set { pv135 = value; }
         }
+        /// <summary>
+        /// Campo 36 del Segmento PV1
+        /// </summary>
         public string PV136
         {
             get { return pv136; }
             set { pv136 = value; }
         }
+        /// <summary>
+        /// Campo 37 del Segmento PV1
+        /// </summary>
         public string PV137
         {
             get { return pv137; }
             set { pv137 = value; }
         }
+        /// <summary>
+        /// Campo 38 del Segmento PV1
+        /// </summary>
         public string PV138
         {
             get { return pv138; }
             set { pv138 = value; }
         }
+        /// <summary>
+        /// Campo 39 del Segmento PV1
+        /// </summary>
         public string PV139
         {
             get { return pv139; }
             set { pv139 = value; }
         }
+        /// <summary>
+        /// Campo 40 del Segmento PV1
+        /// </summary>
         public string PV140
         {
             get { return pv140; }
             set { pv140 = value; }
         }
+        /// <summary>
+        /// Campo 41 del Segmento PV1
+        /// </summary>
         public string PV141
         {
             get { return pv141; }
             set { pv141 = value; }
         }
+        /// <summary>
+        /// Campo 42 del Segmento PV1
+        /// </summary>
         public string PV142
         {
             get { return pv142; }
             set { pv142 = value; }
         }
+        /// <summary>
+        /// Campo 43 del Segmento PV1
+        /// </summary>
         public string PV143
         {
             get { return pv143; }
             set { pv143 = value; }
         }
+        /// <summary>
+        /// Campo 44 del Segmento PV1
+        /// </summary>
         public string PV144
         {
             get { return pv144; }
             set { pv144 = value; }
         }
+        /// <summary>
+        /// Campo 45 del Segmento PV1
+        /// </summary>
         public string PV145
         {
             get { return pv145; }
             set { pv145 = value; }
         }
+        /// <summary>
+        /// Campo 46 del Segmento PV1
+        /// </summary>
         public string PV146
         {
             get { return pv146; }
             set { pv146 = value; }
         }
+        /// <summary>
+        /// Campo 47 del Segmento PV1
+        /// </summary>
         public string PV147
         {
             get { return pv147; }
             set { pv147 = value; }
         }
+        /// <summary>
+        /// Campo 48 del Segmento PV1
+        /// </summary>
         public string PV148
         {
             get { return pv148; }
@@ -723,12 +1054,17 @@ namespace labcoreWS
 
 
         #endregion
-
+        /// <summary>
+        /// Constructor de  la clase para el Segmento PV1
+        /// </summary>
         public PV1Class()
         {
 
         }
-
+        /// <summary>
+        /// Contructor para recibir parametros de la clase, para el segmento PV1
+        /// </summary>
+        /// <param name="segPV1"></param>
         public PV1Class(string[] segPV1)
         {
             Utilidades utls = new Utilidades();
@@ -751,7 +1087,7 @@ namespace labcoreWS
             pv117 = segPV1[16];
             pv118 = segPV1[17];
             pv119 = segPV1[18];
-            pv120= segPV1[19];
+            pv120 = segPV1[19];
             pv121 = segPV1[20];
             pv122 = segPV1[21];
             pv123 = segPV1[22];
@@ -782,18 +1118,24 @@ namespace labcoreWS
             pv148 = segPV1[47];
         }
 
+        /// <summary>
+        /// Metodo que retorna el Segmento PV1 armado
+        /// </summary>
+        /// <returns></returns>
         public string retornoPV1()
         {
-            string spr="|";
-            string valorPv1=pv11.ToString()+spr+pv12.ToString()+spr+pv13.ToString()+spr+pv14.ToString()+spr+pv15.ToString()+spr+pv16.ToString()+spr+pv17.ToString()+spr+pv18.ToString()+spr+pv19.ToString()+spr+pv110.ToString()+spr;
-            valorPv1 = valorPv1+pv111.ToString()+spr+pv112.ToString()+spr+pv113.ToString()+spr+pv114.ToString()+spr+pv115.ToString()+spr+pv116.ToString()+spr+pv117.ToString()+spr+pv118.ToString()+spr+pv119.ToString()+spr+pv120.ToString()+spr;
-            valorPv1 = valorPv1+pv121.ToString()+spr+pv122.ToString()+spr+pv123.ToString()+spr+pv124.ToString()+spr+pv125.ToString()+spr+pv126.ToString()+spr+pv127.ToString()+spr+pv128.ToString()+spr+pv129.ToString()+spr+pv130.ToString()+spr;
-            valorPv1 = valorPv1+pv131.ToString()+spr+pv132.ToString()+spr+pv133.ToString()+spr+pv134.ToString()+spr+pv135.ToString()+spr+pv136.ToString()+spr+pv137.ToString()+spr+pv138.ToString()+spr+pv139.ToString()+spr+pv140.ToString()+spr;
-            valorPv1 = valorPv1+pv141.ToString()+spr+pv142.ToString()+spr+pv143.ToString()+spr+pv144.ToString()+spr+pv145.ToString()+spr+pv146.ToString()+spr+pv147.ToString()+spr+pv148.ToString();
+            string spr = "|";
+            string valorPv1 = pv11.ToString() + spr + pv12.ToString() + spr + pv13.ToString() + spr + pv14.ToString() + spr + pv15.ToString() + spr + pv16.ToString() + spr + pv17.ToString() + spr + pv18.ToString() + spr + pv19.ToString() + spr + pv110.ToString() + spr;
+            valorPv1 = valorPv1 + pv111.ToString() + spr + pv112.ToString() + spr + pv113.ToString() + spr + pv114.ToString() + spr + pv115.ToString() + spr + pv116.ToString() + spr + pv117.ToString() + spr + pv118.ToString() + spr + pv119.ToString() + spr + pv120.ToString() + spr;
+            valorPv1 = valorPv1 + pv121.ToString() + spr + pv122.ToString() + spr + pv123.ToString() + spr + pv124.ToString() + spr + pv125.ToString() + spr + pv126.ToString() + spr + pv127.ToString() + spr + pv128.ToString() + spr + pv129.ToString() + spr + pv130.ToString() + spr;
+            valorPv1 = valorPv1 + pv131.ToString() + spr + pv132.ToString() + spr + pv133.ToString() + spr + pv134.ToString() + spr + pv135.ToString() + spr + pv136.ToString() + spr + pv137.ToString() + spr + pv138.ToString() + spr + pv139.ToString() + spr + pv140.ToString() + spr;
+            valorPv1 = valorPv1 + pv141.ToString() + spr + pv142.ToString() + spr + pv143.ToString() + spr + pv144.ToString() + spr + pv145.ToString() + spr + pv146.ToString() + spr + pv147.ToString() + spr + pv148.ToString();
             return valorPv1;
         }
     }
-
+    /// <summary>
+    /// Clase para generar el segmento PV2 de HL7
+    /// </summary>
     [DataContract]
     public class PV2Class
     {
@@ -873,7 +1215,7 @@ namespace labcoreWS
             get { return pv25; }
             set { pv25 = value; }
         }
-        public string PV16
+        public string PV26
         {
             get { return pv26; }
             set { pv26 = value; }
@@ -1162,7 +1504,9 @@ namespace labcoreWS
             return valorPv2;
         }
     }
-
+    /// <summary>
+    /// Clase para generar el segmento IN1 de HL7
+    /// </summary>
     [DataContract]
     public class IN1Class
     {
@@ -1292,7 +1636,7 @@ namespace labcoreWS
         }
         #endregion
 
-        public  IN1Class()
+        public IN1Class()
         {
 
         }
@@ -1331,15 +1675,36 @@ namespace labcoreWS
         }
 
     }
+    /// <summary>
+    /// Clase para generar el segmento ORC de HL7
+    /// </summary>
     [DataContract]
     public class ORCClass
     {
         #region RegionLocalesORC
+        /// <summary>
+        /// Nombre de Segmento
+        /// </summary>
         private string orc1 = "ORC";
+        /// <summary>
+        /// Evento
+        /// </summary>
         private string orc2 = string.Empty;
+        /// <summary>
+        /// Numero Labcore
+        /// </summary>
         private string orc3 = string.Empty;
+        /// <summary>
+        /// Numero de solicitud de enfermeria SAHI
+        /// </summary>
         private string orc4 = string.Empty;
+        /// <summary>
+        /// Numero de Atencion
+        /// </summary>
         private string orc5 = string.Empty;
+        /// <summary>
+        /// Operacion informada
+        /// </summary>
         private string orc6 = string.Empty;
         private string orc7 = string.Empty;
         private string orc8 = string.Empty;
@@ -1491,11 +1856,14 @@ namespace labcoreWS
         {
             string spr = "|";
             string valorORC = orc1.ToString() + spr + orc2.ToString() + spr + orc3.ToString() + spr + orc4.ToString() + spr + orc5.ToString() + spr + orc6.ToString() + spr + orc7.ToString() + spr + orc8.ToString() + spr + orc9.ToString() + spr + orc10.ToString() + spr;
-            valorORC = valorORC + orc11.ToString() + spr + orc12.ToString() + spr + orc13.ToString()+ spr + orc14.ToString() + spr + orc15.ToString() + spr + orc16.ToString() + spr + orc17.ToString()+spr+ orc18.ToString() + spr + orc19.ToString() + spr + orc20.ToString();
+            valorORC = valorORC + orc11.ToString() + spr + orc12.ToString() + spr + orc13.ToString() + spr + orc14.ToString() + spr + orc15.ToString() + spr + orc16.ToString() + spr + orc17.ToString() + spr + orc18.ToString() + spr + orc19.ToString() + spr + orc20.ToString();
             return valorORC;
         }
 
     }
+    /// <summary>
+    /// Clase para generar el segmento OBR de HL7
+    /// </summary>
     [DataContract]
     public class OBRClass
     {
@@ -1791,7 +2159,7 @@ namespace labcoreWS
             obr17 = segOBR[16];
             obr18 = segOBR[17];
             obr19 = segOBR[18];
-            obr20= segOBR[19];
+            obr20 = segOBR[19];
             obr21 = segOBR[20];
             obr22 = segOBR[21];
             obr23 = segOBR[22];
@@ -1820,13 +2188,16 @@ namespace labcoreWS
         {
             string spr = "|";
             string valorOBR = obr1.ToString() + spr + obr2.ToString() + spr + obr3.ToString() + spr + obr4.ToString() + spr + obr5.ToString() + spr + obr6.ToString() + spr + obr7.ToString() + spr + obr8.ToString() + spr + obr9.ToString() + spr + obr10.ToString() + spr;
-            valorOBR = valorOBR + obr11.ToString() + spr + obr12.ToString() + spr + obr13.ToString() + spr + obr14.ToString() + spr + obr15.ToString() + spr + obr16.ToString() + spr + obr17.ToString()+spr + obr18.ToString() + spr + obr19.ToString() + spr + obr20.ToString() + spr;
-            valorOBR = valorOBR + obr21.ToString() +spr + obr22.ToString() + spr + obr23.ToString() + spr + obr24.ToString() + spr + obr25.ToString() + spr + obr26.ToString() + spr + obr27.ToString() + spr + obr28.ToString() + spr + obr29.ToString() + spr + obr30.ToString()+spr;
-            valorOBR = valorOBR + obr31.ToString() + spr + obr32.ToString() + spr + obr33.ToString() + spr + obr34.ToString() + spr + obr35.ToString() + spr + obr36.ToString() + spr + obr37.ToString() + spr + obr38.ToString() + spr + obr39.ToString() + spr + obr40.ToString()+spr;
+            valorOBR = valorOBR + obr11.ToString() + spr + obr12.ToString() + spr + obr13.ToString() + spr + obr14.ToString() + spr + obr15.ToString() + spr + obr16.ToString() + spr + obr17.ToString() + spr + obr18.ToString() + spr + obr19.ToString() + spr + obr20.ToString() + spr;
+            valorOBR = valorOBR + obr21.ToString() + spr + obr22.ToString() + spr + obr23.ToString() + spr + obr24.ToString() + spr + obr25.ToString() + spr + obr26.ToString() + spr + obr27.ToString() + spr + obr28.ToString() + spr + obr29.ToString() + spr + obr30.ToString() + spr;
+            valorOBR = valorOBR + obr31.ToString() + spr + obr32.ToString() + spr + obr33.ToString() + spr + obr34.ToString() + spr + obr35.ToString() + spr + obr36.ToString() + spr + obr37.ToString() + spr + obr38.ToString() + spr + obr39.ToString() + spr + obr40.ToString() + spr;
             valorOBR = valorOBR + obr41.ToString() + spr + obr42.ToString() + spr + obr43.ToString();
             return valorOBR;
         }
     }
+    /// <summary>
+    /// Clase para generar el segmento OBX de HL7
+    /// </summary>
     [DataContract]
     public class OBXClass
     {
@@ -2062,6 +2433,9 @@ namespace labcoreWS
             return valorOBX;
         }
     }
+    /// <summary>
+    /// Clase para generarl el segmento NTE de HL7
+    /// </summary>
     [DataContract]
     public class NTEClass
     {
@@ -2123,7 +2497,9 @@ namespace labcoreWS
             return valorNTE;
         }
     }
-
+    /// <summary>
+    /// Clase para generar el segmento de MSA para respuestas de ACK de HL7
+    /// </summary>
     [DataContract]
     public class MSAClass
     {
@@ -2221,12 +2597,15 @@ namespace labcoreWS
 
         public string retornoMSA()
         {
-            string spr="|";
+            string spr = "|";
             string valorMSA = msa1.ToString() + spr + msa2.ToString() + spr + msa3.ToString() + spr + msa4.ToString();
             return valorMSA;
         }
     }
 
+    /// <summary>
+    /// Clase para realizar el cargue de los resultados de los examenes
+    /// </summary>
     [DataContract]
     public class resultadoExamen
     {
@@ -2234,12 +2613,12 @@ namespace labcoreWS
         {
 
         }
-        public resultadoExamen (string mensajeHL7)
+        public resultadoExamen(string mensajeHL7)
         {
-            string[] segmentoMSH=new string[19];
-            MSHClass msh=new MSHClass(segmentoMSH);
+            string[] segmentoMSH = new string[19];
+            MSHClass msh = new MSHClass(segmentoMSH);
         }
     }
-    
+
 }
 

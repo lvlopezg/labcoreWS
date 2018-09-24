@@ -17,5 +17,8 @@ namespace labcoreWS
         [OperationContract]
         string usrSahi(string usuario);
 
+        [OperationContract]
+        string idUsuaXcodUsua(Int32 Idusuario);
+
     }
 }

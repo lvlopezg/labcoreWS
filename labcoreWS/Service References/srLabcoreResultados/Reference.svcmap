@@ -18,10 +18,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://10.8.10.50/wsdl/wsdll.dll/wsdl/IWSSolicitudes" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.8.10.50:81/wsdl/wsdll.dll/wsdl/IWSSolicitudes?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="IWSSolicitudesservice1.wsdl" MetadataType="Wsdl" ID="6fe42a88-c320-40c1-bb52-bb5eed17b98a" SourceId="1" SourceUrl="http://10.8.10.50/wsdl/wsdll.dll/wsdl/IWSSolicitudes" />
+    <MetadataFile FileName="IWSSolicitudesservice.wsdl" MetadataType="Wsdl" ID="4b7b80f8-eabb-4bfe-94df-32cf27f9b205" SourceId="1" SourceUrl="http://10.8.10.50:81/wsdl/wsdll.dll/wsdl/IWSSolicitudes?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

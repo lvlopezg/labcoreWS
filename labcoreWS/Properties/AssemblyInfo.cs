@@ -2,20 +2,20 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// La información general de un ensamblado se controla mediante el siguiente 
+// La información general de un ensamblado se controla mediante el siguiente
 // conjunto de atributos. Cambie estos atributos para modificar la información
 // asociada a un ensamblado.
 [assembly: AssemblyTitle("labcoreWS")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("HUSI")]
 [assembly: AssemblyProduct("labcoreWS")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyTrademark("Oficina Tecnologia de la Informacion")]
 [assembly: AssemblyCulture("")]
 
-// Si establece ComVisible en false, hace que los tipos de este ensamblado no sean visibles 
-// a los componentes COM. Si necesita obtener acceso a un tipo en este ensamblado desde 
+// Si establece ComVisible en false, hace que los tipos de este ensamblado no sean visibles
+// a los componentes COM. Si necesita obtener acceso a un tipo en este ensamblado desde
 // COM, establezca el atributo ComVisible en true en este tipo.
 [assembly: ComVisible(false)]
 
@@ -25,11 +25,11 @@ using System.Runtime.InteropServices;
 // La información de versión de un ensamblado consta de los siguientes cuatro valores:
 //
 //      Versión principal
-//      Versión secundaria 
+//      Versión secundaria
 //      Número de compilación
 //      Revisión
 //
-// Puede especificar todos los valores o usar los valores predeterminados (número de compilación y de revisión) 
+// Puede especificar todos los valores o usar los valores predeterminados (número de compilación y de revisión)
 // usando el símbolo '*' como se muestra a continuación:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]

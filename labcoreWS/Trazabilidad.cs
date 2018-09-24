@@ -12,16 +12,15 @@ namespace labcoreWS
         private static Logger logLabcore = LogManager.GetCurrentClassLogger();
         public Trazabilidad()
         { }
-        public Boolean insertarTraza(string atencion,string orden,string solicitud,string cups,string evento,DateTime fechaEvt,Int32 nroNota)
+        public Boolean insertarTraza(string atencion, string orden, string solicitud, string cups, string evento, DateTime fechaEvt, Int32 nroNota)
         {
-
             string actualizar = string.Empty;
             bool respuesta = false;
-            switch(evento)
+            switch (evento)
             {
                 case "ORM^SC":
                     {
-                        actualizar = "UPDATE TAT_TRAZA_TAT SET EVT_TMAT=@fechaEvento WHERE TAT_ATEN="+atencion+" AND TAT_ORDEN="+orden+" AND TAT_SOLI="+solicitud+" AND TAT_CUPS='"+cups+"'";
+                        actualizar = "UPDATE TAT_TRAZA_TAT SET EVT_TMAT=@fechaEvento WHERE TAT_ATEN=" + atencion + " AND TAT_ORDEN=" + orden + " AND TAT_SOLI=" + solicitud + " AND TAT_CUPS='" + cups + "'";
                         break;
                     }
                 case "ORU^IP":
@@ -46,15 +45,13 @@ namespace labcoreWS
                     }
                 case "SOL_ENF":
                     {
-                        actualizar = "UPDATE TAT_TRAZA_TAT SET EVT_SOLI=@fechaEvento,TAT_SOLI="+solicitud+" WHERE TAT_ATEN=" + atencion + " AND TAT_ORDEN=" + orden + " AND TAT_CUPS='" + cups + "'";
+                        actualizar = "UPDATE TAT_TRAZA_TAT SET EVT_SOLI=@fechaEvento,TAT_SOLI=" + solicitud + " WHERE TAT_ATEN=" + atencion + " AND TAT_ORDEN=" + orden + " AND TAT_CUPS='" + cups + "'";
                         break;
-
                     }
                 case "EVT_VAL":
                     {
-                        actualizar = "UPDATE TAT_TRAZA_TAT SET EVT_VAL=@fechaEvento,TAT_SOLI=" + solicitud + " WHERE TAT_ATEN=" + atencion + " AND TAT_ORDEN=" + orden + " AND TAT_CUPS='" + cups + "' AND NRO_NOTA="+nroNota;
+                        actualizar = "UPDATE TAT_TRAZA_TAT SET EVT_VAL=@fechaEvento,TAT_SOLI=" + solicitud + " WHERE TAT_ATEN=" + atencion + " AND TAT_ORDEN=" + orden + " AND TAT_CUPS='" + cups + "' AND NRO_NOTA=" + nroNota;
                         break;
-
                     }
             }
             using (SqlConnection Conex = new SqlConnection(Properties.Settings.Default.LabcoreDBConXX))
@@ -62,25 +59,29 @@ namespace labcoreWS
                 try
                 {
                     Conex.Open();
-                    SqlCommand cmdActualizar = new SqlCommand(actualizar, Conex);
-                    cmdActualizar.Parameters.Add("@fechaEvento", System.Data.SqlDbType.DateTime);
-                    cmdActualizar.Parameters.Add("@numeroNota", System.Data.SqlDbType.Int);
-                    cmdActualizar.Parameters["@fechaEvento"].Value = fechaEvt;
-                    cmdActualizar.Parameters["@numeroNota"].Value = nroNota;
+                    SqlTransaction txResultado = Conex.BeginTransaction("TxResultado");
+                    SqlCommand cmdActualizar = new SqlCommand(actualizar, Conex, txResultado);
+                    cmdActualizar.Parameters.Add("@fechaEvento", System.Data.SqlDbType.DateTime).Value = fechaEvt;
+                    cmdActualizar.Parameters.Add("@numeroNota", System.Data.SqlDbType.Int).Value = nroNota;
+                    //cmdActualizar.Parameters["@fechaEvento"].Value = fechaEvt;
+                    //cmdActualizar.Parameters["@numeroNota"].Value = nroNota;
                     if (cmdActualizar.ExecuteNonQuery() > 0)
                     {
+                        txResultado.Commit();
                         respuesta = true;
-                        logLabcore.Info("Se actualiza Trazabilidad: "+actualizar);
+                        logLabcore.Info("Se actualiza Trazabilidad: " + actualizar);
                     }
                     else
                     {
                         respuesta = false;
-                        logLabcore.Info("No fue posible realizar la actualizacion de Trazabilidad:"+actualizar);
+                        txResultado.Rollback();
+                        logLabcore.Info("No fue posible realizar la actualizacion de Trazabilidad-Metodo insertarTraza():" + actualizar);
                     }
                 }
-                catch(SqlException sqlExp)
+                catch (SqlException sqlExp)
                 {
-                    logLabcore.Warn(sqlExp.Message, "!!! Se ha presentado una falla Actualizando Trazabilidad !!! "+sqlExp.Message);
+
+                    logLabcore.Warn(sqlExp.Message, "!!! Se ha presentado una falla SQL Actualizando Trazabilidad !!! " + sqlExp.Message);
                 }
             }
             return respuesta;

@@ -14,6 +14,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Runtime.Remoting.Contexts;
+using NLog;
 
 ///<comentarios> Servicio para la Entrega de Resultados de laboratorio por el Sistema de Kioscos </comentarios>
 ///
@@ -21,11 +22,15 @@ namespace labcoreWS
 {
     public class resultadosWS : IresultadosWS
     {
+        /// <summary>
+        /// Enterga de Resultados de Laboratorio en los Kioscos
+        /// </summary>
+        /// <param name="nroOrden">Numero de Orden</param>
+        /// <returns>String codificado en Base 65, debe decodificarse en el PDF respectivo para imprimir y entregar al paciente</returns>
+        private static Logger logKioscos = LogManager.GetCurrentClassLogger();
         public string getResultados(string nroOrden)
         {
-            //nroOrden = "<?xml version=\"1.0\"?><Resultados xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">  <Nombre>MARIA DEL PILAR</Nombre>  <Apellido>RUBIANO</Apellido>  <status>0</status>  <Resultado>JVBERi0xLjcgDQoxIDAgb2JqDQo8PA0KL1R5cGUgL0NhdGFsb2cNCi9PdXRsaW5lcyAyIDAgUg0K</Resultado>  <Resultado>JVBERi0xLjcgDQoxIDAgb2JqDQo8PA0KL1R5cGUgL0NhdGFsb2cNCi9PdXRsaW5lcyAyIDAgUg0K</Resultado>  <Resultado>JVBERi0xLjcgDQoxIDAgb2JqDQo8PA0KL1R5cGUgL0NhdGFsb2cNCi9PdXRsaW5lcyAyIDAgUg0K</Resultado>  <Resultado>JVBERi0xLjcgDQoxIDAgb2JqDQo8PA0KL1R5cGUgL0NhdGFsb2cNCi9PdXRsaW5lcyAyIDAgUg0K</Resultado></Resultados>";
             byte tipoDoc = 0;
-            //********
             string archivo = "C:\\Basura";
             System.IO.StreamWriter sw = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
             sw.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
@@ -38,7 +43,6 @@ namespace labcoreWS
                 string Pendientes = string.Empty;
                 srLabcoreResultados.WSSolicitudesClient clienteWS = new srLabcoreResultados.WSSolicitudesClient();
                 string XMLdocumento = clienteWS.GetResultPdf(nroOrden);
-                ////   string XMLdocumento = "<?xml version=\"1.0\"?><ResultadoPdf><PACIENTE APELLIDO=\"SANCHEZ\" NOMBRE=\"CLAUDIA CRISTINA\" TIPODOCUMENTO=\"CC\" DOCUMENTO=\"39690598\"/><ORDEN RESCONFIDENCIALES=\"0\" RESPENDIENTES=\"0\" NOMBRELABREF=\"\" CODIGOLABREF=\"\" FECHAINGRESO=\"\" NUMEROLABREF=\"\" NUMERO=\"10030074\"/><ResultadoBase64>JVBERi0xLjcgDQoxIDAgb2JqDQo8PA0KL1R5cGUgL0NhdGFsb2cNCi9PdXRsaW5lcyAyIDAgUg0K</ResultadoBase64><ResultadoBase64>JVBERi0xLjcgDQoxIDAgb2JqDQo8PA0KL1R5cGUgL0NhdGFsb2cNCi9PdXRsaW5lcyAyIDAgUg0K</ResultadoBase64><ResultadoBase64>JVBERi0xLjcgDQoxIDAgb2JqDQo8PA0KL1R5cGUgL0NhdGFsb2cNCi9PdXRsaW5lcyAyIDAgUg0K</ResultadoBase64></ResultadoPdf>";
                 System.Xml.XmlDocument doc = new System.Xml.XmlDocument();
                 doc.LoadXml(XMLdocumento);
                 XmlNode Raiz = doc.FirstChild;
@@ -53,9 +57,6 @@ namespace labcoreWS
                 XmlNodeList orden = ((XmlElement)registros[0]).GetElementsByTagName("ORDEN");
                 XmlElement ordernWrk = (XmlElement)orden[0];
                 string nroOrdenwRK = ordernWrk.GetAttribute("NUMERO");
-                //rpta.Nombre = Nombre;
-                //rpta.Apellido = Apellidos;
-                
                 Confidenciales = ordernWrk.GetAttribute("RESCONFIDENCIALES");
                 Pendientes = ordernWrk.GetAttribute("RESPENDIENTES");
 
@@ -120,8 +121,20 @@ namespace labcoreWS
                             using (SqlConnection conexion = new SqlConnection(Properties.Settings.Default.DBConexion))
                             {
                                 conexion.Open();
-                                string insertar = "INSERT INTO LABRES_IMP (NRO_ORDEN,TIPO_DOC,NRO_DOC,NRO_IMP) VALUES(" + nroOrdenwRK + ",'" + tipoDoc + "','" + Documento + "'," + 1 + ")";
+                                string insertar = "INSERT INTO LABRES_IMP (NRO_ORDEN,TIPO_DOC,NRO_DOC,NRO_IMP,FECHA_IMP) VALUES(@nroOrden,@tipoDoc,@nroDoc,@nroImp,@Fecha)";
                                 SqlCommand sqlIns0 = new SqlCommand(insertar, conexion);
+                                sqlIns0.Parameters.Add("@nroOrden",SqlDbType.Int);
+                                sqlIns0.Parameters.Add("@tipoDoc",SqlDbType.NVarChar);
+                                sqlIns0.Parameters.Add("@nroDoc",SqlDbType.VarChar);
+                                sqlIns0.Parameters.Add("@nroImp",SqlDbType.SmallInt);
+                                sqlIns0.Parameters.Add("@Fecha",SqlDbType.DateTime);
+
+                                sqlIns0.Parameters["@nroOrden"].Value= nroOrdenwRK;
+                                sqlIns0.Parameters["@tipoDoc"].Value= tipoDoc;
+                                sqlIns0.Parameters["@nroDoc"].Value= Documento;
+                                sqlIns0.Parameters["@nroImp"].Value=1;
+                                sqlIns0.Parameters["@Fecha"].Value=DateTime.Now;
+
                                 sqlIns0.ExecuteNonQuery();
                                 System.IO.StreamWriter sw2 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
                                 using (sw2)

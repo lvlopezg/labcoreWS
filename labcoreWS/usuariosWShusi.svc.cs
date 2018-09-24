@@ -56,5 +56,33 @@ namespace labcoreWS
             }
             return respuesta;
         }
+        /// <summary>
+        /// Esta operacion retorna informacion de usuario
+        /// </summary>
+        /// <param name="Idusuario"></param>
+        /// <returns>cod_usua|UsuarioWin|nom_usua</returns>
+        public string idUsuaXcodUsua(int Idusuario)
+        {
+            string respuesta = string.Empty;
+            using (SqlConnection DBConexion = new SqlConnection(Properties.Settings.Default.DBConexionXX))
+            {
+                DBConexion.Open();
+                string qryConsulta = @"SELECT cod_usua,UsuarioWin,nom_usua,B.NumRegistro FROM ASI_USUA A
+INNER JOIN hcePersonal B ON A.IdUsuario = B.IdPersonal
+ WHERE A.idUsuario = "+Idusuario+@" AND A.ind_esta = 'A'";
+                SqlCommand cmdConsulta = new SqlCommand(qryConsulta, DBConexion);
+                SqlDataReader rdConsulta = cmdConsulta.ExecuteReader();
+                if (rdConsulta.HasRows)
+                {
+                    rdConsulta.Read();
+                    respuesta = rdConsulta.GetString(0)+"|" + rdConsulta.GetString(1) + "|" + rdConsulta.GetString(2)+"|"+ rdConsulta.GetString(3);
+                }
+                else
+                {
+                    respuesta = "0|No se encontro el usuario de SAHI:" + Idusuario;
+                }
+            }
+            return respuesta;
+        }
     }
 }

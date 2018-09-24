@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://husi.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://husi.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://husi.org/">
+      <s:element name="EnviaSMSHUSI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idDocPac" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_idEspecial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idsolInter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paciente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cama" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnviaSMSHUSIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnviaSMSHUSIResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReenviarSMS">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReenviarSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReenviarSMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="smsGeneral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idDocPac" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="servicio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nroServicio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paciente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cama" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msgSMS" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="asunto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msgCorreo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="smsGeneralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="smsGeneralResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="correoGeneralHusi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idDocPac" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="servicio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nroServicio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paciente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cama" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msgSMS" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="asunto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msgCorreo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="correoGeneralHusiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="correoGeneralHusiResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="smsGeneralHusi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idDocPac" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="servicio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nroServicio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paciente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cama" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msgSMS" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="smsGeneralHusiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="smsGeneralHusiResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="EnviaSMSHUSISoapIn">
+    <wsdl:part name="parameters" element="tns:EnviaSMSHUSI" />
+  </wsdl:message>
+  <wsdl:message name="EnviaSMSHUSISoapOut">
+    <wsdl:part name="parameters" element="tns:EnviaSMSHUSIResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReenviarSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:ReenviarSMS" />
+  </wsdl:message>
+  <wsdl:message name="ReenviarSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:ReenviarSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="smsGeneralSoapIn">
+    <wsdl:part name="parameters" element="tns:smsGeneral" />
+  </wsdl:message>
+  <wsdl:message name="smsGeneralSoapOut">
+    <wsdl:part name="parameters" element="tns:smsGeneralResponse" />
+  </wsdl:message>
+  <wsdl:message name="correoGeneralHusiSoapIn">
+    <wsdl:part name="parameters" element="tns:correoGeneralHusi" />
+  </wsdl:message>
+  <wsdl:message name="correoGeneralHusiSoapOut">
+    <wsdl:part name="parameters" element="tns:correoGeneralHusiResponse" />
+  </wsdl:message>
+  <wsdl:message name="smsGeneralHusiSoapIn">
+    <wsdl:part name="parameters" element="tns:smsGeneralHusi" />
+  </wsdl:message>
+  <wsdl:message name="smsGeneralHusiSoapOut">
+    <wsdl:part name="parameters" element="tns:smsGeneralHusiResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnviaSMSHUSIHttpGetIn">
+    <wsdl:part name="idDocPac" type="s:string" />
+    <wsdl:part name="_idEspecial" type="s:string" />
+    <wsdl:part name="idsolInter" type="s:string" />
+    <wsdl:part name="paciente" type="s:string" />
+    <wsdl:part name="cama" type="s:string" />
+    <wsdl:part name="tipo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EnviaSMSHUSIHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ReenviarSMSHttpGetIn" />
+  <wsdl:message name="ReenviarSMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="smsGeneralHttpGetIn">
+    <wsdl:part name="idDocPac" type="s:string" />
+    <wsdl:part name="servicio" type="s:string" />
+    <wsdl:part name="nroServicio" type="s:string" />
+    <wsdl:part name="paciente" type="s:string" />
+    <wsdl:part name="cama" type="s:string" />
+    <wsdl:part name="msgSMS" type="s:string" />
+    <wsdl:part name="asunto" type="s:string" />
+    <wsdl:part name="msgCorreo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="smsGeneralHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="correoGeneralHusiHttpGetIn">
+    <wsdl:part name="idDocPac" type="s:string" />
+    <wsdl:part name="servicio" type="s:string" />
+    <wsdl:part name="nroServicio" type="s:string" />
+    <wsdl:part name="paciente" type="s:string" />
+    <wsdl:part name="cama" type="s:string" />
+    <wsdl:part name="msgSMS" type="s:string" />
+    <wsdl:part name="asunto" type="s:string" />
+    <wsdl:part name="msgCorreo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="correoGeneralHusiHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="smsGeneralHusiHttpGetIn">
+    <wsdl:part name="idDocPac" type="s:string" />
+    <wsdl:part name="servicio" type="s:string" />
+    <wsdl:part name="nroServicio" type="s:string" />
+    <wsdl:part name="paciente" type="s:string" />
+    <wsdl:part name="cama" type="s:string" />
+    <wsdl:part name="msgSMS" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="smsGeneralHusiHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EnviaSMSHUSIHttpPostIn">
+    <wsdl:part name="idDocPac" type="s:string" />
+    <wsdl:part name="_idEspecial" type="s:string" />
+    <wsdl:part name="idsolInter" type="s:string" />
+    <wsdl:part name="paciente" type="s:string" />
+    <wsdl:part name="cama" type="s:string" />
+    <wsdl:part name="tipo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EnviaSMSHUSIHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ReenviarSMSHttpPostIn" />
+  <wsdl:message name="ReenviarSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="smsGeneralHttpPostIn">
+    <wsdl:part name="idDocPac" type="s:string" />
+    <wsdl:part name="servicio" type="s:string" />
+    <wsdl:part name="nroServicio" type="s:string" />
+    <wsdl:part name="paciente" type="s:string" />
+    <wsdl:part name="cama" type="s:string" />
+    <wsdl:part name="msgSMS" type="s:string" />
+    <wsdl:part name="asunto" type="s:string" />
+    <wsdl:part name="msgCorreo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="smsGeneralHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="correoGeneralHusiHttpPostIn">
+    <wsdl:part name="idDocPac" type="s:string" />
+    <wsdl:part name="servicio" type="s:string" />
+    <wsdl:part name="nroServicio" type="s:string" />
+    <wsdl:part name="paciente" type="s:string" />
+    <wsdl:part name="cama" type="s:string" />
+    <wsdl:part name="msgSMS" type="s:string" />
+    <wsdl:part name="asunto" type="s:string" />
+    <wsdl:part name="msgCorreo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="correoGeneralHusiHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="smsGeneralHusiHttpPostIn">
+    <wsdl:part name="idDocPac" type="s:string" />
+    <wsdl:part name="servicio" type="s:string" />
+    <wsdl:part name="nroServicio" type="s:string" />
+    <wsdl:part name="paciente" type="s:string" />
+    <wsdl:part name="cama" type="s:string" />
+    <wsdl:part name="msgSMS" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="smsGeneralHusiHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="smsHUSISoap">
+    <wsdl:operation name="EnviaSMSHUSI">
+      <wsdl:input message="tns:EnviaSMSHUSISoapIn" />
+      <wsdl:output message="tns:EnviaSMSHUSISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReenviarSMS">
+      <wsdl:input message="tns:ReenviarSMSSoapIn" />
+      <wsdl:output message="tns:ReenviarSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="smsGeneral">
+      <wsdl:input message="tns:smsGeneralSoapIn" />
+      <wsdl:output message="tns:smsGeneralSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="correoGeneralHusi">
+      <wsdl:input message="tns:correoGeneralHusiSoapIn" />
+      <wsdl:output message="tns:correoGeneralHusiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="smsGeneralHusi">
+      <wsdl:input message="tns:smsGeneralHusiSoapIn" />
+      <wsdl:output message="tns:smsGeneralHusiSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="smsHUSIHttpGet">
+    <wsdl:operation name="EnviaSMSHUSI">
+      <wsdl:input message="tns:EnviaSMSHUSIHttpGetIn" />
+      <wsdl:output message="tns:EnviaSMSHUSIHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReenviarSMS">
+      <wsdl:input message="tns:ReenviarSMSHttpGetIn" />
+      <wsdl:output message="tns:ReenviarSMSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="smsGeneral">
+      <wsdl:input message="tns:smsGeneralHttpGetIn" />
+      <wsdl:output message="tns:smsGeneralHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="correoGeneralHusi">
+      <wsdl:input message="tns:correoGeneralHusiHttpGetIn" />
+      <wsdl:output message="tns:correoGeneralHusiHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="smsGeneralHusi">
+      <wsdl:input message="tns:smsGeneralHusiHttpGetIn" />
+      <wsdl:output message="tns:smsGeneralHusiHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="smsHUSIHttpPost">
+    <wsdl:operation name="EnviaSMSHUSI">
+      <wsdl:input message="tns:EnviaSMSHUSIHttpPostIn" />
+      <wsdl:output message="tns:EnviaSMSHUSIHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReenviarSMS">
+      <wsdl:input message="tns:ReenviarSMSHttpPostIn" />
+      <wsdl:output message="tns:ReenviarSMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="smsGeneral">
+      <wsdl:input message="tns:smsGeneralHttpPostIn" />
+      <wsdl:output message="tns:smsGeneralHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="correoGeneralHusi">
+      <wsdl:input message="tns:correoGeneralHusiHttpPostIn" />
+      <wsdl:output message="tns:correoGeneralHusiHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="smsGeneralHusi">
+      <wsdl:input message="tns:smsGeneralHusiHttpPostIn" />
+      <wsdl:output message="tns:smsGeneralHusiHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="smsHUSISoap" type="tns:smsHUSISoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EnviaSMSHUSI">
+      <soap:operation soapAction="http://husi.org/EnviaSMSHUSI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReenviarSMS">
+      <soap:operation soapAction="http://husi.org/ReenviarSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="smsGeneral">
+      <soap:operation soapAction="http://husi.org/smsGeneral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="correoGeneralHusi">
+      <soap:operation soapAction="http://husi.org/correoGeneralHusi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="smsGeneralHusi">
+      <soap:operation soapAction="http://husi.org/smsGeneralHusi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="smsHUSISoap12" type="tns:smsHUSISoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EnviaSMSHUSI">
+      <soap12:operation soapAction="http://husi.org/EnviaSMSHUSI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReenviarSMS">
+      <soap12:operation soapAction="http://husi.org/ReenviarSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="smsGeneral">
+      <soap12:operation soapAction="http://husi.org/smsGeneral" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="correoGeneralHusi">
+      <soap12:operation soapAction="http://husi.org/correoGeneralHusi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="smsGeneralHusi">
+      <soap12:operation soapAction="http://husi.org/smsGeneralHusi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="smsHUSIHttpGet" type="tns:smsHUSIHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="EnviaSMSHUSI">
+      <http:operation location="/EnviaSMSHUSI" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReenviarSMS">
+      <http:operation location="/ReenviarSMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="smsGeneral">
+      <http:operation location="/smsGeneral" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="correoGeneralHusi">
+      <http:operation location="/correoGeneralHusi" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="smsGeneralHusi">
+      <http:operation location="/smsGeneralHusi" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="smsHUSIHttpPost" type="tns:smsHUSIHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="EnviaSMSHUSI">
+      <http:operation location="/EnviaSMSHUSI" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReenviarSMS">
+      <http:operation location="/ReenviarSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="smsGeneral">
+      <http:operation location="/smsGeneral" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="correoGeneralHusi">
+      <http:operation location="/correoGeneralHusi" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="smsGeneralHusi">
+      <http:operation location="/smsGeneralHusi" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="smsHUSI">
+    <wsdl:port name="smsHUSISoap" binding="tns:smsHUSISoap">
+      <soap:address location="http://winpvtiws01:8090/smsHUSI.asmx" />
+    </wsdl:port>
+    <wsdl:port name="smsHUSISoap12" binding="tns:smsHUSISoap12">
+      <soap12:address location="http://winpvtiws01:8090/smsHUSI.asmx" />
+    </wsdl:port>
+    <wsdl:port name="smsHUSIHttpGet" binding="tns:smsHUSIHttpGet">
+      <http:address location="http://winpvtiws01:8090/smsHUSI.asmx" />
+    </wsdl:port>
+    <wsdl:port name="smsHUSIHttpPost" binding="tns:smsHUSIHttpPost">
+      <http:address location="http://winpvtiws01:8090/smsHUSI.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

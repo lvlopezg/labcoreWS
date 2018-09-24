@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9e07a1c6-05ed-4036-a4ea-d89b69f70297" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="822ac9dc-d89f-4764-807e-2a5499f75ebe" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
@@ -18,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://apismsi.aldeamo.com/sms/sms.wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://winpvtiws01:8090/smsHUSI.asmx?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SmsSendSoapService1.wsdl" MetadataType="Wsdl" ID="76d7039e-dac3-439d-8066-c4ff7ccd5faf" SourceId="1" SourceUrl="https://apismsi.aldeamo.com/sms/sms.wsdl" />
+    <MetadataFile FileName="smsHUSI.wsdl" MetadataType="Wsdl" ID="ea272d44-748b-46a4-9941-12b6f1049371" SourceId="1" SourceUrl="http://winpvtiws01:8090/smsHUSI.asmx?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
