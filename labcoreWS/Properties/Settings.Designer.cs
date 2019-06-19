@@ -12,7 +12,7 @@ namespace labcoreWS.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.8.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,9 +26,9 @@ namespace labcoreWS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=TYCHO ;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;M" +
-            "in Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=" +
-            "60;ConnectRetryCount=3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Mi" +
+            "n Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=6" +
+            "0;ConnectRetryCount=3")]
         public string DBConexionXX {
             get {
                 return ((string)(this["DBConexionXX"]));
@@ -38,7 +38,7 @@ namespace labcoreWS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=TYCHO;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;Mi" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Mi" +
             "n Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=6" +
             "0;ConnectRetryCount=3")]
         public string DBConexion {
@@ -50,7 +50,7 @@ namespace labcoreWS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=TYCHO;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;Mi" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Mi" +
             "n Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=6" +
             "0;ConnectRetryCount=3")]
         public string LabcoreDBConXX {
@@ -62,7 +62,7 @@ namespace labcoreWS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=TYCHO;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;Mi" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Mi" +
             "n Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=6" +
             "0;ConnectRetryCount=3")]
         public string LabcoreDBCon {
@@ -74,7 +74,7 @@ namespace labcoreWS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=TYCHO;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;Mi" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Mi" +
             "n Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=6" +
             "0;ConnectRetryCount=3")]
         public string dbProduccion {
@@ -86,7 +86,7 @@ namespace labcoreWS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=TYCHO;Initial Catalog=HSI_PRI;User ID=interface;Password=interface;Mu" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Mu" +
             "ltipleActiveResultSets=True")]
         public string alterno {
             get {

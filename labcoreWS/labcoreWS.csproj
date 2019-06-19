@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -22,34 +23,95 @@
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
     <UseGlobalApplicationHostFile />
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>true</Use64BitIISExpress>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <IncludeIisSettings>false</IncludeIisSettings>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisRuleSet>labcoreWS.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <IncludeIisSettings>true</IncludeIisSettings>
-    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
-    <RunCodeAnalysis>false</RunCodeAnalysis>
-    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
-    <DocumentationFile>bin\labcoreWS.XML</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
     <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <DeployEncryptKey>La contraseña de cifrado se usa solamente si alguno de los valores de implementación está marcado como seguro</DeployEncryptKey>
+    <CodeAnalysisRuleSet>labcoreWS.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <IncludeIisSettings>false</IncludeIisSettings>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="labcoreWS.Properties.Settings.DBConexionXX-Implementación" Order="1">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=TYCHO%3bInitial Catalog=HSI_PRI%3bUser ID=interface%3bPassword=interface%3bMin Pool Size=10%3bMax Pool Size=800%3bConnect Timeout=60%3bConnectRetryCount=3" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\labcoreWS.Properties.Settings.DBConexionXX-Implementación_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="labcoreWS.Properties.Settings.DBConexion-Implementación" Order="2">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=TYCHO%3bInitial Catalog=HSI_PRI%3bUser ID=interface%3bPassword=interface%3bMin Pool Size=10%3bMax Pool Size=800%3bConnect Timeout=60%3bConnectRetryCount=3" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\labcoreWS.Properties.Settings.DBConexion-Implementación_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="labcoreWS.Properties.Settings.LabcoreDBConXX-Implementación" Order="3">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=TYCHO%3bInitial Catalog=HSI_PRI%3bUser ID=interface%3bPassword=interface%3bMin Pool Size=10%3bMax Pool Size=800%3bConnect Timeout=60%3bConnectRetryCount=3" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\labcoreWS.Properties.Settings.LabcoreDBConXX-Implementación_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="labcoreWS.Properties.Settings.LabcoreDBCon-Implementación" Order="4">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=TYCHO%3bInitial Catalog=HSI_PRI%3bUser ID=interface%3bPassword=interface%3bMin Pool Size=10%3bMax Pool Size=800%3bConnect Timeout=60%3bConnectRetryCount=3" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\labcoreWS.Properties.Settings.LabcoreDBCon-Implementación_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="labcoreWS.Properties.Settings.dbProduccion-Implementación" Order="5">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=TYCHO%3bInitial Catalog=HSI_PRI%3bUser ID=interface%3bPassword=interface%3bMin Pool Size=10%3bMax Pool Size=800%3bConnect Timeout=60%3bConnectRetryCount=3" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\labcoreWS.Properties.Settings.dbProduccion-Implementación_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="labcoreWS.Properties.Settings.alterno-Implementación" Order="6">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=TYCHO%3bInitial Catalog=HSI_PRI%3bUser ID=interface%3bPassword=interface" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\labcoreWS.Properties.Settings.alterno-Implementación_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IisExpressWebServer, Version=1.0.1.0, Culture=neutral, PublicKeyToken=a02a70d311f6eb4e, processorArchitecture=MSIL">
+      <HintPath>..\packages\IisExpressWebServer.1.0.1.0\lib\net45\IisExpressWebServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.1.2\lib\net45\NLog.dll</HintPath>
@@ -82,6 +144,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="packages.config" />
+    <Content Include="labcoreWS.ruleset" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -102,14 +165,14 @@
     </Content>
     <None Include="Service References\clienteSMS\smsHUSI.wsdl" />
     <None Include="Service References\srLabcoreResultados\IWSSolicitudesservice.wsdl" />
-    <None Include="Service References\srLabcoreTAT\IWSSolicitudesservice1.wsdl" />
+    <None Include="Service References\srLabcoreTAT\IWSSolicitudesservice.wsdl" />
     <None Include="Service References\srProxyOrdenar\configuration91.svcinfo" />
     <None Include="Service References\srProxyOrdenar\configuration.svcinfo" />
-    <None Include="Service References\srProxyOrdenar\ordenarEstudio.wsdl" />
-    <None Include="Service References\srProxyOrdenar\ordenarEstudio.xsd">
+    <None Include="Service References\srProxyOrdenar\ordenarEstudio1.wsdl" />
+    <None Include="Service References\srProxyOrdenar\ordenarEstudio2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\srProxyOrdenar\ordenarEstudio1.xsd">
+    <None Include="Service References\srProxyOrdenar\ordenarEstudio21.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\srProxyOrdenar\Reference.svcmap">
@@ -124,7 +187,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\srProxyOrdenar\ordenarEstudio.disco" />
     <None Include="Service References\srLabcoreTAT\configuration91.svcinfo" />
     <None Include="Service References\srLabcoreTAT\configuration.svcinfo" />
     <None Include="Service References\srLabcoreTAT\Reference.svcmap">
@@ -143,6 +205,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\srProxyOrdenar\ordenarEstudio1.disco" />
     <Content Include="usuariosWShusi.svc" />
     <Content Include="wsLabcoreSahi.asmx" />
     <None Include="Properties\PublishProfiles\despliegueKioskos.pubxml" />
@@ -161,6 +224,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IordenarEstudio.cs" />
     <Compile Include="IresultadosWS.cs" />
     <Compile Include="IusuariosWShusi.cs" />
@@ -261,7 +325,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <PropertyGroup>
-    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
@@ -270,19 +334,17 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50406</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50406/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>http://localhost:8102/</CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

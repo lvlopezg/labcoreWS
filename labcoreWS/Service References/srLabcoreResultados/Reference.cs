@@ -13,47 +13,67 @@ namespace labcoreWS.srLabcoreResultados {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="srLabcoreResultados.IWSSolicitudes")]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IWSSolicitudes'
     public interface IWSSolicitudes {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IWSSolicitudes'
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el espacio de nombres de contenedor (urn:WSSolicitudesIntf-IWSSolicitudes) del mensaje RecResultsRequest no coincide con el valor predeterminado (http://tempuri.org/)
         [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#RecResults", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IWSSolicitudes.RecResults(RecResultsRequest)'
         labcoreWS.srLabcoreResultados.RecResultsResponse RecResults(labcoreWS.srLabcoreResultados.RecResultsRequest request);
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IWSSolicitudes.RecResults(RecResultsRequest)'
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el espacio de nombres de contenedor (urn:WSSolicitudesIntf-IWSSolicitudes) del mensaje RecSolicitudesRequest no coincide con el valor predeterminado (http://tempuri.org/)
         [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#RecSolicitudes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IWSSolicitudes.RecSolicitudes(RecSolicitudesRequest)'
         labcoreWS.srLabcoreResultados.RecSolicitudesResponse RecSolicitudes(labcoreWS.srLabcoreResultados.RecSolicitudesRequest request);
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IWSSolicitudes.RecSolicitudes(RecSolicitudesRequest)'
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el espacio de nombres de contenedor (urn:WSSolicitudesIntf-IWSSolicitudes) del mensaje GetResultPdfRequest no coincide con el valor predeterminado (http://tempuri.org/)
         [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#GetResultPdf", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IWSSolicitudes.GetResultPdf(GetResultPdfRequest)'
         labcoreWS.srLabcoreResultados.GetResultPdfResponse GetResultPdf(labcoreWS.srLabcoreResultados.GetResultPdfRequest request);
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IWSSolicitudes.GetResultPdf(GetResultPdfRequest)'
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el espacio de nombres de contenedor (urn:WSSolicitudesIntf-IWSSolicitudes) del mensaje GetHL7MsgRequest no coincide con el valor predeterminado (http://tempuri.org/)
         [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#GetHL7Msg", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IWSSolicitudes.GetHL7Msg(GetHL7MsgRequest)'
         labcoreWS.srLabcoreResultados.GetHL7MsgResponse GetHL7Msg(labcoreWS.srLabcoreResultados.GetHL7MsgRequest request);
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IWSSolicitudes.GetHL7Msg(GetHL7MsgRequest)'
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el espacio de nombres de contenedor (urn:WSSolicitudesIntf-IWSSolicitudes) del mensaje CambioEstadoRequest no coincide con el valor predeterminado (http://tempuri.org/)
         [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#CambioEstado", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IWSSolicitudes.CambioEstado(CambioEstadoRequest)'
         labcoreWS.srLabcoreResultados.CambioEstadoResponse CambioEstado(labcoreWS.srLabcoreResultados.CambioEstadoRequest request);
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IWSSolicitudes.CambioEstado(CambioEstadoRequest)'
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="RecResults", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsRequest'
     public partial class RecResultsRequest {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsRequest'
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsRequest.xmlRes'
         public string xmlRes;
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsRequest.xmlRes'
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsRequest.RecResultsRequest()'
         public RecResultsRequest() {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsRequest.RecResultsRequest()'
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsRequest.RecResultsRequest(string)'
         public RecResultsRequest(string xmlRes) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsRequest.RecResultsRequest(string)'
             this.xmlRes = xmlRes;
         }
     }
@@ -62,15 +82,23 @@ namespace labcoreWS.srLabcoreResultados {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="RecResultsResponse", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsResponse'
     public partial class RecResultsResponse {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsResponse'
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsResponse.@return'
         public string @return;
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsResponse.@return'
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsResponse.RecResultsResponse()'
         public RecResultsResponse() {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsResponse.RecResultsResponse()'
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsResponse.RecResultsResponse(string)'
         public RecResultsResponse(string @return) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecResultsResponse.RecResultsResponse(string)'
             this.@return = @return;
         }
     }
@@ -79,15 +107,23 @@ namespace labcoreWS.srLabcoreResultados {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="RecSolicitudes", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesRequest'
     public partial class RecSolicitudesRequest {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesRequest'
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesRequest.xmlSol'
         public string xmlSol;
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesRequest.xmlSol'
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesRequest.RecSolicitudesRequest()'
         public RecSolicitudesRequest() {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesRequest.RecSolicitudesRequest()'
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesRequest.RecSolicitudesRequest(string)'
         public RecSolicitudesRequest(string xmlSol) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesRequest.RecSolicitudesRequest(string)'
             this.xmlSol = xmlSol;
         }
     }
@@ -96,15 +132,23 @@ namespace labcoreWS.srLabcoreResultados {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="RecSolicitudesResponse", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesResponse'
     public partial class RecSolicitudesResponse {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesResponse'
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesResponse.@return'
         public string @return;
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesResponse.@return'
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesResponse.RecSolicitudesResponse()'
         public RecSolicitudesResponse() {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesResponse.RecSolicitudesResponse()'
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesResponse.RecSolicitudesResponse(string)'
         public RecSolicitudesResponse(string @return) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'RecSolicitudesResponse.RecSolicitudesResponse(string)'
             this.@return = @return;
         }
     }
@@ -113,15 +157,23 @@ namespace labcoreWS.srLabcoreResultados {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetResultPdf", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfRequest'
     public partial class GetResultPdfRequest {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfRequest'
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfRequest.numorden'
         public string numorden;
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfRequest.numorden'
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfRequest.GetResultPdfRequest()'
         public GetResultPdfRequest() {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfRequest.GetResultPdfRequest()'
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfRequest.GetResultPdfRequest(string)'
         public GetResultPdfRequest(string numorden) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfRequest.GetResultPdfRequest(string)'
             this.numorden = numorden;
         }
     }
@@ -130,15 +182,23 @@ namespace labcoreWS.srLabcoreResultados {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetResultPdfResponse", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfResponse'
     public partial class GetResultPdfResponse {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfResponse'
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfResponse.@return'
         public string @return;
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfResponse.@return'
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfResponse.GetResultPdfResponse()'
         public GetResultPdfResponse() {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfResponse.GetResultPdfResponse()'
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfResponse.GetResultPdfResponse(string)'
         public GetResultPdfResponse(string @return) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetResultPdfResponse.GetResultPdfResponse(string)'
             this.@return = @return;
         }
     }
@@ -147,15 +207,23 @@ namespace labcoreWS.srLabcoreResultados {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetHL7Msg", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgRequest'
     public partial class GetHL7MsgRequest {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgRequest'
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgRequest.msg'
         public string msg;
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgRequest.msg'
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgRequest.GetHL7MsgRequest()'
         public GetHL7MsgRequest() {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgRequest.GetHL7MsgRequest()'
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgRequest.GetHL7MsgRequest(string)'
         public GetHL7MsgRequest(string msg) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgRequest.GetHL7MsgRequest(string)'
             this.msg = msg;
         }
     }
@@ -164,15 +232,23 @@ namespace labcoreWS.srLabcoreResultados {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetHL7MsgResponse", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgResponse'
     public partial class GetHL7MsgResponse {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgResponse'
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgResponse.@return'
         public string @return;
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgResponse.@return'
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgResponse.GetHL7MsgResponse()'
         public GetHL7MsgResponse() {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgResponse.GetHL7MsgResponse()'
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgResponse.GetHL7MsgResponse(string)'
         public GetHL7MsgResponse(string @return) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'GetHL7MsgResponse.GetHL7MsgResponse(string)'
             this.@return = @return;
         }
     }
@@ -181,15 +257,23 @@ namespace labcoreWS.srLabcoreResultados {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="CambioEstado", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoRequest'
     public partial class CambioEstadoRequest {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoRequest'
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoRequest.msg'
         public string msg;
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoRequest.msg'
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoRequest.CambioEstadoRequest()'
         public CambioEstadoRequest() {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoRequest.CambioEstadoRequest()'
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoRequest.CambioEstadoRequest(string)'
         public CambioEstadoRequest(string msg) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoRequest.CambioEstadoRequest(string)'
             this.msg = msg;
         }
     }
@@ -198,43 +282,65 @@ namespace labcoreWS.srLabcoreResultados {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="CambioEstadoResponse", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoResponse'
     public partial class CambioEstadoResponse {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoResponse'
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoResponse.@return'
         public string @return;
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoResponse.@return'
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoResponse.CambioEstadoResponse()'
         public CambioEstadoResponse() {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoResponse.CambioEstadoResponse()'
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoResponse.CambioEstadoResponse(string)'
         public CambioEstadoResponse(string @return) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'CambioEstadoResponse.CambioEstadoResponse(string)'
             this.@return = @return;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IWSSolicitudesChannel'
     public interface IWSSolicitudesChannel : labcoreWS.srLabcoreResultados.IWSSolicitudes, System.ServiceModel.IClientChannel {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IWSSolicitudesChannel'
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient'
     public partial class WSSolicitudesClient : System.ServiceModel.ClientBase<labcoreWS.srLabcoreResultados.IWSSolicitudes>, labcoreWS.srLabcoreResultados.IWSSolicitudes {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient'
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.WSSolicitudesClient()'
         public WSSolicitudesClient() {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.WSSolicitudesClient()'
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.WSSolicitudesClient(string)'
         public WSSolicitudesClient(string endpointConfigurationName) : 
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.WSSolicitudesClient(string)'
                 base(endpointConfigurationName) {
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.WSSolicitudesClient(string, string)'
         public WSSolicitudesClient(string endpointConfigurationName, string remoteAddress) : 
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.WSSolicitudesClient(string, string)'
                 base(endpointConfigurationName, remoteAddress) {
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.WSSolicitudesClient(string, EndpointAddress)'
         public WSSolicitudesClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.WSSolicitudesClient(string, EndpointAddress)'
                 base(endpointConfigurationName, remoteAddress) {
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.WSSolicitudesClient(Binding, EndpointAddress)'
         public WSSolicitudesClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.WSSolicitudesClient(Binding, EndpointAddress)'
                 base(binding, remoteAddress) {
         }
         
@@ -243,7 +349,9 @@ namespace labcoreWS.srLabcoreResultados {
             return base.Channel.RecResults(request);
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.RecResults(string)'
         public string RecResults(string xmlRes) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.RecResults(string)'
             labcoreWS.srLabcoreResultados.RecResultsRequest inValue = new labcoreWS.srLabcoreResultados.RecResultsRequest();
             inValue.xmlRes = xmlRes;
             labcoreWS.srLabcoreResultados.RecResultsResponse retVal = ((labcoreWS.srLabcoreResultados.IWSSolicitudes)(this)).RecResults(inValue);
@@ -255,7 +363,9 @@ namespace labcoreWS.srLabcoreResultados {
             return base.Channel.RecSolicitudes(request);
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.RecSolicitudes(string)'
         public string RecSolicitudes(string xmlSol) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.RecSolicitudes(string)'
             labcoreWS.srLabcoreResultados.RecSolicitudesRequest inValue = new labcoreWS.srLabcoreResultados.RecSolicitudesRequest();
             inValue.xmlSol = xmlSol;
             labcoreWS.srLabcoreResultados.RecSolicitudesResponse retVal = ((labcoreWS.srLabcoreResultados.IWSSolicitudes)(this)).RecSolicitudes(inValue);
@@ -267,7 +377,9 @@ namespace labcoreWS.srLabcoreResultados {
             return base.Channel.GetResultPdf(request);
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.GetResultPdf(string)'
         public string GetResultPdf(string numorden) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.GetResultPdf(string)'
             labcoreWS.srLabcoreResultados.GetResultPdfRequest inValue = new labcoreWS.srLabcoreResultados.GetResultPdfRequest();
             inValue.numorden = numorden;
             labcoreWS.srLabcoreResultados.GetResultPdfResponse retVal = ((labcoreWS.srLabcoreResultados.IWSSolicitudes)(this)).GetResultPdf(inValue);
@@ -279,7 +391,9 @@ namespace labcoreWS.srLabcoreResultados {
             return base.Channel.GetHL7Msg(request);
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.GetHL7Msg(string)'
         public string GetHL7Msg(string msg) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.GetHL7Msg(string)'
             labcoreWS.srLabcoreResultados.GetHL7MsgRequest inValue = new labcoreWS.srLabcoreResultados.GetHL7MsgRequest();
             inValue.msg = msg;
             labcoreWS.srLabcoreResultados.GetHL7MsgResponse retVal = ((labcoreWS.srLabcoreResultados.IWSSolicitudes)(this)).GetHL7Msg(inValue);
@@ -291,7 +405,9 @@ namespace labcoreWS.srLabcoreResultados {
             return base.Channel.CambioEstado(request);
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.CambioEstado(string)'
         public string CambioEstado(string msg) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'WSSolicitudesClient.CambioEstado(string)'
             labcoreWS.srLabcoreResultados.CambioEstadoRequest inValue = new labcoreWS.srLabcoreResultados.CambioEstadoRequest();
             inValue.msg = msg;
             labcoreWS.srLabcoreResultados.CambioEstadoResponse retVal = ((labcoreWS.srLabcoreResultados.IWSSolicitudes)(this)).CambioEstado(inValue);

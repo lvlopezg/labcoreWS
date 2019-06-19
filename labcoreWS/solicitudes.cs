@@ -144,7 +144,9 @@
         }
     }
 
-    /// <comentarios/>
+    
+#pragma warning disable CS1587 // El comentario XML no está situado en un elemento válido del idioma
+/// <comentarios/>
     //[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.33440")]
     //[System.SerializableAttribute()]
     //[System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -166,3 +168,4 @@
     //    }
     //}
 }
+#pragma warning restore CS1587 // El comentario XML no está situado en un elemento válido del idioma

@@ -103,7 +103,7 @@
   </binding>
   <service name="IWSSolicitudesservice">
     <port name="IWSSolicitudesPort" binding="tns:IWSSolicitudesbinding">
-      <soap:address location="http://10.8.10.50:81/wsdl/wsdll.dll/soap/IWSSolicitudes" />
+      <soap:address location="http://10.10.100.6:81/wsdl_pruebas/WSDLL.dll/soap/IWSSolicitudes" />
     </port>
   </service>
 </definitions>

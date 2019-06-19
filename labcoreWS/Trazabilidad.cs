@@ -7,12 +7,18 @@ using NLog;
 
 namespace labcoreWS
 {
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Trazabilidad'
     public class Trazabilidad
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Trazabilidad'
     {
         private static Logger logLabcore = LogManager.GetCurrentClassLogger();
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Trazabilidad.Trazabilidad()'
         public Trazabilidad()
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Trazabilidad.Trazabilidad()'
         { }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Trazabilidad.insertarTraza(string, string, string, string, string, DateTime, int)'
         public Boolean insertarTraza(string atencion, string orden, string solicitud, string cups, string evento, DateTime fechaEvt, Int32 nroNota)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Trazabilidad.insertarTraza(string, string, string, string, string, DateTime, int)'
         {
             string actualizar = string.Empty;
             bool respuesta = false;

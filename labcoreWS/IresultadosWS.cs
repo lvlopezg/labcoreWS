@@ -5,10 +5,14 @@ using System.ServiceModel;
 namespace labcoreWS
 {
     [ServiceContract]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IresultadosWS'
     public interface IresultadosWS
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IresultadosWS'
     {
         [OperationContract]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IresultadosWS.getResultados(string)'
         string getResultados(string orden);
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IresultadosWS.getResultados(string)'
 
     }
 

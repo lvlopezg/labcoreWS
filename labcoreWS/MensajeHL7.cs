@@ -5,37 +5,85 @@ using System.Web;
 
 namespace labcoreWS
 {
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MensajeHL7'
     public class MensajeHL7
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MensajeHL7'
     {
-        string[] segmentos = new string[80000];
-        string[] segMSH = new string[19];
-        string[] segPID = new string[30];
-        string[] segPV1 = new string[52];
-        string[] segPV2 = new string[48];
-        string[] segIN1 = new string[20];
-        string[] segORC = new string[20];
-        string[] segOBR = new string[46];
-        string[] segOBX = new string[23];
-        string[] segNTE = new string[23];
-        string[] segMSA = new string[10];
+		readonly string[] segmentos = new string[80000];
+		readonly string[] segMSH = new string[19];
+		readonly string[] segPID = new string[30];
+		readonly string[] segPV1 = new string[52];
+		readonly string[] segPV2 = new string[48];
+		readonly string[] segIN1 = new string[20];
+		readonly string[] segORC = new string[20];
+		readonly string[] segOBR = new string[46];
+		readonly string[] segOBX = new string[23];
+		readonly string[] segNTE = new string[23];
+		readonly string[] segMSA = new string[10];
 
+		/// <summary>
+		/// Sergmento OBR del Mensaje
+		/// </summary>
         public List<string[]> segmentosOBR = new List<string[]>();
+		/// <summary>
+		/// Segmento OBX del Mensaje
+		/// </summary>
         public List<string[]> segmentosOBX = new List<string[]>();
+		/// <summary>
+		/// Segmento NTE del Mensaje
+		/// </summary>
         public List<string[]> segmentosNTE = new List<string[]>();
+		/// <summary>
+		/// Segmento MSH del Mensaje
+		/// </summary>
         public MSHClass objMSH = new MSHClass();
+		/// <summary>
+		/// Segmento PID del Mensaje: Identificacion del Paciente
+		/// </summary>
         public PIDClass objPID = new PIDClass();
+		/// <summary>
+		/// Segmento PV1 del mensaje: Atencion (Patient Visit)
+		/// </summary>
         public PV1Class objPV1 = new PV1Class();
+		/// <summary>
+		/// Segmento PV2 del Mensaje.
+		/// </summary>
         public PV2Class objPV2 = new PV2Class();
+		/// <summary>
+		/// Segmento IN1 del Mensaje: informaciocion de la Institucion EPS
+		/// </summary>
         public IN1Class objIN1 = new IN1Class();
+		/// <summary>
+		/// Segmento ORC del Mensaje: Informacion de la Orden
+		/// </summary>
         public ORCClass objORC = new ORCClass();
+		/// <summary>
+		/// Segmento OBR del Mensaje
+		/// </summary>
         public OBRClass objOBR = new OBRClass();
+		/// <summary>
+		/// Segmento OBX del Mensaje
+		/// </summary>
         public OBXClass objOBX = new OBXClass();
-        public NTEClass objNTE = new NTEClass();
+		/// <summary>
+		/// Segmento NTE del Mensaje
+		/// </summary>
+		public NTEClass objNTE = new NTEClass();
+		/// <summary>
+		/// Segmento MSA de los Mensajes ACK
+		/// </summary>
         public MSAClass objMSA = new MSAClass();
-//        private string msgHL7;
-        public MensajeHL7()
-        { }
 
+
+		/// <summary>
+		/// Constructor de la clase MensajeHL7
+		/// </summary>
+		public MensajeHL7()
+        { }
+		/// <summary>
+		/// Constructor de la Clase MensajeHL7. con Parametro
+		/// </summary>
+		/// <param name="msgHL7">String de Mensaje HL/</param>
         public MensajeHL7(string msgHL7)
         {
             string reemplazar = "";
@@ -265,23 +313,40 @@ namespace labcoreWS
                 }
             }
         }
-
-        public void nroTipoResultados()
-        {
-           
-        }
-
     }
 
+	/// <summary>
+	/// Clase para determinar y definir la estructura del mensaje HL7
+	/// </summary>
     public class strucMensaje
     {
-        public List<int> ordenNM = new List<int>();
+		/// <summary>
+		/// Lista de los elementos tipo NM del segmento OBX
+		/// </summary>
+		public List<int> ordenNM = new List<int>();
+		/// <summary>
+		/// Lista de los Elementos tipo ST del mensaje, en el segmento OBX
+		/// </summary>
         public List<int> ordenST = new List<int>();
+		/// <summary>
+		/// Lista de Elementos Tipo TX del segmento OBX
+		/// </summary>
         public List<int> ordenTX = new List<int>();
+		/// <summary>
+		/// Apoyo para determinar las diferencias
+		/// </summary>
         public int[] ValoresDifTX;
-        Int16 contador = 0;
-        public strucMensaje()
+		readonly Int16 contador = 0;
+		/// <summary>
+		/// Constructor por Defecto del la Clase.
+		/// </summary>
+		public strucMensaje()
         {}
+
+		/// <summary>
+		/// Constructor con parametro
+		/// </summary>
+		/// <param name="segmento"></param>
         public strucMensaje(List<string[]> segmento)
         {
             foreach (string[] rX in segmento)

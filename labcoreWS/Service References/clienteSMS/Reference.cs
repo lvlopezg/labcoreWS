@@ -13,108 +13,164 @@ namespace labcoreWS.clienteSMS {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://husi.org/", ConfigurationName="clienteSMS.smsHUSISoap")]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap'
     public interface smsHUSISoap {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap'
         
         [System.ServiceModel.OperationContractAttribute(Action="http://husi.org/EnviaSMSHUSI", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.EnviaSMSHUSI(string, string, string, string, string, string)'
         string EnviaSMSHUSI(string idDocPac, string _idEspecial, string idsolInter, string paciente, string cama, string tipo);
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.EnviaSMSHUSI(string, string, string, string, string, string)'
         
         [System.ServiceModel.OperationContractAttribute(Action="http://husi.org/EnviaSMSHUSI", ReplyAction="*")]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.EnviaSMSHUSIAsync(string, string, string, string, string, string)'
         System.Threading.Tasks.Task<string> EnviaSMSHUSIAsync(string idDocPac, string _idEspecial, string idsolInter, string paciente, string cama, string tipo);
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.EnviaSMSHUSIAsync(string, string, string, string, string, string)'
         
         [System.ServiceModel.OperationContractAttribute(Action="http://husi.org/ReenviarSMS", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.ReenviarSMS()'
         string ReenviarSMS();
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.ReenviarSMS()'
         
         [System.ServiceModel.OperationContractAttribute(Action="http://husi.org/ReenviarSMS", ReplyAction="*")]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.ReenviarSMSAsync()'
         System.Threading.Tasks.Task<string> ReenviarSMSAsync();
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.ReenviarSMSAsync()'
         
         [System.ServiceModel.OperationContractAttribute(Action="http://husi.org/smsGeneral", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.smsGeneral(string, string, string, string, string, string, string, string)'
         string smsGeneral(string idDocPac, string servicio, string nroServicio, string paciente, string cama, string msgSMS, string asunto, string msgCorreo);
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.smsGeneral(string, string, string, string, string, string, string, string)'
         
         [System.ServiceModel.OperationContractAttribute(Action="http://husi.org/smsGeneral", ReplyAction="*")]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.smsGeneralAsync(string, string, string, string, string, string, string, string)'
         System.Threading.Tasks.Task<string> smsGeneralAsync(string idDocPac, string servicio, string nroServicio, string paciente, string cama, string msgSMS, string asunto, string msgCorreo);
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.smsGeneralAsync(string, string, string, string, string, string, string, string)'
         
         [System.ServiceModel.OperationContractAttribute(Action="http://husi.org/correoGeneralHusi", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.correoGeneralHusi(string, string, string, string, string, string, string, string)'
         string correoGeneralHusi(string idDocPac, string servicio, string nroServicio, string paciente, string cama, string msgSMS, string asunto, string msgCorreo);
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.correoGeneralHusi(string, string, string, string, string, string, string, string)'
         
         [System.ServiceModel.OperationContractAttribute(Action="http://husi.org/correoGeneralHusi", ReplyAction="*")]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.correoGeneralHusiAsync(string, string, string, string, string, string, string, string)'
         System.Threading.Tasks.Task<string> correoGeneralHusiAsync(string idDocPac, string servicio, string nroServicio, string paciente, string cama, string msgSMS, string asunto, string msgCorreo);
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.correoGeneralHusiAsync(string, string, string, string, string, string, string, string)'
         
         [System.ServiceModel.OperationContractAttribute(Action="http://husi.org/smsGeneralHusi", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.smsGeneralHusi(string, string, string, string, string, string)'
         string smsGeneralHusi(string idDocPac, string servicio, string nroServicio, string paciente, string cama, string msgSMS);
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.smsGeneralHusi(string, string, string, string, string, string)'
         
         [System.ServiceModel.OperationContractAttribute(Action="http://husi.org/smsGeneralHusi", ReplyAction="*")]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.smsGeneralHusiAsync(string, string, string, string, string, string)'
         System.Threading.Tasks.Task<string> smsGeneralHusiAsync(string idDocPac, string servicio, string nroServicio, string paciente, string cama, string msgSMS);
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoap.smsGeneralHusiAsync(string, string, string, string, string, string)'
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapChannel'
     public interface smsHUSISoapChannel : labcoreWS.clienteSMS.smsHUSISoap, System.ServiceModel.IClientChannel {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapChannel'
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient'
     public partial class smsHUSISoapClient : System.ServiceModel.ClientBase<labcoreWS.clienteSMS.smsHUSISoap>, labcoreWS.clienteSMS.smsHUSISoap {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient'
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsHUSISoapClient()'
         public smsHUSISoapClient() {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsHUSISoapClient()'
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsHUSISoapClient(string)'
         public smsHUSISoapClient(string endpointConfigurationName) : 
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsHUSISoapClient(string)'
                 base(endpointConfigurationName) {
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsHUSISoapClient(string, string)'
         public smsHUSISoapClient(string endpointConfigurationName, string remoteAddress) : 
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsHUSISoapClient(string, string)'
                 base(endpointConfigurationName, remoteAddress) {
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsHUSISoapClient(string, EndpointAddress)'
         public smsHUSISoapClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsHUSISoapClient(string, EndpointAddress)'
                 base(endpointConfigurationName, remoteAddress) {
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsHUSISoapClient(Binding, EndpointAddress)'
         public smsHUSISoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsHUSISoapClient(Binding, EndpointAddress)'
                 base(binding, remoteAddress) {
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.EnviaSMSHUSI(string, string, string, string, string, string)'
         public string EnviaSMSHUSI(string idDocPac, string _idEspecial, string idsolInter, string paciente, string cama, string tipo) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.EnviaSMSHUSI(string, string, string, string, string, string)'
             return base.Channel.EnviaSMSHUSI(idDocPac, _idEspecial, idsolInter, paciente, cama, tipo);
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.EnviaSMSHUSIAsync(string, string, string, string, string, string)'
         public System.Threading.Tasks.Task<string> EnviaSMSHUSIAsync(string idDocPac, string _idEspecial, string idsolInter, string paciente, string cama, string tipo) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.EnviaSMSHUSIAsync(string, string, string, string, string, string)'
             return base.Channel.EnviaSMSHUSIAsync(idDocPac, _idEspecial, idsolInter, paciente, cama, tipo);
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.ReenviarSMS()'
         public string ReenviarSMS() {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.ReenviarSMS()'
             return base.Channel.ReenviarSMS();
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.ReenviarSMSAsync()'
         public System.Threading.Tasks.Task<string> ReenviarSMSAsync() {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.ReenviarSMSAsync()'
             return base.Channel.ReenviarSMSAsync();
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsGeneral(string, string, string, string, string, string, string, string)'
         public string smsGeneral(string idDocPac, string servicio, string nroServicio, string paciente, string cama, string msgSMS, string asunto, string msgCorreo) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsGeneral(string, string, string, string, string, string, string, string)'
             return base.Channel.smsGeneral(idDocPac, servicio, nroServicio, paciente, cama, msgSMS, asunto, msgCorreo);
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsGeneralAsync(string, string, string, string, string, string, string, string)'
         public System.Threading.Tasks.Task<string> smsGeneralAsync(string idDocPac, string servicio, string nroServicio, string paciente, string cama, string msgSMS, string asunto, string msgCorreo) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsGeneralAsync(string, string, string, string, string, string, string, string)'
             return base.Channel.smsGeneralAsync(idDocPac, servicio, nroServicio, paciente, cama, msgSMS, asunto, msgCorreo);
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.correoGeneralHusi(string, string, string, string, string, string, string, string)'
         public string correoGeneralHusi(string idDocPac, string servicio, string nroServicio, string paciente, string cama, string msgSMS, string asunto, string msgCorreo) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.correoGeneralHusi(string, string, string, string, string, string, string, string)'
             return base.Channel.correoGeneralHusi(idDocPac, servicio, nroServicio, paciente, cama, msgSMS, asunto, msgCorreo);
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.correoGeneralHusiAsync(string, string, string, string, string, string, string, string)'
         public System.Threading.Tasks.Task<string> correoGeneralHusiAsync(string idDocPac, string servicio, string nroServicio, string paciente, string cama, string msgSMS, string asunto, string msgCorreo) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.correoGeneralHusiAsync(string, string, string, string, string, string, string, string)'
             return base.Channel.correoGeneralHusiAsync(idDocPac, servicio, nroServicio, paciente, cama, msgSMS, asunto, msgCorreo);
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsGeneralHusi(string, string, string, string, string, string)'
         public string smsGeneralHusi(string idDocPac, string servicio, string nroServicio, string paciente, string cama, string msgSMS) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsGeneralHusi(string, string, string, string, string, string)'
             return base.Channel.smsGeneralHusi(idDocPac, servicio, nroServicio, paciente, cama, msgSMS);
         }
         
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsGeneralHusiAsync(string, string, string, string, string, string)'
         public System.Threading.Tasks.Task<string> smsGeneralHusiAsync(string idDocPac, string servicio, string nroServicio, string paciente, string cama, string msgSMS) {
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'smsHUSISoapClient.smsGeneralHusiAsync(string, string, string, string, string, string)'
             return base.Channel.smsGeneralHusiAsync(idDocPac, servicio, nroServicio, paciente, cama, msgSMS);
         }
     }

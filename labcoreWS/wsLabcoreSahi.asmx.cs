@@ -24,13 +24,17 @@ namespace labcoreWS
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'wsLabcoreSahi'
     public class wsLabcoreSahi : System.Web.Services.WebService
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'wsLabcoreSahi'
     {
         private static Logger logLabcore = LogManager.GetCurrentClassLogger();
         Utilidades utilLocal = new Utilidades();
         //[SoapDocumentMethod(OneWay = true)]
         [WebMethod]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'wsLabcoreSahi.ordenes(string)'
         public string ordenes(string ordenesInput)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'wsLabcoreSahi.ordenes(string)'
         {
             logLabcore.Info("orden:" + ordenesInput);
             //ordenesInput = "<orden idAtencion=\"4888820\" nroOrden=\"6856586\" fechaOrden=\"2015/12/10 08:54:52\" idUsuario=\"3035\"><producto><id>10714</id><cups>902205</cups><cant>1</cant><obs /></producto><producto><id>11244</id><cups>902210</cups><cant>1</cant><obs /></producto></orden>";
@@ -298,7 +302,7 @@ namespace labcoreWS
                                     cmdInsTraza.Transaction = TX1_1;
                                     if (cmdInsTraza.ExecuteNonQuery() < 1)
                                     {
-                                        TX1_1.Rollback("TRx1");
+                                        TX1_1.Rollback("TRx1_1");
                                         logLabcore.Info("04:Error:Insertando en TAT_TRAZA_ORDEN la Solicitud:" + solicitudWrk.nroSolicitud);
                                         return "";
                                     }
@@ -339,7 +343,7 @@ namespace labcoreWS
                                             }
                                             else
                                             {
-                                                TX1_1.Rollback("TRx1");
+                                                TX1_1.Rollback("TRx1_1");
                                                 logLabcore.Info("044:Error: Actualizando Solicitud en TAT_TRAZA_TAT Numero orden:" + solicitudWrk.nroOrden + "  Numero Solicitud:" + solicitudWrk.nroSolicitud, "  Numero Atencion:" + solicitudWrk.idAtencion);
                                                 return "";
                                             }
@@ -357,7 +361,7 @@ namespace labcoreWS
                                             //cmdTraza.Transaction = TX1;
                                             if (cmdInsertarTraza.ExecuteNonQuery() < 0)
                                             {
-                                                TX1_1.Rollback("TRx1");
+                                                TX1_1.Rollback("TRx1_1");
                                                 logLabcore.Warn("04:No fue posible Insertar en:TAT_TRAZA_TAT para la SOLICITUD en proceso:" + solicitudWrk.nroSolicitud);
                                                 return "";
                                             }

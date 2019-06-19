@@ -16,19 +16,27 @@ using System.Web.UI.WebControls;
 using System.Runtime.Remoting.Contexts;
 using NLog;
 
+#pragma warning disable CS1587 // El comentario XML no está situado en un elemento válido del idioma
 ///<comentarios> Servicio para la Entrega de Resultados de laboratorio por el Sistema de Kioscos </comentarios>
 ///
 namespace labcoreWS
+#pragma warning restore CS1587 // El comentario XML no está situado en un elemento válido del idioma
 {
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'resultadosWS'
     public class resultadosWS : IresultadosWS
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'resultadosWS'
     {
+#pragma warning disable CS1572 // El comentario XML tiene una etiqueta param para 'nroOrden', pero no hay ningún parámetro con ese nombre
         /// <summary>
         /// Enterga de Resultados de Laboratorio en los Kioscos
         /// </summary>
         /// <param name="nroOrden">Numero de Orden</param>
         /// <returns>String codificado en Base 65, debe decodificarse en el PDF respectivo para imprimir y entregar al paciente</returns>
-        private static Logger logKioscos = LogManager.GetCurrentClassLogger();
+        private static readonly Logger logKioscos = LogManager.GetCurrentClassLogger();
+#pragma warning restore CS1572 // El comentario XML tiene una etiqueta param para 'nroOrden', pero no hay ningún parámetro con ese nombre
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'resultadosWS.getResultados(string)'
         public string getResultados(string nroOrden)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'resultadosWS.getResultados(string)'
         {
             byte tipoDoc = 0;
             string archivo = "C:\\Basura";

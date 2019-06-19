@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="GyqnSBXQ/7YjHyCxP1CWrsY4Yqw=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="X4jlxEaO/mOEg7vFJzH1QJEmCrI=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="IWSSolicitudesbinding1">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="IWSSolicitudesPort1" contract="srLabcoreTAT.IWSSolicitudes" bindingType="basicHttpBinding" address="http://10.8.10.50:81/wsdl/wsdll.dll/soap/IWSSolicitudes" bindingConfiguration="IWSSolicitudesbinding1">
+    <endpoint name="IWSSolicitudesPort1" contract="srLabcoreTAT.IWSSolicitudes" bindingType="basicHttpBinding" address="http://10.10.100.6:81/wsdl_pruebas/WSDLL.dll/soap/IWSSolicitudes" bindingConfiguration="IWSSolicitudesbinding1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.8.10.50:81/wsdl/wsdll.dll/soap/IWSSolicitudes</serializedValue>
+          <serializedValue>http://10.10.100.6:81/wsdl_pruebas/WSDLL.dll/soap/IWSSolicitudes</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

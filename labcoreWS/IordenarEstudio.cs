@@ -1190,242 +1190,338 @@ namespace labcoreWS
         private string pv248 = string.Empty;
         #endregion
         #region RegionDefPV2
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV21'
         public string PV21
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV21'
         {
             get { return pv21; }
             set { pv21 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV22'
         public string PV22
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV22'
         {
             get { return pv22; }
             set { pv22 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV23'
         public string PV23
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV23'
         {
             get { return pv23; }
             set { pv23 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV24'
         public string PV24
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV24'
         {
             get { return pv24; }
             set { pv24 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV25'
         public string PV25
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV25'
         {
             get { return pv25; }
             set { pv25 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV26'
         public string PV26
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV26'
         {
             get { return pv26; }
             set { pv26 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV27'
         public string PV27
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV27'
         {
             get { return pv27; }
             set { pv27 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV28'
         public string PV28
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV28'
         {
             get { return pv28; }
             set { pv28 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV29'
         public string PV29
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV29'
         {
             get { return pv29; }
             set { pv29 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV210'
         public string PV210
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV210'
         {
             get { return pv210; }
             set { pv210 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV211'
         public string PV211
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV211'
         {
             get { return pv211; }
             set { pv211 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV212'
         public string PV212
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV212'
         {
             get { return pv212; }
             set { pv212 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV213'
         public string PV213
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV213'
         {
             get { return pv213; }
             set { pv213 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV214'
         public string PV214
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV214'
         {
             get { return pv214; }
             set { pv214 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV215'
         public string PV215
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV215'
         {
             get { return pv215; }
             set { pv215 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV216'
         public string PV216
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV216'
         {
             get { return pv216; }
             set { pv216 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV217'
         public string PV217
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV217'
         {
             get { return pv217; }
             set { pv217 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV218'
         public string PV218
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV218'
         {
             get { return pv218; }
             set { pv218 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV219'
         public string PV219
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV219'
         {
             get { return pv219; }
             set { pv219 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV220'
         public string PV220
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV220'
         {
             get { return pv220; }
             set { pv220 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV221'
         public string PV221
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV221'
         {
             get { return pv221; }
             set { pv221 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV222'
         public string PV222
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV222'
         {
             get { return pv222; }
             set { pv222 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV223'
         public string PV223
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV223'
         {
             get { return pv223; }
             set { pv223 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV224'
         public string PV224
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV224'
         {
             get { return pv224; }
             set { pv224 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV225'
         public string PV225
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV225'
         {
             get { return pv225; }
             set { pv225 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV226'
         public string PV226
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV226'
         {
             get { return pv226; }
             set { pv226 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV227'
         public string PV227
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV227'
         {
             get { return pv227; }
             set { pv227 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV228'
         public string PV228
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV228'
         {
             get { return pv228; }
             set { pv228 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV229'
         public string PV229
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV229'
         {
             get { return pv229; }
             set { pv229 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV230'
         public string PV230
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV230'
         {
             get { return pv230; }
             set { pv230 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV231'
         public string PV231
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV231'
         {
             get { return pv231; }
             set { pv231 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV232'
         public string PV232
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV232'
         {
             get { return pv232; }
             set { pv232 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV233'
         public string PV233
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV233'
         {
             get { return pv233; }
             set { pv233 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV234'
         public string PV234
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV234'
         {
             get { return pv234; }
             set { pv234 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV235'
         public string PV235
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV235'
         {
             get { return pv235; }
             set { pv235 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV236'
         public string PV236
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV236'
         {
             get { return pv236; }
             set { pv236 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV237'
         public string PV237
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV237'
         {
             get { return pv237; }
             set { pv237 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV238'
         public string PV238
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV238'
         {
             get { return pv238; }
             set { pv238 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV239'
         public string PV239
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV239'
         {
             get { return pv239; }
             set { pv239 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV240'
         public string PV240
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV240'
         {
             get { return pv240; }
             set { pv240 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV241'
         public string PV241
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV241'
         {
             get { return pv241; }
             set { pv241 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV242'
         public string PV242
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV242'
         {
             get { return pv242; }
             set { pv242 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV243'
         public string PV243
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV243'
         {
             get { return pv243; }
             set { pv243 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV244'
         public string PV244
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV244'
         {
             get { return pv244; }
             set { pv244 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV245'
         public string PV245
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV245'
         {
             get { return pv245; }
             set { pv245 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV246'
         public string PV246
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV246'
         {
             get { return pv246; }
             set { pv246 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV247'
         public string PV247
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV247'
         {
             get { return pv247; }
             set { pv247 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV248'
         public string PV248
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV248'
         {
             get { return pv248; }
             set { pv248 = value; }
@@ -1434,12 +1530,16 @@ namespace labcoreWS
 
         #endregion
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV2Class()'
         public PV2Class()
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV2Class()'
         {
 
         }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV2Class(string[])'
         public PV2Class(string[] segPV2)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.PV2Class(string[])'
         {
             Utilidades utls = new Utilidades();
             pv21 = segPV2[0];
@@ -1493,7 +1593,9 @@ namespace labcoreWS
 
         }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.retornoPV2()'
         public string retornoPV2()
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'PV2Class.retornoPV2()'
         {
             string spr = "|";
             string valorPv2 = pv21.ToString() + spr + pv22.ToString() + spr + pv23.ToString() + spr + pv24.ToString() + spr + pv25.ToString() + spr + pv26.ToString() + spr + pv27.ToString() + spr + pv28.ToString() + spr + pv29.ToString() + spr + pv210.ToString() + spr;
@@ -1534,114 +1636,158 @@ namespace labcoreWS
         #endregion
 
         #region RegionDefIN1
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN11'
         public string IN11
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN11'
         {
             get { return in11; }
             set { in11 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN12'
         public string IN12
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN12'
         {
             get { return in12; }
             set { in12 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN13'
         public string IN13
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN13'
         {
             get { return in13; }
             set { in13 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN14'
         public string IN14
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN14'
         {
             get { return in14; }
             set { in14 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN15'
         public string IN15
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN15'
         {
             get { return in15; }
             set { in15 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN16'
         public string IN16
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN16'
         {
             get { return in16; }
             set { in16 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN17'
         public string IN17
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN17'
         {
             get { return in17; }
             set { in17 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN18'
         public string IN18
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN18'
         {
             get { return in18; }
             set { in18 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN19'
         public string IN19
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN19'
         {
             get { return in19; }
             set { in19 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN110'
         public string IN110
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN110'
         {
             get { return in110; }
             set { in110 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN111'
         public string IN111
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN111'
         {
             get { return in111; }
             set { in111 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN112'
         public string IN112
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN112'
         {
             get { return in112; }
             set { in112 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN113'
         public string IN113
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN113'
         {
             get { return in113; }
             set { in113 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN114'
         public string IN114
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN114'
         {
             get { return in114; }
             set { in114 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN115'
         public string IN115
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN115'
         {
             get { return in115; }
             set { in115 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN116'
         public string IN116
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN116'
         {
             get { return in116; }
             set { in116 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN117'
         public string IN117
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN117'
         {
             get { return in117; }
             set { in117 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN118'
         public string IN118
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN118'
         {
             get { return in118; }
             set { in118 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN119'
         public string IN119
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN119'
         {
             get { return in119; }
             set { in19 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN120'
         public string IN120
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN120'
         {
             get { return in120; }
             set { in120 = value; }
         }
         #endregion
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN1Class()'
         public IN1Class()
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN1Class()'
         {
 
         }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN1Class(string[])'
         public IN1Class(string[] segIN1)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.IN1Class(string[])'
         {
             Utilidades utls = new Utilidades();
             in11 = segIN1[0];
@@ -1666,7 +1812,9 @@ namespace labcoreWS
             in120 = segIN1[19];
 
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.retornoIN1()'
         public string retornoIN1()
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'IN1Class.retornoIN1()'
         {
             string spr = "|";
             string valorIn1 = in11.ToString() + spr + in12.ToString() + spr + in13.ToString() + spr + in14.ToString() + spr + in15.ToString() + spr + in16.ToString() + spr + in17.ToString() + spr + in18.ToString() + spr + in19.ToString() + spr + in110.ToString() + spr;
@@ -1723,112 +1871,156 @@ namespace labcoreWS
         #endregion
 
         #region MyRegionDefORC
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC1'
         public string ORC1
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC1'
         {
             get { return orc1; }
             set { orc1 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC2'
         public string ORC2
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC2'
         {
             get { return orc2; }
             set { orc2 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC3'
         public string ORC3
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC3'
         {
             get { return orc3; }
             set { orc3 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC4'
         public string ORC4
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC4'
         {
             get { return orc4; }
             set { orc4 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC5'
         public string ORC5
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC5'
         {
             get { return orc5; }
             set { orc5 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC6'
         public string ORC6
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC6'
         {
             get { return orc6; }
             set { orc6 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC7'
         public string ORC7
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC7'
         {
             get { return orc7; }
             set { orc7 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC8'
         public string ORC8
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC8'
         {
             get { return orc8; }
             set { orc8 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC9'
         public string ORC9
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC9'
         {
             get { return orc9; }
             set { orc9 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC10'
         public string ORC10
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC10'
         {
             get { return orc10; }
             set { orc10 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC11'
         public string ORC11
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC11'
         {
             get { return orc11; }
             set { orc11 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC12'
         public string ORC12
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC12'
         {
             get { return orc12; }
             set { orc12 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC13'
         public string ORC13
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC13'
         {
             get { return orc13; }
             set { orc13 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC14'
         public string ORC14
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC14'
         {
             get { return orc14; }
             set { orc14 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC15'
         public string ORC15
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC15'
         {
             get { return orc15; }
             set { orc15 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC16'
         public string ORC16
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC16'
         {
             get { return orc16; }
             set { orc16 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC17'
         public string ORC17
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC17'
         {
             get { return orc17; }
             set { orc17 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC18'
         public string ORC18
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC18'
         {
             get { return orc18; }
             set { orc18 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC19'
         public string ORC19
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC19'
         {
             get { return orc19; }
             set { orc19 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC20'
         public string ORC20
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORC20'
         {
             get { return orc20; }
             set { orc20 = value; }
         }
         #endregion
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORCClass()'
         public ORCClass()
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORCClass()'
         { }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORCClass(string[])'
         public ORCClass(string[] segORC)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.ORCClass(string[])'
         {
             Utilidades utls = new Utilidades();
             orc1 = segORC[0];
@@ -1852,7 +2044,9 @@ namespace labcoreWS
             orc19 = segORC[18];
             orc20 = segORC[19];
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.retornoORC()'
         public string retornoORC()
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ORCClass.retornoORC()'
         {
             string spr = "|";
             string valorORC = orc1.ToString() + spr + orc2.ToString() + spr + orc3.ToString() + spr + orc4.ToString() + spr + orc5.ToString() + spr + orc6.ToString() + spr + orc7.ToString() + spr + orc8.ToString() + spr + orc9.ToString() + spr + orc10.ToString() + spr;
@@ -1915,217 +2109,303 @@ namespace labcoreWS
         #endregion
 
         #region RegionDefOBR
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR1'
         public string OBR1
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR1'
         {
             get { return obr1; }
             set { obr1 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR2'
         public string OBR2
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR2'
         {
             get { return obr2; }
             set { obr2 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR3'
         public string OBR3
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR3'
         {
             get { return obr3; }
             set { obr3 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR4'
         public string OBR4
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR4'
         {
             get { return obr4; }
             set { obr4 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR5'
         public string OBR5
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR5'
         {
             get { return obr5; }
             set { obr5 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR6'
         public string OBR6
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR6'
         {
             get { return obr6; }
             set { obr6 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR7'
         public string OBR7
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR7'
         {
             get { return obr7; }
             set { obr7 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR8'
         public string OBR8
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR8'
         {
             get { return obr8; }
             set { obr8 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR9'
         public string OBR9
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR9'
         {
             get { return obr9; }
             set { obr9 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR10'
         public string OBR10
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR10'
         {
             get { return obr10; }
             set { obr10 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR11'
         public string OBR11
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR11'
         {
             get { return obr11; }
             set { obr11 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR12'
         public string OBR12
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR12'
         {
             get { return obr12; }
             set { obr12 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR13'
         public string OBR13
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR13'
         {
             get { return obr13; }
             set { obr13 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR14'
         public string OBR14
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR14'
         {
             get { return obr14; }
             set { obr14 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR15'
         public string OBR15
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR15'
         {
             get { return obr15; }
             set { obr15 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR16'
         public string OBR16
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR16'
         {
             get { return obr16; }
             set { obr16 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR17'
         public string OBR17
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR17'
         {
             get { return obr17; }
             set { obr17 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR18'
         public string OBR18
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR18'
         {
             get { return obr18; }
             set { obr18 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR19'
         public string OBR19
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR19'
         {
             get { return obr19; }
             set { obr19 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR20'
         public string OBR20
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR20'
         {
             get { return obr20; }
             set { obr20 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR21'
         public string OBR21
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR21'
         {
             get { return obr21; }
             set { obr21 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR22'
         public string OBR22
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR22'
         {
             get { return obr22; }
             set { obr22 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR23'
         public string OBR23
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR23'
         {
             get { return obr23; }
             set { obr23 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR24'
         public string OBR24
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR24'
         {
             get { return obr24; }
             set { obr24 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR25'
         public string OBR25
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR25'
         {
             get { return obr25; }
             set { obr25 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR26'
         public string OBR26
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR26'
         {
             get { return obr26; }
             set { obr26 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR27'
         public string OBR27
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR27'
         {
             get { return obr27; }
             set { obr27 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR28'
         public string OBR28
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR28'
         {
             get { return obr28; }
             set { obr28 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR29'
         public string OBR29
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR29'
         {
             get { return obr29; }
             set { obr29 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR30'
         public string OBR30
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR30'
         {
             get { return obr30; }
             set { obr30 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR31'
         public string OBR31
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR31'
         {
             get { return obr31; }
             set { obr31 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR32'
         public string OBR32
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR32'
         {
             get { return obr32; }
             set { obr32 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR33'
         public string OBR33
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR33'
         {
             get { return obr33; }
             set { obr33 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR34'
         public string OBR34
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR34'
         {
             get { return obr34; }
             set { obr34 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR35'
         public string OBR35
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR35'
         {
             get { return obr35; }
             set { obr35 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR36'
         public string OBR36
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR36'
         {
             get { return obr36; }
             set { obr36 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR37'
         public string OBR37
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR37'
         {
             get { return obr37; }
             set { obr37 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR38'
         public string OBR38
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR38'
         {
             get { return obr38; }
             set { obr38 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR39'
         public string OBR39
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR39'
         {
             get { return obr39; }
             set { obr39 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR40'
         public string OBR40
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR40'
         {
             get { return obr40; }
             set { obr40 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR41'
         public string OBR41
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR41'
         {
             get { return obr41; }
             set { obr41 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR42'
         public string OBR42
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR42'
         {
             get { return obr42; }
             set { obr42 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR43'
         public string OBR43
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBR43'
         {
             get { return obr43; }
             set { obr43 = value; }
@@ -2134,10 +2414,14 @@ namespace labcoreWS
 
         #endregion
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBRClass()'
         public OBRClass()
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBRClass()'
         { }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBRClass(string[])'
         public OBRClass(string[] segOBR)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.OBRClass(string[])'
         {
             Utilidades utls = new Utilidades();
             obr1 = segOBR[0];
@@ -2184,7 +2468,9 @@ namespace labcoreWS
             obr42 = segOBR[41];
             obr43 = segOBR[42];
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.retornoOBR()'
         public string retornoOBR()
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBRClass.retornoOBR()'
         {
             string spr = "|";
             string valorOBR = obr1.ToString() + spr + obr2.ToString() + spr + obr3.ToString() + spr + obr4.ToString() + spr + obr5.ToString() + spr + obr6.ToString() + spr + obr7.ToString() + spr + obr8.ToString() + spr + obr9.ToString() + spr + obr10.ToString() + spr;
@@ -2235,77 +2521,107 @@ namespace labcoreWS
         #endregion
 
         #region RegionDefOBX
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX1'
         public string OBX1
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX1'
         {
             get { return obx1; }
             set { obx1 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX2'
         public string OBX2
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX2'
         {
             get { return obx2; }
             set { obx2 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX3'
         public string OBX3
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX3'
         {
             get { return obx3; }
             set { obx3 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX4'
         public string OBX4
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX4'
         {
             get { return obx4; }
             set { obx4 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX5'
         public string OBX5
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX5'
         {
             get { return obx5; }
             set { obx5 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX6'
         public string OBX6
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX6'
         {
             get { return obx6; }
             set { obx6 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX7'
         public string OBX7
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX7'
         {
             get { return obx7; }
             set { obx7 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX8'
         public string OBX8
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX8'
         {
             get { return obx8; }
             set { obx8 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX9'
         public string OBX9
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX9'
         {
             get { return obx9; }
             set { obx9 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX10'
         public string OBX10
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX10'
         {
             get { return obx10; }
             set { obx10 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX11'
         public string OBX11
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX11'
         {
             get { return obx11; }
             set { obx11 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX12'
         public string OBX12
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX12'
         {
             get { return obx12; }
             set { obx12 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX13'
         public string OBX13
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX13'
         {
             get { return obx13; }
             set { obx13 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX14'
         public string OBX14
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX14'
         {
             get { return obx14; }
             set { obx14 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX15'
         public string OBX15
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBX15'
         {
             get { return obx15; }
             set { obx15 = value; }
@@ -2387,10 +2703,14 @@ namespace labcoreWS
         //}
         #endregion
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBXClass()'
         public OBXClass()
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBXClass()'
         { }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBXClass(string[])'
         public OBXClass(string[] segOBX)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.OBXClass(string[])'
         {
             Utilidades utls = new Utilidades();
             obx1 = segOBX[0];
@@ -2424,7 +2744,9 @@ namespace labcoreWS
             //obx29 = segOBX[28];
             //obx30 = segOBX[29];
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.retornoOBX()'
         public string retornoOBX()
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'OBXClass.retornoOBX()'
         {
             string spr = "|";
             string valorOBX = obx1.ToString() + spr + obx2.ToString() + spr + obx3.ToString() + spr + obx4.ToString() + spr + obx5.ToString() + spr + obx6.ToString() + spr + obx7.ToString() + spr + obx8.ToString() + spr + obx9.ToString() + spr + obx10.ToString() + spr;
@@ -2450,27 +2772,37 @@ namespace labcoreWS
         #endregion
 
         #region RegionDefNTE
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.NTE1'
         public string NTE1
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.NTE1'
         {
             get { return nte1; }
             set { nte1 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.NTE2'
         public string NTE2
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.NTE2'
         {
             get { return nte2; }
             set { nte2 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.NTE3'
         public string NTE3
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.NTE3'
         {
             get { return nte3; }
             set { nte3 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.NTE4'
         public string NTE4
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.NTE4'
         {
             get { return nte4; }
             set { nte4 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.NTE5'
         public string NTE5
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.NTE5'
         {
             get { return nte5; }
             set { nte5 = value; }
@@ -2478,10 +2810,14 @@ namespace labcoreWS
 
         #endregion
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.NTEClass()'
         public NTEClass()
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.NTEClass()'
         { }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.NTEClass(string[])'
         public NTEClass(string[] segNTE)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.NTEClass(string[])'
         {
             Utilidades utls = new Utilidades();
             nte1 = segNTE[0];
@@ -2490,7 +2826,9 @@ namespace labcoreWS
             nte4 = segNTE[3];
             nte5 = segNTE[4];
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.retornoNTE()'
         public string retornoNTE()
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'NTEClass.retornoNTE()'
         {
             string spr = "|";
             string valorNTE = nte1.ToString() + spr + nte2.ToString() + spr + nte3.ToString() + spr + nte4.ToString() + spr + nte5.ToString();
@@ -2517,22 +2855,30 @@ namespace labcoreWS
 
         #endregion
         #region RegionDefMSA
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MSAClass.MSA1'
         public string MSA1
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MSAClass.MSA1'
         {
             get { return msa1; }
             set { msa1 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MSAClass.MSA2'
         public string MSA2
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MSAClass.MSA2'
         {
             get { return msa2; }
             set { msa2 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MSAClass.MSA3'
         public string MSA3
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MSAClass.MSA3'
         {
             get { return msa3; }
             set { msa3 = value; }
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MSAClass.MSA4'
         public string MSA4
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MSAClass.MSA4'
         {
             get { return msa4; }
             set { msa4 = value; }
@@ -2570,7 +2916,9 @@ namespace labcoreWS
 
         #endregion
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MSAClass.MSAClass()'
         public MSAClass()
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MSAClass.MSAClass()'
         {
             msa1 = "MSA";
             msa2 = "";
@@ -2578,7 +2926,9 @@ namespace labcoreWS
             msa4 = "";
         }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MSAClass.MSAClass(string[])'
         public MSAClass(string[] segMSA)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MSAClass.MSAClass(string[])'
         {
             Utilidades utls = new Utilidades();
             msa1 = segMSA[0];
@@ -2595,7 +2945,9 @@ namespace labcoreWS
 
         }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MSAClass.retornoMSA()'
         public string retornoMSA()
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'MSAClass.retornoMSA()'
         {
             string spr = "|";
             string valorMSA = msa1.ToString() + spr + msa2.ToString() + spr + msa3.ToString() + spr + msa4.ToString();
@@ -2613,7 +2965,9 @@ namespace labcoreWS
         {
 
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'resultadoExamen.resultadoExamen(string)'
         public resultadoExamen(string mensajeHL7)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'resultadoExamen.resultadoExamen(string)'
         {
             string[] segmentoMSH = new string[19];
             MSHClass msh = new MSHClass(segmentoMSH);

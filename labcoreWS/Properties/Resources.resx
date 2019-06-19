@@ -119,5 +119,6 @@
   </resheader>
   <data name="nroReporte" xml:space="preserve">
     <value>3102548277</value>
+    <comment>Numero para reportar los casos de Resultado Critico</comment>
   </data>
 </root>

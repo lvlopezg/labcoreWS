@@ -121,7 +121,9 @@ namespace labcoreWS
             return datos;
         }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Utilidades.consecutivoSistabla(string)'
         public Int32 consecutivoSistabla(string tabla)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Utilidades.consecutivoSistabla(string)'
         {
             //hceNotasAte
             try
@@ -162,7 +164,9 @@ namespace labcoreWS
             }
         }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Utilidades.lineaResultado(string, string, string, string)'
         public string lineaResultado(string titulo, string valor, string unidad, string valorRef)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Utilidades.lineaResultado(string, string, string, string)'
         {
             string respuesta = string.Empty;
             string nvotitulo = tituloLargo(titulo);
@@ -185,7 +189,9 @@ namespace labcoreWS
             return respuesta;
         }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Utilidades.lineaResultadoST(string, string, string, string)'
         public string lineaResultadoST(string titulo, string valor, string unidad, string valorRef)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Utilidades.lineaResultadoST(string, string, string, string)'
         {
             string respuesta = string.Empty;
             //string spcTitulo = new string(' ',20 - titulo.Length);
@@ -224,7 +230,9 @@ namespace labcoreWS
             }
         }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Utilidades.tituloLargo(string)'
         public string tituloLargo(string titulo)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Utilidades.tituloLargo(string)'
         {
             string nvotitulo = string.Empty;
             if (titulo.Length > 20)
@@ -247,7 +255,9 @@ namespace labcoreWS
             }
             return nvotitulo;
         }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Utilidades.separarApellidos(string)'
         public string[] separarApellidos(string apellidos)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'Utilidades.separarApellidos(string)'
         {
             string[] Apellidos = apellidos.Split(' ');
             string primerApellido = string.Empty;

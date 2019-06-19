@@ -14,13 +14,15 @@ using System.Transactions;
 namespace labcoreWS
 {
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio'
     public class ordenarEstudio : IordenarEstudio, IDisposable
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio'
     {
         SqlConnection ConexR = new SqlConnection(Properties.Settings.Default.LabcoreDBConXX);
         SqlConnection Conex = new SqlConnection(Properties.Settings.Default.LabcoreDBConXX);
         SqlConnection Conex2 = new SqlConnection(Properties.Settings.Default.LabcoreDBConXX);
         SqlConnection Conex3 = new SqlConnection(Properties.Settings.Default.LabcoreDBConXX);
-        SqlConnection Conex4 = new SqlConnection(Properties.Settings.Default.LabcoreDBConXX);
+		readonly SqlConnection Conex4 = new SqlConnection(Properties.Settings.Default.LabcoreDBConXX);
         Utilidades utilLocal = new Utilidades();
         string mensajeHL7 = string.Empty;
         private static Logger logLabcore = LogManager.GetCurrentClassLogger();
@@ -31,6 +33,7 @@ namespace labcoreWS
         //private static Logger logVenta = LogManager.GetCurrentClassLogger();
         //private static Logger logResultados = LogManager.GetCurrentClassLogger();
 
+#pragma warning disable CS1998 // El método asincrónico carece de operadores "await" y se ejecutará de forma sincrónica. Puede usar el operador 'await' para esperar llamadas API que no sean de bloqueo o 'await Task.Run(...)' para hacer tareas enlazadas a la CPU en un subproceso en segundo plano.
         /// <summary>
         /// Metodo para el envio de las solicitudes a LABCORE
         /// </summary>
@@ -40,6 +43,7 @@ namespace labcoreWS
         /// <param name="NroMsg">Numero del Mensaje - Consecutivo de Control</param>
         /// <returns>Retorna mensaje de ACK</returns>
         public async Task<string> ordenarAsync(string solicitud, string orden, string atencion, Int32 NroMsg)
+#pragma warning restore CS1998 // El método asincrónico carece de operadores "await" y se ejecutará de forma sincrónica. Puede usar el operador 'await' para esperar llamadas API que no sean de bloqueo o 'await Task.Run(...)' para hacer tareas enlazadas a la CPU en un subproceso en segundo plano.
         {
             #region Implementa HL7
             string[] datosPcte = utilLocal.idenpaciente(atencion);
@@ -272,6 +276,7 @@ namespace labcoreWS
 
             string rpta = string.Empty;
             MensajeHL7 mensaje = new MensajeHL7(resultado);
+			logLabcore.Info($"Mensaje HL7 para la Solicitud:{resultado}");
             try
             {
                 Conex.ConnectionString = Properties.Settings.Default.LabcoreDBConXX;
@@ -304,6 +309,8 @@ namespace labcoreWS
             }
             catch (EndpointNotFoundException endPointExp)
             {
+
+
                 guardarTxFalla(mensaje);
                 utilLocal.notificaFalla("EndpointNotFound Solicitando:(Solicitud:" + solicitud + " Orden:" + orden + " Atn:" + atencion + "):" + endPointExp.Message);
                 logLabcore.Warn("EndpointNotFoundException En ordenarEstudio" + endPointExp.StackTrace);
@@ -363,34 +370,19 @@ namespace labcoreWS
 
 
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.cambioEstado(string)'
         public string cambioEstado(string msgHL7)
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.cambioEstado(string)'
         {
-            //            msgHL7 = @"MSH|^~\&|LABCORE||SAHI||20180810160248||ORU^R01|LAB0004217646|P|2.3|||AL||||
-            //PID|CC^9515493|||SUANCHA^JORGE ALBERTO||19510315|M|||||3108109979|||||||||||||||||
+            //            msgHL7 = @"MSH|^~\&|LABCORE||SAHI||20181127182630||ORU^R01|LAB0004730755|P|2.3|||AL||||
+            //PID|3^25041211|||TEJEDOR^AURIYER CHIQUINQUIRA||19960910|F|||||3005224234|||||||||||||||||
             //PV1|I|OBS^70||||5416|||||||||||||||||||||||||||||||||||||||||||||
             //IN1||830003564|||||||||||||||||
-            //ORC|SC|689321|494039|6186239|CM||||||||||||||
-            //OBR|1|6186239|901221^HEMOCULTIVO AEROBIO BOTELLA 1|||||||||||||||||BACTERIÓLOGA: JOHANNA H MUNOZ FAJARDO|20180810160238|MB||F||||||||||||||||||
-            //OBX|1|TX|HEMOAE^HEMOCULTIVO AEROBIO BOTELLA 1||Tipo Muestra    Sangre|||N||||||
-            //OBX|2|TX|HEMOAE^HEMOCULTIVO AEROBIO BOTELLA 1||NUMERO DE BOTELLA                                                BOTELLA  AEROBIA 1|||N||||||
-            //OBX|3|TX|HEMOAE^HEMOCULTIVO AEROBIO BOTELLA 1||Microorganismo                                   Candida albicans|||N||||||
-            //OBX|4|TX|EVOHEM^EVOLUTIVO HEMOCULTIVO||TIPO DE MUESTRA: SANGRE|||N||||||
-            //OBX|5|TX|EVOHEM^EVOLUTIVO HEMOCULTIVO||SITIO DE TOMA DE MUESTRA HEMOCULTIVO AEROBIO BOTELLA No 1: CVC SUBCLAVIO IZ|||N||||||
-            //OBX|6|TX|EVOHEM^EVOLUTIVO HEMOCULTIVO||SITIO DE TOMA DE MUESTRA HEMOCULTIVO AEROBIO BOTELLA No 2: CAT IMPLANTABLE|||N||||||
-            //OBX|7|TX|EVOHEM^EVOLUTIVO HEMOCULTIVO||SITIO DE TOMA DE MUESTRA HEMOCULTIVO ANAEROBIO: CVC SUBCLAVIO IZQ|||N||||||
-            //OBX|8|TX|EVOHEM^EVOLUTIVO HEMOCULTIVO||COL. GRAM HEMOCULTIVO POSITIVO  AEROBIO BOTELLA No 1: POSITIVO PARA LEVADURAS A LAS 8.64 HORA. 08 AGOSTO DE 2018|||N||||||
-            //OBX|9|TX|EVOHEM^EVOLUTIVO HEMOCULTIVO||COL. GRAM HEMOCULTIVO POSITIVO  ANAEROBIO: POSITIVO PARA LEVADURAS A LAS 12.48 HORAS. 08 AGOSTO DE 2018|||N||||||
-            //NTE|1|L|Comentarios|
-            //NTE|1|L|EXAMEN REVALIDADO LABCORE N: 689321 DE: Ago  7 2018  2:40PM|
-            //NTE|2|L|VERIFICAR EN HISTORIA CLINICA RESULTADO ANTERIOR.|
-            //OBX|10|TX|NOTHEMO^NOTIFICACION HEMOCULTIVO BOTELLA 1||Fecha de la Notificacion: 08 AGOSTO DE 2018|||N||||||
-            //OBX|11|TX|NOTHEMO^NOTIFICACION HEMOCULTIVO BOTELLA 1||Hora de la Notificacion: 2:30 P.M|||N||||||
-            //OBX|12|TX|NOTHEMO^NOTIFICACION HEMOCULTIVO BOTELLA 1||Resultado Notificado: LEVADURAS|||N||||||
-            //OBX|13|TX|NOTHEMO^NOTIFICACION HEMOCULTIVO BOTELLA 1||# Botella Hemocultivo: 1 Y ANAEROBIA|||N||||||
-            //OBX|14|TX|NOTHEMO^NOTIFICACION HEMOCULTIVO BOTELLA 1||Tipo de Muestra:|||N||||||
-            //OBX|15|TX|NOTHEMO^NOTIFICACION HEMOCULTIVO BOTELLA 1||     SANGRE|||N||||||
-            //OBX|16|TX|NOTHEMO^NOTIFICACION HEMOCULTIVO BOTELLA 1||Nombre Jefe o Medico tratante que recibe la notificacion: JEFE JORGE ESPINOSA EXT 1219. JHMUNOZ|||N||||||
-            //NTE|1|P|VALOR PRIORITARIO|";
+            //ORC|SC|716396|524955|6415111|CM||||||||||||||
+            //OBR|1|6415111|902104^DIMERO D|||||||||||||||||BACTERIÓLOGA: DIANA Y. GONZALEZ |20181127182629|LAB||F||||||||||||||||||
+            //OBX|1|ST|DD3^DIMERO D ( PATHFAST )||Mayor de 5000|ng/ml|0.0-570.0|N||||||
+            //NTE|1|P|VALOR CRITICO|";
+
             logLabcore.Info("******MENSAJE RECIBIDO EN CAMBIO DE ESTADO:  " + msgHL7);
             MensajeHL7 mensaje = new MensajeHL7(msgHL7);
             string respuestaERROR = string.Empty;
@@ -540,13 +532,15 @@ namespace labcoreWS
         /// <returns>string con Mensaje HL7. Para enviar a LABCORE reportando la recepcion TRUE - FALSE del mensaje</returns>
         string ackRecibidos(MSHClass objMSHRecibido, bool tipo)
         {
-            MSHClass objMSH = new MSHClass();
-            objMSH.Msh7 = utilLocal.fechaHL7(DateTime.Now);
-            objMSH.Msh9 = "ORR^O02";
-            objMSH.Msh10 = consecutivoMSG();
-            objMSH.Msh11 = "P";
-            objMSH.Msh12 = "2.3";
-            MSAClass objMSA = new MSAClass();
+			MSHClass objMSH = new MSHClass
+			{
+				Msh7 = utilLocal.fechaHL7(DateTime.Now),
+				Msh9 = "ORR^O02",
+				Msh10 = consecutivoMSG(),
+				Msh11 = "P",
+				Msh12 = "2.3"
+			};
+			MSAClass objMSA = new MSAClass();
             if (tipo)
             {
                 objMSA.MSA2 = "AA";
@@ -564,13 +558,15 @@ namespace labcoreWS
 
         string ackResultados(MSHClass objMSHRecibido, bool estado)
         {
-            MSHClass objMSH = new MSHClass();
-            objMSH.Msh7 = utilLocal.fechaHL7(DateTime.Now);
-            objMSH.Msh9 = "ORR^O02";
-            objMSH.Msh10 = consecutivoMSG();
-            objMSH.Msh11 = "P";
-            objMSH.Msh12 = "2.3";
-            MSAClass objMSA = new MSAClass();
+			MSHClass objMSH = new MSHClass
+			{
+				Msh7 = utilLocal.fechaHL7(DateTime.Now),
+				Msh9 = "ORR^O02",
+				Msh10 = consecutivoMSG(),
+				Msh11 = "P",
+				Msh12 = "2.3"
+			};
+			MSAClass objMSA = new MSAClass();
             if (estado)
             {
                 objMSA.MSA2 = "AA";
@@ -587,16 +583,19 @@ namespace labcoreWS
 
         string ackVenta(MSHClass objMSHRecibido, string nroSolicitud, Int64 idMovimiento)
         {
-            MSHClass objMSH = new MSHClass();
-            objMSH.Msh7 = utilLocal.fechaHL7(DateTime.Now);
-            objMSH.Msh9 = "ORR^O02";
-            objMSH.Msh10 = consecutivoMSG();
-            objMSH.Msh11 = "P";
-            objMSH.Msh12 = "2.3";
-            MSAClass objMSA = new MSAClass();
-
-            objMSA.MSA4 = objMSHRecibido.Msh10;
-            if (idMovimiento > 0)
+			MSHClass objMSH = new MSHClass
+			{
+				Msh7 = utilLocal.fechaHL7(DateTime.Now),
+				Msh9 = "ORR^O02",
+				Msh10 = consecutivoMSG(),
+				Msh11 = "P",
+				Msh12 = "2.3"
+			};
+			MSAClass objMSA = new MSAClass
+			{
+				MSA4 = objMSHRecibido.Msh10
+			};
+			if (idMovimiento > 0)
             {
                 objMSA.MSA2 = "AA";
                 objMSA.MSA3 = idMovimiento.ToString();
@@ -1173,9 +1172,11 @@ namespace labcoreWS
                             encabezado = encabezado + "Nombre Examen        Resultado	Unidades  V.Ref/P.Corte" + "\r\n";
                             strucMensaje structura = new strucMensaje(msg.segmentosOBX);
                             int[] posicionesTX = structura.ValoresDifTX;
-                            List<int> posicionTX = new List<int>();
-                            posicionTX.Add(structura.ordenTX[0] + 1);
-                            for (int j = 0; j < posicionesTX.Length; j++)
+							List<int> posicionTX = new List<int>
+							{
+								structura.ordenTX[0] + 1
+							};
+							for (int j = 0; j < posicionesTX.Length; j++)
                             {
                                 if (posicionesTX[j] > 1)
                                 {
@@ -1215,6 +1216,7 @@ namespace labcoreWS
                                                     string mensajeR = "Paciente:" + paciente.Nombre + " " + paciente.Apellidos + " Doc:" + paciente.numDocumento + " tiene resultado crítico. Defina conducta antes de 60 min y regístrela.";
                                                     clienteSMS.smsHUSISoapClient mensajeRC = new clienteSMS.smsHUSISoapClient("smsHUSISoap");
                                                     string rptaSMS = mensajeRC.smsGeneralHusi(paciente.numDocumento, especialidad, "0", paciente.idPaciente.ToString(), paciente.ubicacionActual, mensajeR);
+                                                    logLabcore.Info("Se procesa valor Critico:" + mensajeR + "    Tipo OBX:NM");
                                                 }
                                             }
                                             else
@@ -1252,6 +1254,7 @@ namespace labcoreWS
                                                     string mensajeR = "Paciente:" + paciente.Nombre + " " + paciente.Apellidos + " Doc:" + paciente.numDocumento + " tiene resultado crítico. Defina conducta antes de 60 min y regístrela.";
                                                     clienteSMS.smsHUSISoapClient mensajeRC = new clienteSMS.smsHUSISoapClient("smsHUSISoap");
                                                     string rptaSMS = mensajeRC.smsGeneralHusi(paciente.numDocumento, especialidad, "0", paciente.idPaciente.ToString(), paciente.ubicacionActual, mensajeR);
+                                                    logLabcore.Info("Se procesa valor Critico:" + mensajeR + "    Tipo OBX:ST");
                                                 }
                                             }
                                             else
@@ -2451,16 +2454,20 @@ namespace labcoreWS
 
         string ackCancelarVenta(MSHClass objMSHRecibido, string nroSolicitud, string codigo, Int64 idMovimientoCan)
         {
-            MSHClass objMSH = new MSHClass();
-            objMSH.Msh7 = utilLocal.fechaHL7(DateTime.Now);
-            objMSH.Msh9 = "ORR^O02";
-            objMSH.Msh10 = consecutivoMSG();
-            objMSH.Msh11 = "P";
-            objMSH.Msh12 = "2.3";
-            MSAClass objMSA = new MSAClass();
+			MSHClass objMSH = new MSHClass
+			{
+				Msh7 = utilLocal.fechaHL7(DateTime.Now),
+				Msh9 = "ORR^O02",
+				Msh10 = consecutivoMSG(),
+				Msh11 = "P",
+				Msh12 = "2.3"
+			};
 
-            objMSA.MSA4 = objMSHRecibido.Msh10;
-            if (idMovimientoCan > 0)
+			MSAClass objMSA = new MSAClass
+			{
+				MSA4 = objMSHRecibido.Msh10
+			};
+			if (idMovimientoCan > 0)
             {
                 objMSA.MSA2 = "AA";
                 objMSA.MSA3 = idMovimientoCan.ToString();
@@ -2670,59 +2677,79 @@ namespace labcoreWS
             int producto = 0;
             int idAtencion = 0;
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.IDTarifaCondicion'
             public Int32 IDTarifaCondicion
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.IDTarifaCondicion'
             {
                 get { return this.idTarifaCondicion; }
                 set { this.idTarifaCondicion = value; }
             }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.CamposNulos'
             public Int16 CamposNulos
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.CamposNulos'
             {
                 get { return this.camposNulos; }
                 set { this.camposNulos = value; }
             }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.ValRelacion'
             public float ValRelacion
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.ValRelacion'
             {
                 get { return this.valRelacion; }
                 set { this.valRelacion = value; }
             }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.TipoRelacion'
             public Byte TipoRelacion
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.TipoRelacion'
             {
                 get { return this.tipoRelacion; }
                 set { this.tipoRelacion = value; }
             }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.Contrato'
             public int Contrato
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.Contrato'
             {
                 get { return this.contrato; }
                 set { this.contrato = value; }
             }
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.TarifaRef'
             public Int16 TarifaRef
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.TarifaRef'
             {
                 get { return this.tarifaRef; }
                 set { this.tarifaRef = value; }
             }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.Plan'
             public int Plan
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.Plan'
             {
                 get { return this.plan; }
                 set { this.plan = value; }
             }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.Grupo'
             public int Grupo
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.Grupo'
             {
                 get { return this.grupo; }
                 set { this.grupo = value; }
             }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.Producto'
             public int Producto
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.Producto'
             {
                 get { return this.producto; }
                 set { this.producto = value; }
             }
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.Atencion'
             public int Atencion
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.regsTarifaCon.Atencion'
             {
                 get { return this.idAtencion; }
                 set { this.idAtencion = value; }
@@ -2735,11 +2762,15 @@ namespace labcoreWS
             using (SqlConnection conexion = new SqlConnection(Properties.Settings.Default.DBConexionXX))
             {
                 conexion.Open();
-                SqlCommand sentencia = new SqlCommand("spFACConsecutivoVentas", conexion);
-                sentencia.CommandType = CommandType.StoredProcedure;
-                SqlParameter consecutivo = new SqlParameter("@siguiente", SqlDbType.BigInt);
-                consecutivo.Direction = ParameterDirection.Output;
-                sentencia.Parameters.Add(consecutivo);
+				SqlCommand sentencia = new SqlCommand("spFACConsecutivoVentas", conexion)
+				{
+					CommandType = CommandType.StoredProcedure
+				};
+				SqlParameter consecutivo = new SqlParameter("@siguiente", SqlDbType.BigInt)
+				{
+					Direction = ParameterDirection.Output
+				};
+				sentencia.Parameters.Add(consecutivo);
                 sentencia.Parameters.Add("@numTabla", SqlDbType.SmallInt);
                 sentencia.Parameters["@numTabla"].Value = 200;
 
@@ -2856,14 +2887,16 @@ namespace labcoreWS
                     while (readerconTarifaCond.Read())
                     {
                         totalNull = 0;
-                        regsTarifaCon registro = new regsTarifaCon();
-                        registro.IDTarifaCondicion = readerconTarifaCond.GetInt32(0);
-                        registro.Contrato = readerconTarifaCond.GetInt32(1);
-                        registro.TarifaRef = readerconTarifaCond.GetInt16(2);
-                        registro.Plan = readerconTarifaCond.GetInt32(3);
-                        registro.Grupo = readerconTarifaCond.GetInt32(4);
-                        //registro.Producto = readerconTarifaCond.GetInt32(6);
-                        if (readerconTarifaCond.GetInt32(6) == 0) { registro.Producto = idProductoObj; } else { registro.Producto = readerconTarifaCond.GetInt32(6); }
+						regsTarifaCon registro = new regsTarifaCon
+						{
+							IDTarifaCondicion = readerconTarifaCond.GetInt32(0),
+							Contrato = readerconTarifaCond.GetInt32(1),
+							TarifaRef = readerconTarifaCond.GetInt16(2),
+							Plan = readerconTarifaCond.GetInt32(3),
+							Grupo = readerconTarifaCond.GetInt32(4)
+						};
+						//registro.Producto = readerconTarifaCond.GetInt32(6);
+						if (readerconTarifaCond.GetInt32(6) == 0) { registro.Producto = idProductoObj; } else { registro.Producto = readerconTarifaCond.GetInt32(6); }
                         registro.Atencion = readerconTarifaCond.GetInt32(7);
                         registro.TipoRelacion = readerconTarifaCond.GetByte(8);
                         registro.ValRelacion = float.Parse(readerconTarifaCond.GetDouble(9).ToString());
@@ -3082,8 +3115,12 @@ WHERE at.IdAtencion =@idAtencion";
     /// </summary>
     public struct precios
     {
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'precios.tipo'
         public string tipo;
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'precios.tipo'
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'precios.valor'
         public float valor;
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'precios.valor'
 
     }
 }

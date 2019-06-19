@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://winpvtiws01:8111/ordenarEstudio.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://wintvtiws01:8111/ordenarEstudio.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ordenarEstudio.xsd" MetadataType="Schema" ID="61214a43-2022-4989-be00-24c9e3984331" SourceId="1" SourceUrl="http://winpvtiws01:8111/ordenarEstudio.svc?xsd=xsd1" />
-    <MetadataFile FileName="ordenarEstudio.wsdl" MetadataType="Wsdl" ID="9073c607-acb6-4e74-a279-6a56e6cd21fa" SourceId="1" SourceUrl="http://winpvtiws01:8111/ordenarEstudio.svc?wsdl" />
-    <MetadataFile FileName="ordenarEstudio1.xsd" MetadataType="Schema" ID="ecb7aaea-2cde-4bb5-b892-40860f2c728a" SourceId="1" SourceUrl="http://winpvtiws01:8111/ordenarEstudio.svc?xsd=xsd0" />
-    <MetadataFile FileName="ordenarEstudio.disco" MetadataType="Disco" ID="8e82f377-ea16-479e-86cc-ec460113c7b6" SourceId="1" SourceUrl="http://winpvtiws01:8111/ordenarEstudio.svc?disco" />
+    <MetadataFile FileName="ordenarEstudio2.xsd" MetadataType="Schema" ID="3ef3a24a-80fb-43eb-ae10-284b36ee410d" SourceId="1" SourceUrl="http://wintvtiws01:8111/ordenarEstudio.svc?xsd=xsd1" />
+    <MetadataFile FileName="ordenarEstudio1.disco" MetadataType="Disco" ID="c97c04b5-a116-4e3d-be75-ebc9e33cfece" SourceId="1" SourceUrl="http://wintvtiws01:8111/ordenarEstudio.svc?disco" />
+    <MetadataFile FileName="ordenarEstudio21.xsd" MetadataType="Schema" ID="9b7c9400-08f2-4181-9489-6ae1dea2e181" SourceId="1" SourceUrl="http://wintvtiws01:8111/ordenarEstudio.svc?xsd=xsd0" />
+    <MetadataFile FileName="ordenarEstudio1.wsdl" MetadataType="Wsdl" ID="48e0f46f-82c0-4eda-9431-f25941e3b8e7" SourceId="1" SourceUrl="http://wintvtiws01:8111/ordenarEstudio.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
