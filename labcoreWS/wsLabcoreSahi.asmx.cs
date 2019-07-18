@@ -20,21 +20,23 @@ using System.Web.Services.Protocols;
 
 namespace labcoreWS
 {
+
+
+
+	/// <summary>
+	/// 
+	/// </summary>
     [WebService(Namespace = "http://husi.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
 
-#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'wsLabcoreSahi'
     public class wsLabcoreSahi : System.Web.Services.WebService
-#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'wsLabcoreSahi'
     {
         private static Logger logLabcore = LogManager.GetCurrentClassLogger();
         Utilidades utilLocal = new Utilidades();
         //[SoapDocumentMethod(OneWay = true)]
         [WebMethod]
-#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'wsLabcoreSahi.ordenes(string)'
         public string ordenes(string ordenesInput)
-#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'wsLabcoreSahi.ordenes(string)'
         {
             logLabcore.Info("orden:" + ordenesInput);
             //ordenesInput = "<orden idAtencion=\"4888820\" nroOrden=\"6856586\" fechaOrden=\"2015/12/10 08:54:52\" idUsuario=\"3035\"><producto><id>10714</id><cups>902205</cups><cant>1</cant><obs /></producto><producto><id>11244</id><cups>902210</cups><cant>1</cant><obs /></producto></orden>";
@@ -49,7 +51,6 @@ namespace labcoreWS
                 orden ordenWrk = (orden)obj;
                 ordenProducto[] cupsWrk = ordenWrk.producto;
                 ordenProducto[] cupsTablaSync = null;
-
                 SqlConnection Conex = new SqlConnection(Properties.Settings.Default.LabcoreDBConXX);
                 using (Conex)
                 {
@@ -71,23 +72,18 @@ namespace labcoreWS
                     }
                     else
                     {
-                        logLabcore.Warn("03:No hay Datos de Sincronizacion Para la Orden En Proceso:" + ordenWrk.nroOrden);
+                        logLabcore.Warn($"03:No hay Datos de Sincronizacion Para la Orden En Proceso:{ordenWrk.nroOrden}");
                         return "03:No hay Datos de Sincronizacion";
                     }
                     conCursor.Close();
                     conCursor.Dispose();
                     string strInsertar = "INSERT INTO TAT_ENC_ORDSAHI (NRO_ORDEN,NRO_ATEN,USR_ORDEN,FECHA_ORD) VALUES(@orden,@atencion,@usuario,@fecha)";
-                    SqlTransaction TX1;
-                    TX1 = Conex.BeginTransaction("tr1");
+                    SqlTransaction TX1=Conex.BeginTransaction("tr1");
                     SqlCommand cmdInsertar = new SqlCommand(strInsertar, Conex, TX1);
-                    cmdInsertar.Parameters.Add("@orden", SqlDbType.Int);
-                    cmdInsertar.Parameters.Add("@atencion", SqlDbType.Int);
-                    cmdInsertar.Parameters.Add("@usuario", SqlDbType.Int);
-                    cmdInsertar.Parameters.Add("@fecha", SqlDbType.DateTime);
-                    cmdInsertar.Parameters["@orden"].Value = ordenWrk.nroOrden;
-                    cmdInsertar.Parameters["@atencion"].Value = ordenWrk.idAtencion;
-                    cmdInsertar.Parameters["@usuario"].Value = ordenWrk.idUsuario;
-                    cmdInsertar.Parameters["@fecha"].Value = ordenWrk.fechaOrden;
+                    cmdInsertar.Parameters.Add("@orden", SqlDbType.Int).Value= ordenWrk.nroOrden;
+					cmdInsertar.Parameters.Add("@atencion", SqlDbType.Int).Value= ordenWrk.idAtencion;
+					cmdInsertar.Parameters.Add("@usuario", SqlDbType.Int).Value=ordenWrk.idUsuario;
+					cmdInsertar.Parameters.Add("@fecha", SqlDbType.DateTime).Value= ordenWrk.fechaOrden;
 
                     SqlCommand cmdInsertardDetalle = new SqlCommand();
                     SqlCommand cmdBorrar = new SqlCommand();
@@ -199,12 +195,13 @@ namespace labcoreWS
             }
         }
 
-        /// <summary>
-        /// Operacion para el envio de Solictudes. consumido por SAHI 
-        /// </summary>
-        /// <param name="solicitudInput">XML con la informacion de la solicirud</param>
-        /// <returns></returns>
-        [WebMethod]
+		/// <summary>
+		/// Operacion para el envio de Solictudes. consumido por SAHI 
+		/// </summary>
+		/// <param name="solicitudInput">XML con la informacion de la solicirud</param>
+		/// <returns></returns>
+
+		[WebMethod]
         //[SoapDocumentMethod(OneWay = true)]
         public string solicitudes(string solicitudInput)
         {
@@ -493,52 +490,52 @@ namespace labcoreWS
             }
         }
 
-        private async void entregaSolicitud(string solicitud, string orden, string atencion, Int32 NumeroMsg)
-        {
-            try
-            {
-                srProxyOrdenar.IordenarEstudioClient clienteOrdenar = new srProxyOrdenar.IordenarEstudioClient();
-                string rpta = await clienteOrdenar.ordenarAsync(solicitud, orden, atencion, NumeroMsg);
-                logLabcore.Info("Respuesta Recibida en wsLabcoreSahi.asmx:" + solicitud + " Respuesta Recibida:" + rpta);
-            }
-            catch (EndpointNotFoundException endPointExp)
-            {
-                String _mensaje = "TAT(EndpointNotFound)(Solicitud:" + solicitud + " Orden:" + orden + " Atn:" + atencion + "):" + endPointExp.Message;
-                utilLocal.notificaFalla(_mensaje);
-                logLabcore.Warn("EndpointNotFoundException en wsLabcoreSahi.asmx" + endPointExp.StackTrace);
-            }
-            catch (ServerTooBusyException serverExp)
-            {
-                String _mensaje = "TAT ServerTooBusy:(Solicitud:" + solicitud + " Orden:" + orden + " Atn:" + atencion + ")" + serverExp.Message;
-                utilLocal.notificaFalla(_mensaje);
-                logLabcore.Warn("ServerTooBusyException en wsLabcoreSahi.asmx" + serverExp.StackTrace);
-            }
-            catch (ChannelTerminatedException channelExp)
-            {
-                String _mensaje = "TAT ChannelTerminated:(Solicitud:" + solicitud + " Orden:" + orden + " Atn:" + atencion + ")" + channelExp.Message;
-                utilLocal.notificaFalla(_mensaje);
-                logLabcore.Warn("ChannelTerminatedException en wsLabcoreSahi.asmx" + channelExp.StackTrace);
-            }
-            catch (CommunicationException commExp)
-            {
-                String _mensaje = "TAT CommunicationException:(Solicitud:" + solicitud + " Orden:" + orden + " Atn:" + atencion + ")" + commExp.Message;
-                utilLocal.notificaFalla(_mensaje);
-                logLabcore.Warn("CommunicationException en wsLabcoreSahi.asmx" + commExp.StackTrace);
-            }
+		private void entregaSolicitud(string solicitud, string orden, string atencion, Int32 NumeroMsg)
+		{
+			try
+			{
+				srProxyOrdenar.IordenarEstudioClient clienteOrdenar = new srProxyOrdenar.IordenarEstudioClient();
+				string rpta = clienteOrdenar.ordenar(solicitud, orden, atencion, NumeroMsg);
+				logLabcore.Info("Respuesta Recibida en wsLabcoreSahi.asmx:" + solicitud + " Respuesta Recibida:" + rpta);
+			}
+			catch (EndpointNotFoundException endPointExp)
+			{
+				String _mensaje = $"TAT(EndpointNotFound)(Solicitud: {solicitud}   Orden:{orden}  Atn:{atencion} ): {endPointExp.Message}";
+				utilLocal.notificaFalla(_mensaje);
+				logLabcore.Warn("EndpointNotFoundException en wsLabcoreSahi.asmx" + endPointExp.StackTrace);
+			}
+			catch (ServerTooBusyException serverExp)
+			{
+				String _mensaje = "TAT ServerTooBusy:(Solicitud:" + solicitud + " Orden:" + orden + " Atn:" + atencion + ")" + serverExp.Message;
+				utilLocal.notificaFalla(_mensaje);
+				logLabcore.Warn("ServerTooBusyException en wsLabcoreSahi.asmx" + serverExp.StackTrace);
+			}
+			catch (ChannelTerminatedException channelExp)
+			{
+				String _mensaje = "TAT ChannelTerminated:(Solicitud:" + solicitud + " Orden:" + orden + " Atn:" + atencion + ")" + channelExp.Message;
+				utilLocal.notificaFalla(_mensaje);
+				logLabcore.Warn("ChannelTerminatedException en wsLabcoreSahi.asmx" + channelExp.StackTrace);
+			}
+			catch (CommunicationException commExp)
+			{
+				String _mensaje = "TAT CommunicationException:(Solicitud:" + solicitud + " Orden:" + orden + " Atn:" + atencion + ")" + commExp.Message;
+				utilLocal.notificaFalla(_mensaje);
+				logLabcore.Warn("CommunicationException en wsLabcoreSahi.asmx" + commExp.StackTrace);
+			}
 
-            catch (TimeoutException toExp)
-            {
-                String _mensaje = "TAT Timeout:(Solicitud:" + solicitud + " Orden:" + orden + " Atn:" + atencion + ")" + toExp.Message;
-                utilLocal.notificaFalla(_mensaje);
-                logLabcore.Warn("Exception Time Out en wsLabcoreSahi.asmx" + toExp.StackTrace);
-            }
-            catch (Exception exp)
-            {
-                String _mensaje = "TAT(Solicitud:" + solicitud + " Orden:" + orden + " Atn:" + atencion + "):" + exp.Message;
-                utilLocal.notificaFalla(_mensaje);
-                logLabcore.Info("Excepcion desde wsLabcoreSahi.asmx Enviado la Solicitud a Trazabilidad:" + solicitud + " mensaje:" + exp.Message + " " + exp.StackTrace.ToString());
-            }
-        }
+			catch (TimeoutException toExp)
+			{
+				String _mensaje = "TAT Timeout:(Solicitud:" + solicitud + " Orden:" + orden + " Atn:" + atencion + ")" + toExp.Message;
+				utilLocal.notificaFalla(_mensaje);
+				logLabcore.Warn("Exception Time Out en wsLabcoreSahi.asmx" + toExp.StackTrace);
+			}
+			catch (Exception exp)
+			{
+				String _mensaje = "TAT(Solicitud:" + solicitud + " Orden:" + orden + " Atn:" + atencion + "):" + exp.Message;
+				utilLocal.notificaFalla(_mensaje);
+				logLabcore.Info("Excepcion desde wsLabcoreSahi.asmx Enviado la Solicitud a Trazabilidad:" + solicitud + " mensaje:" + exp.Message + " " + exp.StackTrace.ToString());
+			}
+		}
 
-    }
+	}
 }

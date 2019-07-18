@@ -13,10 +13,13 @@ using System.Transactions;
 
 namespace labcoreWS
 {
+	/// <summary>
+	/// Implementacion del Servicio 
+	/// </summary>
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
-#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio'
-    public class ordenarEstudio : IordenarEstudio, IDisposable
-#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio'
+	
+	
+	public class ordenarEstudio : IordenarEstudio, IDisposable
     {
         SqlConnection ConexR = new SqlConnection(Properties.Settings.Default.LabcoreDBConXX);
         SqlConnection Conex = new SqlConnection(Properties.Settings.Default.LabcoreDBConXX);
@@ -43,7 +46,6 @@ namespace labcoreWS
         /// <param name="NroMsg">Numero del Mensaje - Consecutivo de Control</param>
         /// <returns>Retorna mensaje de ACK</returns>
         public async Task<string> ordenarAsync(string solicitud, string orden, string atencion, Int32 NroMsg)
-#pragma warning restore CS1998 // El método asincrónico carece de operadores "await" y se ejecutará de forma sincrónica. Puede usar el operador 'await' para esperar llamadas API que no sean de bloqueo o 'await Task.Run(...)' para hacer tareas enlazadas a la CPU en un subproceso en segundo plano.
         {
             #region Implementa HL7
             string[] datosPcte = utilLocal.idenpaciente(atencion);
@@ -309,8 +311,6 @@ namespace labcoreWS
             }
             catch (EndpointNotFoundException endPointExp)
             {
-
-
                 guardarTxFalla(mensaje);
                 utilLocal.notificaFalla("EndpointNotFound Solicitando:(Solicitud:" + solicitud + " Orden:" + orden + " Atn:" + atencion + "):" + endPointExp.Message);
                 logLabcore.Warn("EndpointNotFoundException En ordenarEstudio" + endPointExp.StackTrace);
@@ -367,12 +367,7 @@ namespace labcoreWS
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:Review SQL queries for security vulnerabilities")]
 
-
-
-
-#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.cambioEstado(string)'
         public string cambioEstado(string msgHL7)
-#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible de forma pública 'ordenarEstudio.cambioEstado(string)'
         {
             //            msgHL7 = @"MSH|^~\&|LABCORE||SAHI||20181127182630||ORU^R01|LAB0004730755|P|2.3|||AL||||
             //PID|3^25041211|||TEJEDOR^AURIYER CHIQUINQUIRA||19960910|F|||||3005224234|||||||||||||||||
@@ -2145,10 +2140,10 @@ namespace labcoreWS
 
 
         /// <summary>
-        /// /
+        /// /Clase para serializar la Clase de Mensajes HL7
         /// </summary>
         /// <param name="mensajeOriginal"></param>
-        /// <returns></returns>
+        /// <returns>String XML</returns>
         public string SerializarHL7(MensajeHL7 mensajeOriginal)
         {
             StringBuilder serializado = new StringBuilder();
@@ -2175,11 +2170,11 @@ namespace labcoreWS
         }
 
         /// <summary>
-        /// 
+        /// Metodo para cancelar Ventas
         /// </summary>
         /// <param name="msg"></param>
         /// <param name="idMovimientoCancelar"></param>
-        /// <returns></returns>
+        /// <returns>String con Resultado Operacion</returns>
         public string cancelarVentaLabAsync(MensajeHL7 msg, string idMovimientoCancelar)  // *********continuar aqui
         {
             SqlConnection Conex = new SqlConnection(Properties.Settings.Default.LabcoreDBConXX);
@@ -2552,10 +2547,10 @@ namespace labcoreWS
         //////}
 
         /// <summary>
-        /// 
+        /// Metodo para cancelar estudio
         /// </summary>
-        /// <param name="msg"></param>
-        /// <returns></returns>
+        /// <param name="msg">Mensaje HL7</param>
+        /// <returns>Mensaje string de confirmacion</returns>
         public string cancelarLaboratorio(MensajeHL7 msg)
         {
             SqlConnection Conex = new SqlConnection(Properties.Settings.Default.LabcoreDBConXX);
