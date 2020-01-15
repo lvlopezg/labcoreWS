@@ -165,7 +165,16 @@
     </Content>
     <None Include="Service References\clienteSMS\smsHUSI.wsdl" />
     <None Include="Service References\srLabcoreResultados\IWSSolicitudesservice.wsdl" />
-    <None Include="Service References\srLabcoreTAT\IWSSolicitudesservice.wsdl" />
+    <None Include="Service References\srLabcoreTAT\LabLinkHUSI.wsdl" />
+    <None Include="Service References\srLabcoreTAT\LabLinkHUSI.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\srLabcoreTAT\LabLinkHUSI1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\srLabcoreTAT\LabLinkHUSI2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\srProxyOrdenar\configuration91.svcinfo" />
     <None Include="Service References\srProxyOrdenar\configuration.svcinfo" />
     <None Include="Service References\srProxyOrdenar\ordenarEstudio1.wsdl" />

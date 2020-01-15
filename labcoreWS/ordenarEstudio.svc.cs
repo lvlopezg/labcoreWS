@@ -193,8 +193,10 @@ namespace labcoreWS
                 {
                     Conex.Open();
                     //IN1
-                    string strDatosSolicitud = "SELECT FECHA_ORD,FECHA_SOL, USR_SOLIC,A.NRO_ORDEN FROM TAT_ENC_ORDSAHI A,TAT_ENC_SOLSAHI B WHERE A.NRO_ORDEN=B.NRO_ORDEN AND A.NRO_ATEN=B.NRO_ATEN AND A.NRO_ATEN=" + atencion + "AND A.NRO_ORDEN=" + orden;
+                    string strDatosSolicitud = "SELECT FECHA_ORD,FECHA_SOL, USR_SOLIC,A.NRO_ORDEN FROM TAT_ENC_ORDSAHI A,TAT_ENC_SOLSAHI B WHERE A.NRO_ORDEN=B.NRO_ORDEN AND A.NRO_ATEN=B.NRO_ATEN AND A.NRO_ATEN=@atencion AND A.NRO_ORDEN=@orden";
                     SqlCommand cmdDatosSolicitud = new SqlCommand(strDatosSolicitud, Conex);
+                    cmdDatosSolicitud.Parameters.Add("@atencion", SqlDbType.Int).Value = atencion;
+                    cmdDatosSolicitud.Parameters.Add("@orden", SqlDbType.Int).Value = orden;
                     SqlDataReader DatosSolicitudReader = cmdDatosSolicitud.ExecuteReader();
                     if (DatosSolicitudReader.HasRows)
                     {
@@ -275,7 +277,13 @@ namespace labcoreWS
             #endregion
 
             #endregion
-
+            //resultado = @"MSH|^~\&|SAHI||LABCORE||20191011164655||ORM^O01|5798174|P|2.3|||AL||||
+            //PID | 2 ^ 77491722 ||| PRUEBA ^ 77491 ^ VICTOR PACIENTE || 19930516000000 | M ||||| 3145432670 |||||||||||||||||
+            //        PV1 | 6 ^ Hospitalización por Urgencias| 5 ^ 5 Piso - Unidad de Cuidados Intensivos | 3 ^ Hospitalización | URGENTE || 2654 ^ SANDRA LILIANA VALDERRAMA BELTRAN ||| 415 ^ Laboratorio Clinico Central| 5 - 85 ^ 571 |||||||||||||||||||||||||||||||||||||
+            //                             IN1 || 860066942 | 7974 ^ 7974 COMPENSAR HOSPITALIZACION PTES ONCOLOGICOS ADULTO ||||||||||||||||
+            //                                   ORC | NW | 9923067 | 601028 | 6795140 | NW |||| 20191011164550 || 2921 || HUSI || 20191011164413 ||||
+            //                                   OBR | 1 | 601028 | 901217D ^ Cultivo para Microorganismos Aerobios(Búsqueda Streptococcus Agalactiae) - Cod.HUSI: 901217D ||||||||| Prioridad: Hospitalario Normal .|||||||||||||| 1 ||||||||||||||||
+            //                                            ";
             string rpta = string.Empty;
             MensajeHL7 mensaje = new MensajeHL7(resultado);
 			logLabcore.Info($"Mensaje HL7 para la Solicitud:{resultado}");
@@ -291,7 +299,7 @@ namespace labcoreWS
                     if (readerDatosAten.HasRows)
                     {
                         readerDatosAten.Read();
-                        if (readerDatosAten.GetInt16(1) == 8 || readerDatosAten.GetInt16(1) == 27)
+                        if (readerDatosAten.GetInt16(1) == 8 || readerDatosAten.GetInt16( 1) == 27)
                         {
                             rpta = "Atencion Ambulatorios/No se Envia";
                         }
@@ -303,8 +311,8 @@ namespace labcoreWS
                     else // Se envia a Labcore y Se escribe a LOG
                     {
                         logLabcore.Info("Enviando Solicitud MSG HL7 :" + resultado);
-                        srLabcoreTAT.WSSolicitudesClient cliente = new srLabcoreTAT.WSSolicitudesClient();
-                        rpta = cliente.GetHL7Msg(resultado);
+                        srLabcoreTAT.LabLinkHUSIClient cliente = new srLabcoreTAT.LabLinkHUSIClient();
+                        rpta = cliente.SetHl7(resultado);
                         logLabcore.Info("Respuesta Labcore Para Solicitud:" + solicitud + ":::Respuesta Labcore:::" + rpta);
                     }
                 }
@@ -657,7 +665,7 @@ namespace labcoreWS
                 if (msg.objPV1.PV17.Length == 0) { codUsuario = "0"; } else { codUsuario = msg.objPV1.PV17; };
             }
             // **********************************************************
-            srLabcoreTAT.WSSolicitudesClient cliente = new srLabcoreTAT.WSSolicitudesClient();
+            srLabcoreTAT.LabLinkHUSIClient cliente = new srLabcoreTAT.LabLinkHUSIClient();
             string textoMensaje = string.Empty;
             foreach (string[] segmentoOBR in msg.segmentosOBR)
             {
@@ -679,7 +687,7 @@ namespace labcoreWS
                         readerProducto.Read();
                         Int32 idProducto = readerProducto.GetInt32(0);
                         textoMensaje = ackVenta(msg.objMSH, nroSolicitud, idMovimientoVta);
-                        string rpta = cliente.GetHL7Msg(textoMensaje);
+                        string rpta = cliente.SetHl7(textoMensaje);
                         if (idMovimientoVta > 0)
                         {
                             logLabcore.Info("Mensaje de Venta de Vendido SAHI-->Labcore Enviado:" + textoMensaje);
@@ -692,7 +700,7 @@ namespace labcoreWS
                         else
                         {
                             textoMensaje = ackVenta(msg.objMSH, nroSolicitud, 0);
-                            rpta = cliente.GetHL7Msg(textoMensaje);
+                            rpta = cliente.SetHl7(textoMensaje);
                             //utilLocal.notificaFalla("NO Vendido:" + nroSolicitud+"MSG:"+msg.objMSH.Msh10);
                             utilLocal.notificaFallaDetalle(nroAtencion, nroSolicitud, Cups, "No se Inserto el Movimiento de la Venta en la tabla facMovimientoDet, Solicitud:" + nroSolicitud);
                             logLabcore.Info("Mensaje Venta de NO Vendido Enviado:" + textoMensaje);
@@ -703,7 +711,7 @@ namespace labcoreWS
                 else
                 {
                     textoMensaje = ackVenta(msg.objMSH, nroSolicitud, idMovtoValidado);
-                    string rpta = cliente.GetHL7Msg(textoMensaje);
+                    string rpta = cliente.SetHl7(textoMensaje);
                     logLabcore.Info("Intento Venta Duplicada del Movimiento: " + idMovtoValidado + ", Se retorno el nro de Movimiento");
                     logLabcore.Info("Respuesta de Labcore al mensaje de venta::: " + rpta);
                     Conex.ConnectionString = Properties.Settings.Default.DBConexion;
@@ -2095,8 +2103,8 @@ namespace labcoreWS
                             if (cmdInsertarVta.ExecuteNonQuery() > 0)
                             {
                                 textoMensaje = ackRecibidos(msg.objMSH, true);
-                                srLabcoreTAT.WSSolicitudesClient cliente = new srLabcoreTAT.WSSolicitudesClient();
-                                rptaLab = cliente.GetHL7Msg(textoMensaje);
+                                srLabcoreTAT.LabLinkHUSIClient cliente = new srLabcoreTAT.LabLinkHUSIClient();
+                                rptaLab = cliente.SetHl7(textoMensaje);
                                 logLabcore.Info("Mensaje Venta Recibida:" + textoMensaje);
                                 logLabcore.Info("Respuesta Labcore:" + rptaLab);
                                 respuesta = rptaLab;
@@ -2105,8 +2113,8 @@ namespace labcoreWS
                         else
                         {
                             textoMensaje = ackRecibidos(msg.objMSH, true);
-                            srLabcoreTAT.WSSolicitudesClient cliente = new srLabcoreTAT.WSSolicitudesClient();
-                            rptaLab = cliente.GetHL7Msg(textoMensaje);
+                            srLabcoreTAT.LabLinkHUSIClient cliente = new srLabcoreTAT.LabLinkHUSIClient();
+                            rptaLab = cliente.SetHl7(textoMensaje);
                             logLabcore.Info("Mensaje Venta Recibida en proceso Anterior, Se procesa informacion de TAT_VENT_XPROC :" + textoMensaje);
                             logLabcore.Info("Respuesta Labcore:" + rptaLab);
                             respuesta = textoMensaje;
@@ -2399,8 +2407,8 @@ namespace labcoreWS
                                             SqlCommand cmdGuardarVenta = new SqlCommand(strGuardarVenta, Conex);
                                             cmdGuardarVenta.ExecuteNonQuery();
                                             string textoMensaje = ackVenta(msg.objMSH, nroSolicitud, NumMovimientoCan);
-                                            srLabcoreTAT.WSSolicitudesClient cliente = new srLabcoreTAT.WSSolicitudesClient();
-                                            string rpta = cliente.GetHL7Msg(textoMensaje);
+                                            srLabcoreTAT.LabLinkHUSIClient cliente = new srLabcoreTAT.LabLinkHUSIClient();
+                                            string rpta = cliente.SetHl7(textoMensaje);
                                             logLabcore.Info("Mensaje Cancelacion Enviado:" + textoMensaje);
                                             logLabcore.Info("Respuesta a la Cancelacion de Labcore:" + rpta);
 
@@ -2624,8 +2632,8 @@ namespace labcoreWS
                     if (cmdInsertarTraza.ExecuteNonQuery() > 0)
                     {
                         string textoMensaje = ackCancelarVenta(msg.objMSH, nroSolicitud, "004", idMovimientoCan);
-                        srLabcoreTAT.WSSolicitudesClient cliente = new srLabcoreTAT.WSSolicitudesClient();
-                        string rpta = cliente.GetHL7Msg(textoMensaje);
+                        srLabcoreTAT.LabLinkHUSIClient cliente = new srLabcoreTAT.LabLinkHUSIClient();
+                        string rpta = cliente.SetHl7(textoMensaje);
                         if (!updateTraza.insertarTraza(nroAtencion, nroOrden, nroSolicitud, Cups, "ORM^CA", DateTime.Now, 0))
                         {
                             logLabcore.Warn("No se actualizo la Trazabilidad en Cancelacion-1:Atencion:" + nroAtencion + " Orden:" + nroOrden + " Solicitud:" + nroSolicitud + " Producto:" + Cups + " Evento:ORM^CA");
@@ -2637,8 +2645,8 @@ namespace labcoreWS
                     else
                     {
                         string textoMensaje = ackRecibidos(msg.objMSH, false);
-                        srLabcoreTAT.WSSolicitudesClient cliente = new srLabcoreTAT.WSSolicitudesClient();
-                        string rpta = cliente.GetHL7Msg(textoMensaje);
+                        srLabcoreTAT.LabLinkHUSIClient cliente = new srLabcoreTAT.LabLinkHUSIClient();
+                        string rpta = cliente.SetHl7(textoMensaje);
                         logLabcore.Info("Mensaje Cancelacion Laboratorio Enviado:" + textoMensaje);
                         logLabcore.Info("Respuesta la Cancelacion Laboratorio de Labcore:" + rpta);
                         return rpta;
@@ -2647,8 +2655,8 @@ namespace labcoreWS
                 else
                 {
                     string textoMensaje = ackRecibidos(msg.objMSH, false);
-                    srLabcoreTAT.WSSolicitudesClient cliente = new srLabcoreTAT.WSSolicitudesClient();
-                    string rpta = cliente.GetHL7Msg(textoMensaje);
+                    srLabcoreTAT.LabLinkHUSIClient cliente = new srLabcoreTAT.LabLinkHUSIClient();
+                    string rpta = cliente.SetHl7(textoMensaje);
                     logLabcore.Info("Mensaje Cancelacion Laboratorio Enviado:" + textoMensaje);
                     logLabcore.Info("Respuesta la Cancelacion Laboratorio de Labcore:" + rpta);
                     return rpta;

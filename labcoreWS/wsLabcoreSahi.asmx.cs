@@ -206,7 +206,7 @@ namespace labcoreWS
         public string solicitudes(string solicitudInput)
         {
             logLabcore.Info("*******   Solicitud Recibida desde SAHI para Enviar:" + solicitudInput);
-            //solicitudInput = "<solicitud idAtencion=\"5656115\" nroSolicitud=\"382937\" fechaSolicitud=\"2017/07/03 12:40:10\" prioridad=\"URGENTE\" nroOrden=\"8158979\" idUsuario=\"10469\">  <producto>    <id>11244</id>    <cups>902210</cups>    <cant>1</cant>    <obs />  </producto></solicitud>";
+            //solicitudInput = "<solicitud idAtencion=\"6795140\" nroSolicitud=\"601042\" fechaSolicitud=\"2019 / 10 / 28 08:43:49\" prioridad=\"URGENTE\" nroOrden=\"9923076\" idUsuario=\"2921\">  <producto> <id>2125</id> <cups>903810</cups> <cant>1</cant> <obs>Prioridad: Hospitalario Prioritario .</obs> </producto> </solicitud>";
             try
             {
                 System.Xml.XmlDocument doc = new System.Xml.XmlDocument();
@@ -322,7 +322,7 @@ namespace labcoreWS
                                                 solcitudExiste = rdSolicitud.GetInt32(0);
                                             }
                                         }
-                                        if (solicitudWrk.nroSolicitud.Equals(solcitudExiste.ToString()) || solcitudExiste == 0)
+                                        if (solicitudWrk.nroSolicitud.Equals(solcitudExiste.ToString()) && solcitudExiste == 0)
                                         {
                                             string strActualizaTraza = "UPDATE TAT_TRAZA_TAT SET TAT_SOLI=@solicitud_tat, EVT_SOLI=@fecha WHERE TAT_ATEN=@atencion AND TAT_ORDEN=@orden AND TAT_CUPS=@cups AND (TAT_SOLI=0 OR TAT_SOLI=@solicitud_tat)";
                                             SqlCommand cmdActualizaTraza = new SqlCommand(strActualizaTraza, Conex, TX1_1);
@@ -361,6 +361,11 @@ namespace labcoreWS
                                                 TX1_1.Rollback("TRx1_1");
                                                 logLabcore.Warn("04:No fue posible Insertar en:TAT_TRAZA_TAT para la SOLICITUD en proceso:" + solicitudWrk.nroSolicitud);
                                                 return "";
+                                            }
+                                            else
+                                            {
+                                                cups_Procesados.Add(cups);
+                                                logLabcore.Warn($"Se ha Insertardo en:TAT_TRAZA_TAT para la SOLICITUD en proceso:{ solicitudWrk.nroSolicitud}  CUPS:{cups}");
                                             }
                                         }
                                     }
