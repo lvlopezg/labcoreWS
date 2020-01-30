@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="9IPP1O+QcZZJspGsfJbd2nrqHEs=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="gCGgx/SNF0/uGmohZ5Zf10e3p68=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="smsHUSISoap">
       <properties>
@@ -263,10 +263,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="smsHUSISoap" contract="clienteSMS.smsHUSISoap" bindingType="basicHttpBinding" address="http://winpvtiws01:8090/smsHUSI.asmx" bindingConfiguration="smsHUSISoap">
+    <endpoint name="smsHUSISoap" contract="clienteSMS.smsHUSISoap" bindingType="basicHttpBinding" address="http://wintvtiws01:8090/smsHUSI.asmx" bindingConfiguration="smsHUSISoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://winpvtiws01:8090/smsHUSI.asmx</serializedValue>
+          <serializedValue>http://wintvtiws01:8090/smsHUSI.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -348,10 +348,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="smsHUSISoap12" contract="clienteSMS.smsHUSISoap" bindingType="customBinding" address="http://winpvtiws01:8090/smsHUSI.asmx" bindingConfiguration="smsHUSISoap12">
+    <endpoint name="smsHUSISoap12" contract="clienteSMS.smsHUSISoap" bindingType="customBinding" address="http://wintvtiws01:8090/smsHUSI.asmx" bindingConfiguration="smsHUSISoap12">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://winpvtiws01:8090/smsHUSI.asmx</serializedValue>
+          <serializedValue>http://wintvtiws01:8090/smsHUSI.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

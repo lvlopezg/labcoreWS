@@ -34,6 +34,14 @@ namespace labcoreWS.clienteSMS {
         [System.ServiceModel.OperationContractAttribute(Action="http://husi.org/smsGeneralHusi", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string smsGeneralHusi(string idDocPac, string servicio, string nroServicio, string paciente, string cama, string msgSMS);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://husi.org/correoHusi", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string correoHusi(string correoOrigen, string correosDestino, string asunto, string msgCorreo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://husi.org/smsGeneralMobiles", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string smsGeneralMobiles(string codigoServicio, string nroMobil, string msgSMS);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -81,6 +89,14 @@ namespace labcoreWS.clienteSMS {
         
         public string smsGeneralHusi(string idDocPac, string servicio, string nroServicio, string paciente, string cama, string msgSMS) {
             return base.Channel.smsGeneralHusi(idDocPac, servicio, nroServicio, paciente, cama, msgSMS);
+        }
+        
+        public string correoHusi(string correoOrigen, string correosDestino, string asunto, string msgCorreo) {
+            return base.Channel.correoHusi(correoOrigen, correosDestino, asunto, msgCorreo);
+        }
+        
+        public string smsGeneralMobiles(string codigoServicio, string nroMobil, string msgSMS) {
+            return base.Channel.smsGeneralMobiles(codigoServicio, nroMobil, msgSMS);
         }
     }
 }

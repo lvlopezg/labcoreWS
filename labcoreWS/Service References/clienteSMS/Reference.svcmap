@@ -18,10 +18,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://winpvtiws01:8090/smsHUSI.asmx?WSDL" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://wintvtiws01:8090/smsHUSI.asmx?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="smsHUSI.wsdl" MetadataType="Wsdl" ID="ea272d44-748b-46a4-9941-12b6f1049371" SourceId="1" SourceUrl="http://winpvtiws01:8090/smsHUSI.asmx?WSDL" />
+    <MetadataFile FileName="smsHUSI1.wsdl" MetadataType="Wsdl" ID="f87ee1d3-afdf-473a-992b-c6eea6ac0602" SourceId="1" SourceUrl="http://wintvtiws01:8090/smsHUSI.asmx?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

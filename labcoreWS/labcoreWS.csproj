@@ -60,45 +60,45 @@
     <IncludeIisSettings>false</IncludeIisSettings>
     <PublishDatabaseSettings>
       <Objects>
-        <ObjectGroup Name="labcoreWS.Properties.Settings.DBConexionXX-Implementación" Order="1">
+        <ObjectGroup Name="labcoreWS.Properties.Settings.DBConexionXX-Implementación" Order="1" Enabled="False">
           <Destination Path="" />
           <Object Type="DbFullSql">
-            <PreSource Path="Data Source=TYCHO%3bInitial Catalog=HSI_PRI%3bUser ID=interface%3bPassword=interface%3bMin Pool Size=10%3bMax Pool Size=800%3bConnect Timeout=60%3bConnectRetryCount=3" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <PreSource Path="Data Source=wintvtibd01\hsi_tst%3bInitial Catalog=HSI_TST%3bUser ID=husi_usr%3bPassword=pwdHUSI%3bMin Pool Size=10%3bMax Pool Size=800%3bMultipleActiveResultSets=True%3bConnect Timeout=60%3bConnectRetryCount=3" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
             <Source Path="obj\Release\AutoScripts\labcoreWS.Properties.Settings.DBConexionXX-Implementación_SchemaOnly.sql" Transacted="True" />
           </Object>
         </ObjectGroup>
-        <ObjectGroup Name="labcoreWS.Properties.Settings.DBConexion-Implementación" Order="2">
+        <ObjectGroup Name="labcoreWS.Properties.Settings.DBConexion-Implementación" Order="2" Enabled="False">
           <Destination Path="" />
           <Object Type="DbFullSql">
-            <PreSource Path="Data Source=TYCHO%3bInitial Catalog=HSI_PRI%3bUser ID=interface%3bPassword=interface%3bMin Pool Size=10%3bMax Pool Size=800%3bConnect Timeout=60%3bConnectRetryCount=3" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <PreSource Path="Data Source=wintvtibd01\hsi_tst%3bInitial Catalog=HSI_TST%3bUser ID=husi_usr%3bPassword=pwdHUSI%3bMin Pool Size=10%3bMax Pool Size=800%3bMultipleActiveResultSets=True%3bConnect Timeout=60%3bConnectRetryCount=3" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
             <Source Path="obj\Release\AutoScripts\labcoreWS.Properties.Settings.DBConexion-Implementación_SchemaOnly.sql" Transacted="True" />
           </Object>
         </ObjectGroup>
-        <ObjectGroup Name="labcoreWS.Properties.Settings.LabcoreDBConXX-Implementación" Order="3">
+        <ObjectGroup Name="labcoreWS.Properties.Settings.LabcoreDBConXX-Implementación" Order="3" Enabled="False">
           <Destination Path="" />
           <Object Type="DbFullSql">
-            <PreSource Path="Data Source=TYCHO%3bInitial Catalog=HSI_PRI%3bUser ID=interface%3bPassword=interface%3bMin Pool Size=10%3bMax Pool Size=800%3bConnect Timeout=60%3bConnectRetryCount=3" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <PreSource Path="Data Source=wintvtibd01\hsi_tst%3bInitial Catalog=HSI_TST%3bUser ID=husi_usr%3bPassword=pwdHUSI%3bMultipleActiveResultSets=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
             <Source Path="obj\Release\AutoScripts\labcoreWS.Properties.Settings.LabcoreDBConXX-Implementación_SchemaOnly.sql" Transacted="True" />
           </Object>
         </ObjectGroup>
-        <ObjectGroup Name="labcoreWS.Properties.Settings.LabcoreDBCon-Implementación" Order="4">
+        <ObjectGroup Name="labcoreWS.Properties.Settings.LabcoreDBCon-Implementación" Order="4" Enabled="False">
           <Destination Path="" />
           <Object Type="DbFullSql">
-            <PreSource Path="Data Source=TYCHO%3bInitial Catalog=HSI_PRI%3bUser ID=interface%3bPassword=interface%3bMin Pool Size=10%3bMax Pool Size=800%3bConnect Timeout=60%3bConnectRetryCount=3" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <PreSource Path="Data Source=wintvtibd01\hsi_tst%3bInitial Catalog=HSI_TST%3bUser ID=husi_usr%3bPassword=pwdHUSI%3bMin Pool Size=10%3bMax Pool Size=800%3bMultipleActiveResultSets=True%3bConnect Timeout=60%3bConnectRetryCount=3" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
             <Source Path="obj\Release\AutoScripts\labcoreWS.Properties.Settings.LabcoreDBCon-Implementación_SchemaOnly.sql" Transacted="True" />
           </Object>
         </ObjectGroup>
-        <ObjectGroup Name="labcoreWS.Properties.Settings.dbProduccion-Implementación" Order="5">
+        <ObjectGroup Name="labcoreWS.Properties.Settings.dbProduccion-Implementación" Order="5" Enabled="False">
           <Destination Path="" />
           <Object Type="DbFullSql">
             <PreSource Path="Data Source=TYCHO%3bInitial Catalog=HSI_PRI%3bUser ID=interface%3bPassword=interface%3bMin Pool Size=10%3bMax Pool Size=800%3bConnect Timeout=60%3bConnectRetryCount=3" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
             <Source Path="obj\Release\AutoScripts\labcoreWS.Properties.Settings.dbProduccion-Implementación_SchemaOnly.sql" Transacted="True" />
           </Object>
         </ObjectGroup>
-        <ObjectGroup Name="labcoreWS.Properties.Settings.alterno-Implementación" Order="6">
+        <ObjectGroup Name="labcoreWS.Properties.Settings.alterno-Implementación" Order="6" Enabled="False">
           <Destination Path="" />
           <Object Type="DbFullSql">
-            <PreSource Path="Data Source=TYCHO%3bInitial Catalog=HSI_PRI%3bUser ID=interface%3bPassword=interface" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <PreSource Path="Data Source=wintvtibd01\hsi_tst%3bInitial Catalog=HSI_TST%3bUser ID=husi_usr%3bPassword=pwdHUSI%3bMin Pool Size=10%3bMax Pool Size=800%3bMultipleActiveResultSets=True%3bConnect Timeout=60%3bConnectRetryCount=3" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
             <Source Path="obj\Release\AutoScripts\labcoreWS.Properties.Settings.alterno-Implementación_SchemaOnly.sql" Transacted="True" />
           </Object>
         </ObjectGroup>
@@ -163,7 +163,7 @@
     <Content Include="Service References\clienteDatosPcte\labcoreWS.clienteDatosPcte.pacienteS1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\clienteSMS\smsHUSI.wsdl" />
+    <None Include="Service References\clienteSMS\smsHUSI1.wsdl" />
     <None Include="Service References\srLabcoreResultados\IWSSolicitudesservice.wsdl" />
     <None Include="Service References\srLabcoreTAT\LabLinkHUSI.wsdl" />
     <None Include="Service References\srLabcoreTAT\LabLinkHUSI.xsd">

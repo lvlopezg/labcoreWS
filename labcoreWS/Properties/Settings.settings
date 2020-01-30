@@ -2,53 +2,59 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="labcoreWS.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="DBConexionXX" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3</Value>
-    </Setting>
     <Setting Name="DBConexion" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=wintvtibd01\hsi_tst;Initial Catalog=HSI_TST;User ID=husi_usr;Password=pwdHUSI;MultipleActiveResultSets=True&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3</Value>
+      <Value Profile="(Default)">Data Source=wintvtibd01\hsi_tst;Initial Catalog=HSI_TST;User ID=husi_usr;Password=pwdHUSI;MultipleActiveResultSets=True</Value>
     </Setting>
     <Setting Name="LabcoreDBConXX" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=wintvtibd01\hsi_tst;Initial Catalog=HSI_TST;User ID=husi_usr;Password=pwdHUSI;MultipleActiveResultSets=True&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3</Value>
+      <Value Profile="(Default)">Data Source=wintvtibd01\hsi_tst;Initial Catalog=HSI_TST;User ID=husi_usr;Password=pwdHUSI;MultipleActiveResultSets=True</Value>
     </Setting>
     <Setting Name="LabcoreDBCon" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=wintvtibd01\hsi_tst;Initial Catalog=HSI_TST;User ID=husi_usr;Password=pwdHUSI;MultipleActiveResultSets=True&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3</Value>
+      <Value Profile="(Default)">Data Source=wintvtibd01\hsi_tst;Initial Catalog=HSI_TST;User ID=husi_usr;Password=pwdHUSI;MultipleActiveResultSets=True</Value>
     </Setting>
     <Setting Name="dbProduccion" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=wintvtibd01\hsi_tst;Initial Catalog=HSI_TST;User ID=husi_usr;Password=pwdHUSI;MultipleActiveResultSets=True&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3</Value>
+      <Value Profile="(Default)">Data Source=wintvtibd01\hsi_tst;Initial Catalog=HSI_TST;User ID=husi_usr;Password=pwdHUSI;MultipleActiveResultSets=True</Value>
     </Setting>
     <Setting Name="alterno" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;MultipleActiveResultSets=True&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=wintvtibd01\hsi_tst;Initial Catalog=HSI_TST;User ID=husi_usr;Password=pwdHUSI;MultipleActiveResultSets=True&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;MultipleActiveResultSets=True</Value>
+      <Value Profile="(Default)">Data Source=wintvtibd01\hsi_tst;Initial Catalog=HSI_TST;User ID=husi_usr;Password=pwdHUSI;MultipleActiveResultSets=True</Value>
+    </Setting>
+    <Setting Name="DBConexionXX" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=wintvtibd01\hsi_tst;Initial Catalog=HSI_TST;User ID=husi_usr;Password=pwdHUSI;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=wintvtibd01\hsi_tst;Initial Catalog=HSI_TST;User ID=husi_usr;Password=pwdHUSI;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connect Timeout=60;ConnectRetryCount=3</Value>
+    </Setting>
+    <Setting Name="origenCritico" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">notificacionessahi@husi.org.co</Value>
+    </Setting>
+    <Setting Name="destinoCritico" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">cgrojas@husi.org.co</Value>
     </Setting>
   </Settings>
 </SettingsFile>

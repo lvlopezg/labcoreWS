@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using NLog;
 using System.Data;
+using System.Threading.Tasks;
+using System.Configuration;
 
 namespace labcoreWS
 {
@@ -367,5 +369,65 @@ namespace labcoreWS
             }
             return respuesta;
         }
+
+        public async Task validationResultadoCritico(string atencion, string especialidad) {
+
+            clienteDatosPcte.IdatosPacienteClient clientePcte = new clienteDatosPcte.IdatosPacienteClient();
+            clienteDatosPcte.pacienteS1 paciente = clientePcte.datosXatencion(Int32.Parse(atencion));
+            string mensajeR = "<br> Paciente: " + paciente.Nombre + " " + paciente.Apellidos + " Doc:" + paciente.numDocumento + " tiene resultado crítico de laboratorio.";
+			
+			//consultar tipo del atencion
+			bool envioCorreo = true;			
+			using (SqlConnection Conex = new SqlConnection(Properties.Settings.Default.DBConexion))
+			{
+				try
+				{
+					Conex.Open();
+					string strUpdateTrace = "select t.IdAtenTipoBase,a.IndActivado from admAtencion a INNER JOIN admAtencionTipo t on a.IdAtencionTipo=t.IdAtencionTipo where a.idAtencion = @atencion ";
+					SqlCommand cmdupdateTraceVta = new SqlCommand(strUpdateTrace, Conex);
+					cmdupdateTraceVta.Parameters.Add("@atencion", System.Data.SqlDbType.Int).Value = atencion;
+					var result = await cmdupdateTraceVta.ExecuteReaderAsync();
+					var tipobase = 0;
+					var estado = false;
+					if (result.HasRows)
+					{
+						result.Read();
+						tipobase = result.GetInt16(0);
+						estado = result.GetBoolean(1);
+					}
+					if ((tipobase == 2 || tipobase == 3) && estado)
+						envioCorreo = false;
+				}
+				catch (Exception e)
+				{
+					logLabcore.Info("Error al enviar el resultado critico correo/msn:: " + e.Message);
+				}
+
+			}
+			try
+			{
+				if (envioCorreo)
+				{
+					mensajeR += " Numero de atención: "+atencion;
+					var destino =  Properties.Settings.Default.destinoCritico;
+                    var origen = Properties.Settings.Default.origenCritico;
+
+					var correo = new clienteSMS.smsHUSISoapClient("smsHUSISoap");
+					var response = correo.correoHusi(origen, destino, " Resultado crítico laboratorio", mensajeR);
+                    logLabcore.Info(" Se envio correo");
+				}
+				else
+				{
+					mensajeR += " Defina conducta antes de 60 min y regístrela.";
+					clienteSMS.smsHUSISoapClient mensajeRC = new clienteSMS.smsHUSISoapClient("smsHUSISoap");
+					string rptaSMS = mensajeRC.smsGeneralHusi(paciente.numDocumento, especialidad, "0", paciente.idPaciente.ToString(), paciente.ubicacionActual, mensajeR);
+                    logLabcore.Info($" Se envio sms {rptaSMS}");
+				}
+			}
+			catch (Exception e)
+			{
+                logLabcore.Info("Error al enviar el resultado critico correo/msn:: " + e.Message);
+			}
+		}
     }
 }
