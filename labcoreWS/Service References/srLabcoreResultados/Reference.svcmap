@@ -18,10 +18,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://10.8.10.50:81/wsdl/wsdll.dll/wsdl/IWSSolicitudes?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.10.100.6:8123/LabCore/LabLinkHUSI.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="IWSSolicitudesservice.wsdl" MetadataType="Wsdl" ID="4b7b80f8-eabb-4bfe-94df-32cf27f9b205" SourceId="1" SourceUrl="http://10.8.10.50:81/wsdl/wsdll.dll/wsdl/IWSSolicitudes?wsdl" />
+    <MetadataFile FileName="LabLinkHUSI.xsd" MetadataType="Schema" ID="3f4da058-5e16-4f10-8a31-04a47522a6dd" SourceId="1" SourceUrl="http://10.10.100.6:8123/LabCore/LabLinkHUSI.svc?xsd=xsd3" />
+    <MetadataFile FileName="LabLinkHUSI1.xsd" MetadataType="Schema" ID="c3908ab2-7ab1-404e-bff5-047e04957065" SourceId="1" SourceUrl="http://10.10.100.6:8123/LabCore/LabLinkHUSI.svc?xsd=xsd1" />
+    <MetadataFile FileName="LabLinkHUSI2.xsd" MetadataType="Schema" ID="1a38d9fa-219a-4c3d-8366-764dc106b6d4" SourceId="1" SourceUrl="http://10.10.100.6:8123/LabCore/LabLinkHUSI.svc?xsd=xsd0" />
+    <MetadataFile FileName="LabLinkHUSI.wsdl" MetadataType="Wsdl" ID="14b63969-1085-4d26-92ab-54e12549b7de" SourceId="1" SourceUrl="http://10.10.100.6:8123/LabCore/LabLinkHUSI.svc?wsdl" />
+    <MetadataFile FileName="LabLinkHUSI3.xsd" MetadataType="Schema" ID="57d513f6-9e1b-4f77-8c06-98c2da206569" SourceId="1" SourceUrl="http://10.10.100.6:8123/LabCore/LabLinkHUSI.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

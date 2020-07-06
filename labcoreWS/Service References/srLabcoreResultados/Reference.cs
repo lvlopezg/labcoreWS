@@ -9,293 +9,363 @@
 //------------------------------------------------------------------------------
 
 namespace labcoreWS.srLabcoreResultados {
+    using System.Runtime.Serialization;
+    using System;
     
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="srLabcoreResultados.IWSSolicitudes")]
-    public interface IWSSolicitudes {
-        
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el espacio de nombres de contenedor (urn:WSSolicitudesIntf-IWSSolicitudes) del mensaje RecResultsRequest no coincide con el valor predeterminado (http://tempuri.org/)
-        [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#RecResults", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        labcoreWS.srLabcoreResultados.RecResultsResponse RecResults(labcoreWS.srLabcoreResultados.RecResultsRequest request);
-        
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el espacio de nombres de contenedor (urn:WSSolicitudesIntf-IWSSolicitudes) del mensaje RecSolicitudesRequest no coincide con el valor predeterminado (http://tempuri.org/)
-        [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#RecSolicitudes", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        labcoreWS.srLabcoreResultados.RecSolicitudesResponse RecSolicitudes(labcoreWS.srLabcoreResultados.RecSolicitudesRequest request);
-        
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el espacio de nombres de contenedor (urn:WSSolicitudesIntf-IWSSolicitudes) del mensaje GetResultPdfRequest no coincide con el valor predeterminado (http://tempuri.org/)
-        [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#GetResultPdf", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        labcoreWS.srLabcoreResultados.GetResultPdfResponse GetResultPdf(labcoreWS.srLabcoreResultados.GetResultPdfRequest request);
-        
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el espacio de nombres de contenedor (urn:WSSolicitudesIntf-IWSSolicitudes) del mensaje GetHL7MsgRequest no coincide con el valor predeterminado (http://tempuri.org/)
-        [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#GetHL7Msg", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        labcoreWS.srLabcoreResultados.GetHL7MsgResponse GetHL7Msg(labcoreWS.srLabcoreResultados.GetHL7MsgRequest request);
-        
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el espacio de nombres de contenedor (urn:WSSolicitudesIntf-IWSSolicitudes) del mensaje CambioEstadoRequest no coincide con el valor predeterminado (http://tempuri.org/)
-        [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#CambioEstado", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        labcoreWS.srLabcoreResultados.CambioEstadoResponse CambioEstado(labcoreWS.srLabcoreResultados.CambioEstadoRequest request);
-    }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RecResults", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
-    public partial class RecResultsRequest {
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultadoPdf", Namespace="http://schemas.datacontract.org/2004/07/WebLabLinkHUSI.dto")]
+    [System.SerializableAttribute()]
+    public partial class ResultadoPdf : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public string xmlRes;
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        public RecResultsRequest() {
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private labcoreWS.srLabcoreResultados.Orden OrdenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private labcoreWS.srLabcoreResultados.Paciente PacienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResultadoBase64Field;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
         }
         
-        public RecResultsRequest(string xmlRes) {
-            this.xmlRes = xmlRes;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RecResultsResponse", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
-    public partial class RecResultsResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public string @return;
-        
-        public RecResultsResponse() {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public labcoreWS.srLabcoreResultados.Orden Orden {
+            get {
+                return this.OrdenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrdenField, value) != true)) {
+                    this.OrdenField = value;
+                    this.RaisePropertyChanged("Orden");
+                }
+            }
         }
         
-        public RecResultsResponse(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RecSolicitudes", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
-    public partial class RecSolicitudesRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public string xmlSol;
-        
-        public RecSolicitudesRequest() {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public labcoreWS.srLabcoreResultados.Paciente Paciente {
+            get {
+                return this.PacienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PacienteField, value) != true)) {
+                    this.PacienteField = value;
+                    this.RaisePropertyChanged("Paciente");
+                }
+            }
         }
         
-        public RecSolicitudesRequest(string xmlSol) {
-            this.xmlSol = xmlSol;
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ResultadoBase64 {
+            get {
+                return this.ResultadoBase64Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResultadoBase64Field, value) != true)) {
+                    this.ResultadoBase64Field = value;
+                    this.RaisePropertyChanged("ResultadoBase64");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RecSolicitudesResponse", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
-    public partial class RecSolicitudesResponse {
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Orden", Namespace="http://schemas.datacontract.org/2004/07/WebLabLinkHUSI.dto")]
+    [System.SerializableAttribute()]
+    public partial class Orden : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public string @return;
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        public RecSolicitudesResponse() {
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoLabRefField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FechaIngresoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreLabRefField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumeroField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumeroLabRefField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ResConfidencialesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ResPendientesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
         }
         
-        public RecSolicitudesResponse(string @return) {
-            this.@return = @return;
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodigoLabRef {
+            get {
+                return this.CodigoLabRefField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoLabRefField, value) != true)) {
+                    this.CodigoLabRefField = value;
+                    this.RaisePropertyChanged("CodigoLabRef");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FechaIngreso {
+            get {
+                return this.FechaIngresoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FechaIngresoField, value) != true)) {
+                    this.FechaIngresoField = value;
+                    this.RaisePropertyChanged("FechaIngreso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreLabRef {
+            get {
+                return this.NombreLabRefField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreLabRefField, value) != true)) {
+                    this.NombreLabRefField = value;
+                    this.RaisePropertyChanged("NombreLabRef");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Numero {
+            get {
+                return this.NumeroField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumeroField, value) != true)) {
+                    this.NumeroField = value;
+                    this.RaisePropertyChanged("Numero");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NumeroLabRef {
+            get {
+                return this.NumeroLabRefField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumeroLabRefField, value) != true)) {
+                    this.NumeroLabRefField = value;
+                    this.RaisePropertyChanged("NumeroLabRef");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ResConfidenciales {
+            get {
+                return this.ResConfidencialesField;
+            }
+            set {
+                if ((this.ResConfidencialesField.Equals(value) != true)) {
+                    this.ResConfidencialesField = value;
+                    this.RaisePropertyChanged("ResConfidenciales");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ResPendientes {
+            get {
+                return this.ResPendientesField;
+            }
+            set {
+                if ((this.ResPendientesField.Equals(value) != true)) {
+                    this.ResPendientesField = value;
+                    this.RaisePropertyChanged("ResPendientes");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Paciente", Namespace="http://schemas.datacontract.org/2004/07/WebLabLinkHUSI.dto")]
+    [System.SerializableAttribute()]
+    public partial class Paciente : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ApellidoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DocumentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Apellido {
+            get {
+                return this.ApellidoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApellidoField, value) != true)) {
+                    this.ApellidoField = value;
+                    this.RaisePropertyChanged("Apellido");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Documento {
+            get {
+                return this.DocumentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DocumentoField, value) != true)) {
+                    this.DocumentoField = value;
+                    this.RaisePropertyChanged("Documento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetResultPdf", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
-    public partial class GetResultPdfRequest {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="srLabcoreResultados.ILabLinkHUSI")]
+    public interface ILabLinkHUSI {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public string numorden;
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILabLinkHUSI/SetHl7", ReplyAction="http://tempuri.org/ILabLinkHUSI/SetHl7Response")]
+        string SetHl7(string mensaje);
         
-        public GetResultPdfRequest() {
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILabLinkHUSI/GetPDFBase64", ReplyAction="http://tempuri.org/ILabLinkHUSI/GetPDFBase64Response")]
+        string GetPDFBase64(string numero);
         
-        public GetResultPdfRequest(string numorden) {
-            this.numorden = numorden;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILabLinkHUSI/GetPDF", ReplyAction="http://tempuri.org/ILabLinkHUSI/GetPDFResponse")]
+        System.IO.Stream GetPDF(string numero);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILabLinkHUSI/GetResultado", ReplyAction="http://tempuri.org/ILabLinkHUSI/GetResultadoResponse")]
+        labcoreWS.srLabcoreResultados.ResultadoPdf GetResultado(string numero);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ILabLinkHUSIChannel : labcoreWS.srLabcoreResultados.ILabLinkHUSI, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetResultPdfResponse", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
-    public partial class GetResultPdfResponse {
+    public partial class LabLinkHUSIClient : System.ServiceModel.ClientBase<labcoreWS.srLabcoreResultados.ILabLinkHUSI>, labcoreWS.srLabcoreResultados.ILabLinkHUSI {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public string @return;
-        
-        public GetResultPdfResponse() {
+        public LabLinkHUSIClient() {
         }
         
-        public GetResultPdfResponse(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHL7Msg", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
-    public partial class GetHL7MsgRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public string msg;
-        
-        public GetHL7MsgRequest() {
-        }
-        
-        public GetHL7MsgRequest(string msg) {
-            this.msg = msg;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHL7MsgResponse", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
-    public partial class GetHL7MsgResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public string @return;
-        
-        public GetHL7MsgResponse() {
-        }
-        
-        public GetHL7MsgResponse(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="CambioEstado", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
-    public partial class CambioEstadoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public string msg;
-        
-        public CambioEstadoRequest() {
-        }
-        
-        public CambioEstadoRequest(string msg) {
-            this.msg = msg;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="CambioEstadoResponse", WrapperNamespace="urn:WSSolicitudesIntf-IWSSolicitudes", IsWrapped=true)]
-    public partial class CambioEstadoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public string @return;
-        
-        public CambioEstadoResponse() {
-        }
-        
-        public CambioEstadoResponse(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IWSSolicitudesChannel : labcoreWS.srLabcoreResultados.IWSSolicitudes, System.ServiceModel.IClientChannel {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class WSSolicitudesClient : System.ServiceModel.ClientBase<labcoreWS.srLabcoreResultados.IWSSolicitudes>, labcoreWS.srLabcoreResultados.IWSSolicitudes {
-        
-        public WSSolicitudesClient() {
-        }
-        
-        public WSSolicitudesClient(string endpointConfigurationName) : 
+        public LabLinkHUSIClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public WSSolicitudesClient(string endpointConfigurationName, string remoteAddress) : 
+        public LabLinkHUSIClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public WSSolicitudesClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public LabLinkHUSIClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public WSSolicitudesClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public LabLinkHUSIClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        labcoreWS.srLabcoreResultados.RecResultsResponse labcoreWS.srLabcoreResultados.IWSSolicitudes.RecResults(labcoreWS.srLabcoreResultados.RecResultsRequest request) {
-            return base.Channel.RecResults(request);
+        public string SetHl7(string mensaje) {
+            return base.Channel.SetHl7(mensaje);
         }
         
-        public string RecResults(string xmlRes) {
-            labcoreWS.srLabcoreResultados.RecResultsRequest inValue = new labcoreWS.srLabcoreResultados.RecResultsRequest();
-            inValue.xmlRes = xmlRes;
-            labcoreWS.srLabcoreResultados.RecResultsResponse retVal = ((labcoreWS.srLabcoreResultados.IWSSolicitudes)(this)).RecResults(inValue);
-            return retVal.@return;
+        public string GetPDFBase64(string numero) {
+            return base.Channel.GetPDFBase64(numero);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        labcoreWS.srLabcoreResultados.RecSolicitudesResponse labcoreWS.srLabcoreResultados.IWSSolicitudes.RecSolicitudes(labcoreWS.srLabcoreResultados.RecSolicitudesRequest request) {
-            return base.Channel.RecSolicitudes(request);
+        public System.IO.Stream GetPDF(string numero) {
+            return base.Channel.GetPDF(numero);
         }
         
-        public string RecSolicitudes(string xmlSol) {
-            labcoreWS.srLabcoreResultados.RecSolicitudesRequest inValue = new labcoreWS.srLabcoreResultados.RecSolicitudesRequest();
-            inValue.xmlSol = xmlSol;
-            labcoreWS.srLabcoreResultados.RecSolicitudesResponse retVal = ((labcoreWS.srLabcoreResultados.IWSSolicitudes)(this)).RecSolicitudes(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        labcoreWS.srLabcoreResultados.GetResultPdfResponse labcoreWS.srLabcoreResultados.IWSSolicitudes.GetResultPdf(labcoreWS.srLabcoreResultados.GetResultPdfRequest request) {
-            return base.Channel.GetResultPdf(request);
-        }
-        
-        public string GetResultPdf(string numorden) {
-            labcoreWS.srLabcoreResultados.GetResultPdfRequest inValue = new labcoreWS.srLabcoreResultados.GetResultPdfRequest();
-            inValue.numorden = numorden;
-            labcoreWS.srLabcoreResultados.GetResultPdfResponse retVal = ((labcoreWS.srLabcoreResultados.IWSSolicitudes)(this)).GetResultPdf(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        labcoreWS.srLabcoreResultados.GetHL7MsgResponse labcoreWS.srLabcoreResultados.IWSSolicitudes.GetHL7Msg(labcoreWS.srLabcoreResultados.GetHL7MsgRequest request) {
-            return base.Channel.GetHL7Msg(request);
-        }
-        
-        public string GetHL7Msg(string msg) {
-            labcoreWS.srLabcoreResultados.GetHL7MsgRequest inValue = new labcoreWS.srLabcoreResultados.GetHL7MsgRequest();
-            inValue.msg = msg;
-            labcoreWS.srLabcoreResultados.GetHL7MsgResponse retVal = ((labcoreWS.srLabcoreResultados.IWSSolicitudes)(this)).GetHL7Msg(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        labcoreWS.srLabcoreResultados.CambioEstadoResponse labcoreWS.srLabcoreResultados.IWSSolicitudes.CambioEstado(labcoreWS.srLabcoreResultados.CambioEstadoRequest request) {
-            return base.Channel.CambioEstado(request);
-        }
-        
-        public string CambioEstado(string msg) {
-            labcoreWS.srLabcoreResultados.CambioEstadoRequest inValue = new labcoreWS.srLabcoreResultados.CambioEstadoRequest();
-            inValue.msg = msg;
-            labcoreWS.srLabcoreResultados.CambioEstadoResponse retVal = ((labcoreWS.srLabcoreResultados.IWSSolicitudes)(this)).CambioEstado(inValue);
-            return retVal.@return;
+        public labcoreWS.srLabcoreResultados.ResultadoPdf GetResultado(string numero) {
+            return base.Channel.GetResultado(numero);
         }
     }
 }

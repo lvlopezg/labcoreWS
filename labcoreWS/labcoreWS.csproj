@@ -145,6 +145,9 @@
     </Content>
     <Content Include="packages.config" />
     <Content Include="labcoreWS.ruleset" />
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -164,7 +167,22 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\clienteSMS\smsHUSI.wsdl" />
-    <None Include="Service References\srLabcoreResultados\IWSSolicitudesservice.wsdl" />
+    <Content Include="Service References\srLabcoreResultados\labcoreWS.srLabcoreResultados.ResultadoPdf.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\srLabcoreResultados\LabLinkHUSI.wsdl" />
+    <None Include="Service References\srLabcoreResultados\LabLinkHUSI.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\srLabcoreResultados\LabLinkHUSI1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\srLabcoreResultados\LabLinkHUSI2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\srLabcoreResultados\LabLinkHUSI3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\srLabcoreTAT\LabLinkHUSI.wsdl" />
     <None Include="Service References\srLabcoreTAT\LabLinkHUSI.xsd">
       <SubType>Designer</SubType>

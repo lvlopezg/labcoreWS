@@ -73,6 +73,7 @@ namespace labcoreWS
                     Conex.Open();
                     string strConsPcte = "SELECT IdCliente,NomCliente,ApeCliente,IdTipoDoc,NumDocumento,IdSexo,FecNacimiento,CorreoE,TelCelular FROM admCliente WHERE idTipoDoc=" + datosPcte[0] + " AND NumDocumento='" + datosPcte[1] + "'";
                     SqlCommand cmdConsPcte = new SqlCommand(strConsPcte, Conex);
+                    
                     SqlDataReader PcteReader = cmdConsPcte.ExecuteReader();
                     if (PcteReader.HasRows)
                     {
@@ -1157,6 +1158,10 @@ namespace labcoreWS
                             if (objOBR.OBR23.Equals("MB"))
                             {
                                 tipoResultado = 797;
+                            }
+                            else if(objOBR.OBR23.Equals("NM")) //614 
+                            {
+                                tipoResultado = 614;
                             }
                             else
                             {

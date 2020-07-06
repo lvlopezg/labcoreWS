@@ -15,6 +15,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Runtime.Remoting.Contexts;
 using NLog;
+using labcoreWS.srLabcoreResultados;
 
 /// <summary>
 /// Integracion WebServices SOAP con Labcore
@@ -29,43 +30,48 @@ namespace labcoreWS
         private static readonly Logger logKioscos = LogManager.GetCurrentClassLogger();
         public string getResultados(string nroOrden)
         {
+            logKioscos.Info($"Peticion de Resultado:{nroOrden}");
             byte tipoDoc = 0;
-            string archivo = "C:\\Basura";
-            System.IO.StreamWriter sw = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
-            sw.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-            sw.WriteLine("Doc solicitado:" + nroOrden +" Evento:"+DateTime.Now.ToString()+ "\r\n");
-            sw.Close();
+            //string archivo = "C:\\Basura";
+            //System.IO.StreamWriter sw = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+            //sw.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+            //sw.WriteLine("Doc solicitado:" + nroOrden +" Evento:"+DateTime.Now.ToString()+ "\r\n");
+            //sw.Close();
             Resultados rpta = new Resultados();
             try
             {
                 string Confidenciales = string.Empty;
                 string Pendientes = string.Empty;
-                srLabcoreResultados.WSSolicitudesClient clienteWS = new srLabcoreResultados.WSSolicitudesClient();
-                string XMLdocumento = clienteWS.GetResultPdf(nroOrden);
-                System.Xml.XmlDocument doc = new System.Xml.XmlDocument();
-                doc.LoadXml(XMLdocumento);
-                XmlNode Raiz = doc.FirstChild;
-                XmlNodeList registros = doc.GetElementsByTagName("ResultadoPdf");
-                XmlNodeList paciente = ((XmlElement)registros[0]).GetElementsByTagName("PACIENTE");
 
-                XmlElement pacienteWRK = (XmlElement)paciente[0];
-                string Nombre = pacienteWRK.GetAttribute("NOMBRE");
-                string Apellidos = pacienteWRK.GetAttribute("APELLIDO");
-                string Documento = pacienteWRK.GetAttribute("DOCUMENTO");
 
-                XmlNodeList orden = ((XmlElement)registros[0]).GetElementsByTagName("ORDEN");
-                XmlElement ordernWrk = (XmlElement)orden[0];
-                string nroOrdenwRK = ordernWrk.GetAttribute("NUMERO");
-                Confidenciales = ordernWrk.GetAttribute("RESCONFIDENCIALES");
-                Pendientes = ordernWrk.GetAttribute("RESPENDIENTES");
+                srLabcoreResultados.LabLinkHUSIClient clienteWS = new srLabcoreResultados.LabLinkHUSIClient();
+                ResultadoPdf XMLdocumento = clienteWS.GetResultado(nroOrden);
+                //string XMLdocumento = clienteWS.GetResultado(nroOrden);
+                //System.Xml.XmlDocument doc = new System.Xml.XmlDocument();
 
-                System.IO.StreamWriter sw1 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
-                using (sw1)
-                {
-                    sw1.WriteLine("Recibido Labcore-- Nombre:" + Nombre + "  Apellidos:" + Apellidos + "  Confidenciales:" + Confidenciales + "  Pendientes:" + Pendientes + " Evento:" + DateTime.Now.ToString() + "\r\n");
-                    sw1.Close();
-                }
-                //****************************************** VALIDACION DE NRO DE IMPRESIONES
+                //doc.LoadXml(XMLdocumento.ToString());
+                //XmlNode Raiz = doc.FirstChild;
+                //XmlNodeList registros = doc.GetElementsByTagName("ResultadoPdf");
+                //XmlNodeList paciente = ((XmlElement)registros[0]).GetElementsByTagName("PACIENTE");
+
+                //XmlElement pacienteWRK = (XmlElement)paciente[0];
+                string Nombre = XMLdocumento.Paciente.Nombre;// pacienteWRK.GetAttribute("NOMBRE");
+                string Apellidos = XMLdocumento.Paciente.Apellido;// pacienteWRK.GetAttribute("APELLIDO");
+                string Documento = XMLdocumento.Paciente.Documento;// pacienteWRK.GetAttribute("DOCUMENTO");
+
+                //XmlNodeList orden = ((XmlElement)registros[0]).GetElementsByTagName("ORDEN");
+                //XmlElement ordernWrk = (XmlElement)orden[0];
+                string nroOrdenwRK = XMLdocumento.Orden.Numero;// ordernWrk.GetAttribute("NUMERO");
+                if (XMLdocumento.Orden.ResConfidenciales){Confidenciales = "1";} else { Confidenciales = "0"; }// ordernWrk.GetAttribute("RESCONFIDENCIALES");
+                if (XMLdocumento.Orden.ResPendientes) { Pendientes = "1"; } else { Pendientes = "0"; }// ordernWrk.GetAttribute("RESPENDIENTES");
+
+                //System.IO.StreamWriter sw1 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                //using (sw1)
+                //{
+                //    sw1.WriteLine("Recibido Labcore-- Nombre:" + Nombre + "  Apellidos:" + Apellidos + "  Confidenciales:" + Confidenciales + "  Pendientes:" + Pendientes + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                //    sw1.Close();
+                //}
+                logKioscos.Info($"Recibido Labcore-- Nombre:{ Nombre } Apellidos:{ Apellidos }  Confidenciales:{ Confidenciales } Pendientes:{ Pendientes } Evento:{ DateTime.Now.ToString()}");
                 using (SqlConnection conexion = new SqlConnection(Properties.Settings.Default.DBConexion))
                 {
                     conexion.Open();
@@ -84,12 +90,13 @@ namespace labcoreWS
                             XmlSerializer salidaImp = new XmlSerializer(rpta.GetType());
                             StringWriter textWriterImp = new StringWriter();
                             salidaImp.Serialize(textWriterImp, rpta);
-                            System.IO.StreamWriter sw4 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
-                            using (sw4)
-                            {
-                                sw4.WriteLine("Resultados Impresos en mas de 3 Oportunidades. \r\n");
-                                sw4.Close();
-                            }
+                            //System.IO.StreamWriter sw4 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                            //using (sw4)
+                            //{
+                            //    sw4.WriteLine("Resultados Impresos en mas de 3 Oportunidades. \r\n");
+                            //    sw4.Close();
+                            //}
+                            logKioscos.Info($"Resultados Impresos en mas de 3 Oportunidades. ");
                             return textWriterImp.ToString();
                         }
 
@@ -99,21 +106,22 @@ namespace labcoreWS
                 {
                     if (int.Parse(Pendientes) == 0)
                     {
-                        XmlNodeList resultados = ((XmlElement)registros[0]).GetElementsByTagName("ResultadoBase64");
+                        //XmlNodeList resultados = XMLdocumento.ResultadoBase64;// ((XmlElement)registros[0]).GetElementsByTagName("ResultadoBase64");
 
-                        string cadenaBase64 = resultados.Item(0).InnerText;
+                        string cadenaBase64 = XMLdocumento.ResultadoBase64; ;//
+                        //resultados.Item(0).InnerText;
                         if (cadenaBase64.Length > 10)
                         {
                             Int32 i = 0;
                             //ResultadosResultado resXX = new ResultadosResultado();
-
-                            foreach (XmlElement resultado in resultados)
-                            {
-                                string valor = resultado.InnerText;
-                                rpta.Resultado.Add(valor);
-                                //rpta.Resultado[i].Value = contenidoResultados[i].Value;
-                                i++;
-                            }
+                            rpta.Resultado.Add(cadenaBase64);
+                            //foreach (XmlElement resultado in resultados)
+                            //{
+                            //    string valor = resultado.InnerText;
+                            //    rpta.Resultado.Add(valor);
+                            //    //rpta.Resultado[i].Value = contenidoResultados[i].Value;
+                            //    i++;
+                            //}
                             rpta.status = "0";
                             rpta.Nombre = Nombre;
                             rpta.Apellido = Apellidos;
@@ -135,12 +143,13 @@ namespace labcoreWS
                                 sqlIns0.Parameters["@Fecha"].Value=DateTime.Now;
 
                                 sqlIns0.ExecuteNonQuery();
-                                System.IO.StreamWriter sw2 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
-                                using (sw2)
-                                {
-                                    sw2.WriteLine("Guarda--Orden:" + nroOrdenwRK + " Documento:" + Documento + " Evento:" + DateTime.Now.ToString() + "\r\n");
-                                    sw2.Close();
-                                }
+                                ////System.IO.StreamWriter sw2 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                                //using (sw2)
+                                //{
+                                //    sw2.WriteLine("Guarda--Orden:" + nroOrdenwRK + " Documento:" + Documento + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                                //    sw2.Close();
+                                //}
+                                logKioscos.Info($"Guarda--Orden:{nroOrdenwRK}  Documento:{Documento}  Evento:{DateTime.Now.ToString()}");
                             }
                         }
                         else
@@ -164,22 +173,23 @@ namespace labcoreWS
                 StringWriter textWriter = new StringWriter();
                 salida.Serialize(textWriter, rpta);
 
-                System.IO.StreamWriter sw3 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
-                using (sw3)
-                {
-                    sw3.WriteLine("Envio a Kiosco--Orden:" + nroOrdenwRK + " Documento:" + Documento + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                //System.IO.StreamWriter sw3 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                //using (sw3)
+                //{
+                    logKioscos.Info($"Envio a Kiosco--Orden:{nroOrdenwRK}  Documento:{Documento} Evento:{DateTime.Now.ToString()}");
+                    //sw3.WriteLine("Envio a Kiosco--Orden:" + nroOrdenwRK + " Documento:" + Documento + " Evento:" + DateTime.Now.ToString() + "\r\n");
                     if (rpta.Resultado.First<string>().Length>0)
                     {
-                    sw3.WriteLine("Respuesta:" + rpta.Resultado.First<string>().Substring(0, 10));
+                        logKioscos.Info($"Respuesta:{rpta.Resultado.First<string>().Substring(0, 10)}");
+                    //sw3.WriteLine("Respuesta:" + rpta.Resultado.First<string>().Substring(0, 10));
                     }
                     else
                     {
-                        sw3.WriteLine(" !! Respuesta: No se Imprime !!");
+                    logKioscos.Info($" !! Respuesta: No se Imprime !!");
+                        //sw3.WriteLine(" !! Respuesta: No se Imprime !!");
                     }
-                    sw3.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw3.WriteLine(archivo + "\r\n");
-                    sw3.Close();
-                }
+
+                //}
                 return textWriter.ToString();
             }
             catch (SqlException ex1)
@@ -193,15 +203,16 @@ namespace labcoreWS
                 StringWriter textWriter = new StringWriter();
                 salida.Serialize(textWriter, rpta);
                 // string archivo = "C:\\Basura";
-                System.IO.StreamWriter sw5 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
-                using (sw5)
-                {
-                    sw5.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw5.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
-                    sw5.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw5.WriteLine(archivo + "\r\n");
-                    sw5.Close();
-                }
+                //System.IO.StreamWriter sw5 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                //using (sw5)
+                //{
+                //sw5.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                logKioscos.Info($"Status:{rpta.status}  mensaje:{rpta.Resultado.First<string>()} Evento: {DateTime.Now.ToString()}");
+                    //sw5.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                    //sw5.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                    //sw5.WriteLine(archivo + "\r\n");
+                    //sw5.Close();
+                    //}
                 return textWriter.ToString();
             }
             catch (EndpointNotFoundException ex2)
@@ -214,15 +225,16 @@ namespace labcoreWS
                 XmlSerializer salida = new XmlSerializer(rpta.GetType());
                 StringWriter textWriter = new StringWriter();
                 salida.Serialize(textWriter, rpta);
-                System.IO.StreamWriter sw6 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
-                using (sw6)
-                {
-                    sw6.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw6.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
-                    sw6.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw6.WriteLine(archivo + "\r\n");
-                    sw6.Close();
-                }
+                //System.IO.StreamWriter sw6 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                //using (sw6)
+                //{
+                //    sw6.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw6.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                //    sw6.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw6.WriteLine(archivo + "\r\n");
+                //    sw6.Close();
+                //}
+                logKioscos.Info($"Status:{rpta.status}  mensaje:{rpta.Resultado.First<string>()} Evento:{DateTime.Now.ToString()}");
                 return textWriter.ToString();
             }
             catch (DataException ex3)
@@ -235,15 +247,16 @@ namespace labcoreWS
                 XmlSerializer salida = new XmlSerializer(rpta.GetType());
                 StringWriter textWriter = new StringWriter();
                 salida.Serialize(textWriter, rpta);
-                System.IO.StreamWriter sw7 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
-                using (sw7)
-                {
-                    sw7.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw7.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
-                    sw7.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw7.WriteLine(archivo + "\r\n");
-                    sw7.Close();
-                }
+                //System.IO.StreamWriter sw7 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                //using (sw7)
+                //{
+                //    sw7.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw7.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                //    sw7.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw7.WriteLine(archivo + "\r\n");
+                //    sw7.Close();
+                //}
+                logKioscos.Info($"Status:{ rpta.status } mensaje: { rpta.Resultado.First<string>()}  Evento: { DateTime.Now.ToString()}");
                 return textWriter.ToString();
             }
             catch (FaultException ex4)
@@ -256,15 +269,16 @@ namespace labcoreWS
                 XmlSerializer salida = new XmlSerializer(rpta.GetType());
                 StringWriter textWriter = new StringWriter();
                 salida.Serialize(textWriter, rpta);
-                System.IO.StreamWriter sw8 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
-                using (sw8)
-                {
-                    sw8.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw8.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
-                    sw8.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw8.WriteLine(archivo + "\r\n");
-                    sw8.Close();
-                }
+                //System.IO.StreamWriter sw8 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                //using (sw8)
+                //{
+                //    sw8.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw8.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                //    sw8.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw8.WriteLine(archivo + "\r\n");
+                //    sw8.Close();
+                //}
+
                 return textWriter.ToString();
             }
             catch (InvalidMessageContractException ex5)
@@ -277,15 +291,16 @@ namespace labcoreWS
                 XmlSerializer salida = new XmlSerializer(rpta.GetType());
                 StringWriter textWriter = new StringWriter();
                 salida.Serialize(textWriter, rpta);
-                System.IO.StreamWriter sw9 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
-                using (sw9)
-                {
-                    sw9.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw9.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
-                    sw9.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw9.WriteLine(archivo + "\r\n");
-                    sw9.Close();
-                }
+                //System.IO.StreamWriter sw9 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                //using (sw9)
+                //{
+                //    sw9.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw9.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                //    sw9.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw9.WriteLine(archivo + "\r\n");
+                //    sw9.Close();
+                //}
+                logKioscos.Info($"Status:{rpta.status}  mensaje:{rpta.Resultado.First<string>()} Evento:{DateTime.Now.ToString()}");
                 return textWriter.ToString();
             }
             catch (IOException ex6)
@@ -298,15 +313,16 @@ namespace labcoreWS
                 XmlSerializer salida = new XmlSerializer(rpta.GetType());
                 StringWriter textWriter = new StringWriter();
                 salida.Serialize(textWriter, rpta);
-                System.IO.StreamWriter sw10 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
-                using (sw10)
-                {
-                    sw10.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw10.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
-                    sw10.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw10.WriteLine(archivo + "\r\n");
-                    sw10.Close();
-                }
+                //System.IO.StreamWriter sw10 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                //using (sw10)
+                //{
+                //    sw10.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw10.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                //    sw10.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw10.WriteLine(archivo + "\r\n");
+                //    sw10.Close();
+                //}
+                logKioscos.Info($"Status:{rpta.status} mensaje:{rpta.Resultado.First<string>()} Evento:{DateTime.Now.ToString()} ");
                 return textWriter.ToString();
             }
             catch (SerializationException ex7)
@@ -319,15 +335,16 @@ namespace labcoreWS
                 XmlSerializer salida = new XmlSerializer(rpta.GetType());
                 StringWriter textWriter = new StringWriter();
                 salida.Serialize(textWriter, rpta);
-                System.IO.StreamWriter sw11 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
-                using (sw11)
-                {
-                    sw11.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw11.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
-                    sw11.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw11.WriteLine(archivo + "\r\n");
-                    sw11.Close();
-                }
+                //System.IO.StreamWriter sw11 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                //using (sw11)
+                //{
+                //    sw11.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw11.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                //    sw11.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw11.WriteLine(archivo + "\r\n");
+                //    sw11.Close();
+                //}
+                logKioscos.Info($"Status:{rpta.status}  mensaje:{rpta.Resultado.First<string>()} Evento:{DateTime.Now.ToString()} ");
                 return textWriter.ToString();
             }
             catch (ServerTooBusyException ex8)
@@ -340,15 +357,16 @@ namespace labcoreWS
                 XmlSerializer salida = new XmlSerializer(rpta.GetType());
                 StringWriter textWriter = new StringWriter();
                 salida.Serialize(textWriter, rpta);
-                System.IO.StreamWriter sw12 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
-                using (sw12)
-                {
-                    sw12.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw12.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
-                    sw12.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw12.WriteLine(archivo + "\r\n");
-                    sw12.Close();
-                }
+                //System.IO.StreamWriter sw12 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                //using (sw12)
+                //{
+                //    sw12.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw12.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                //    sw12.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw12.WriteLine(archivo + "\r\n");
+                //    sw12.Close();
+                //}
+                logKioscos.Info($"Status:{rpta.status} mensaje:{rpta.Resultado.First<string>()}  Evento:{DateTime.Now.ToString()} ");
                 return textWriter.ToString();
             }
             catch (SystemException ex9)
@@ -361,15 +379,16 @@ namespace labcoreWS
                 XmlSerializer salida = new XmlSerializer(rpta.GetType());
                 StringWriter textWriter = new StringWriter();
                 salida.Serialize(textWriter, rpta);
-                System.IO.StreamWriter sw13 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
-                using (sw13)
-                {
-                    sw13.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw13.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
-                    sw13.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
-                    sw13.WriteLine(archivo + "\r\n");
-                    sw13.Close();
-                }
+                //System.IO.StreamWriter sw13 = new System.IO.StreamWriter(archivo + "\\logKioscos.log", true);
+                //using (sw13)
+                //{
+                //    sw13.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw13.WriteLine("Status:" + rpta.status + "  mensaje:" + rpta.Resultado.First<string>() + " Evento:" + DateTime.Now.ToString() + "\r\n");
+                //    sw13.WriteLine("--------------------------------------------------------------------------------" + "\r\n");
+                //    sw13.WriteLine(archivo + "\r\n");
+                //    sw13.Close();
+                //}
+                logKioscos.Info($"Status:{rpta.status}  mensaje:{rpta.Resultado.First<string>()} Evento:{DateTime.Now.ToString()}");
                 return textWriter.ToString();
             }
         }
