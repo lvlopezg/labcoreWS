@@ -1206,12 +1206,9 @@ namespace labcoreWS
                                                 string especialidad = especialidadRCritico(atencionSol);
                                                 if (especialidad.Length > 0)
                                                 {
-                                                    clienteDatosPcte.IdatosPacienteClient clientePcte = new clienteDatosPcte.IdatosPacienteClient();
-                                                    clienteDatosPcte.pacienteS1 paciente = clientePcte.datosXatencion(Int32.Parse(atencionSol));
-                                                    string mensajeR = "Paciente:" + paciente.Nombre + " " + paciente.Apellidos + " Doc:" + paciente.numDocumento + " tiene resultado crítico. Defina conducta antes de 60 min y regístrela.";
-                                                    clienteSMS.smsHUSISoapClient mensajeRC = new clienteSMS.smsHUSISoapClient("smsHUSISoap");
-                                                    string rptaSMS = mensajeRC.smsGeneralHusi(paciente.numDocumento, especialidad, "0", paciente.idPaciente.ToString(), paciente.ubicacionActual, mensajeR);
-                                                    logLabcore.Info("Se procesa valor Critico:" + mensajeR + "    Tipo OBX:NM");
+                                                    var util = new Utilidades();
+                                                    var task = util.validationResultadoCritico(atencionSol, especialidad);
+                                                    Task.WhenAny(task);
                                                 }
                                             }
                                             else
@@ -1244,12 +1241,9 @@ namespace labcoreWS
                                                 string especialidad = especialidadRCritico(atencionSol);
                                                 if (especialidad.Length > 0)
                                                 {
-                                                    clienteDatosPcte.IdatosPacienteClient clientePcte = new clienteDatosPcte.IdatosPacienteClient();
-                                                    clienteDatosPcte.pacienteS1 paciente = clientePcte.datosXatencion(Int32.Parse(atencionSol));
-                                                    string mensajeR = "Paciente:" + paciente.Nombre + " " + paciente.Apellidos + " Doc:" + paciente.numDocumento + " tiene resultado crítico. Defina conducta antes de 60 min y regístrela.";
-                                                    clienteSMS.smsHUSISoapClient mensajeRC = new clienteSMS.smsHUSISoapClient("smsHUSISoap");
-                                                    string rptaSMS = mensajeRC.smsGeneralHusi(paciente.numDocumento, especialidad, "0", paciente.idPaciente.ToString(), paciente.ubicacionActual, mensajeR);
-                                                    logLabcore.Info("Se procesa valor Critico:" + mensajeR + "    Tipo OBX:ST");
+                                                    var util = new Utilidades();
+                                                    var task = util.validationResultadoCritico(atencionSol, especialidad);
+                                                    Task.WhenAny(task);
                                                 }
                                             }
                                             else
@@ -1283,11 +1277,9 @@ namespace labcoreWS
                                                 string especialidad = especialidadRCritico(atencionSol);
                                                 if (especialidad.Length > 0)
                                                 {
-                                                    clienteDatosPcte.IdatosPacienteClient clientePcte = new clienteDatosPcte.IdatosPacienteClient();
-                                                    clienteDatosPcte.pacienteS1 paciente = clientePcte.datosXatencion(Int32.Parse(atencionSol));
-                                                    string mensajeR = "Paciente:" + paciente.Nombre + " " + paciente.Apellidos + " Doc:" + paciente.numDocumento + " tiene resultado crítico. Defina conducta antes de 60 min y regístrela.";
-                                                    clienteSMS.smsHUSISoapClient mensajeRC = new clienteSMS.smsHUSISoapClient("smsHUSISoap");
-                                                    string rptaSMS = mensajeRC.smsGeneralHusi(paciente.numDocumento, especialidad, "0", paciente.idPaciente.ToString(), paciente.ubicacionActual.Split('-')[0], mensajeR);
+                                                   var util = new Utilidades();
+                                                    var task = util.validationResultadoCritico(atencionSol,especialidad);                                                    
+                                                    Task.WhenAny(task);        
                                                 }
                                             }
                                             else

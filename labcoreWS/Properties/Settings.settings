@@ -50,5 +50,11 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=WINTVTIBD01;Initial Catalog=SAHI;User ID=husi_usr;Password=pwdHUSI;MultipleActiveResultSets=True</Value>
     </Setting>
+    <Setting Name="origenCritico" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">notificacionessahi@husi.org.co</Value>
+    </Setting>
+    <Setting Name="destinoCritico" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">cgrojas@husi.org.co</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
