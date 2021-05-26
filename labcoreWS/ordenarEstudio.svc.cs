@@ -110,8 +110,8 @@ namespace labcoreWS
             #region RegionPV1
             try
             {
-                Conex.ConnectionString = Properties.Settings.Default.LabcoreDBConXX;
-                using (Conex)
+                //Conex.ConnectionString = Properties.Settings.Default.LabcoreDBConXX;
+                using (SqlConnection Conex=new SqlConnection(Properties.Settings.Default.LabcoreDBConXX))
                 {
                     Conex.Open();
                     //PV1
@@ -287,7 +287,7 @@ namespace labcoreWS
             //                                            ";
             string rpta = string.Empty;
             MensajeHL7 mensaje = new MensajeHL7(resultado);
-			logLabcore.Info($"Mensaje HL7 para la Solicitud:{resultado}");
+			logLabcore.Info($"Mensaje HL7 para la Solicitud Recibido desde Servicio wsLabcoreSahi.asmx:{resultado}");
             try
             {
                 Conex.ConnectionString = Properties.Settings.Default.LabcoreDBConXX;
@@ -300,7 +300,7 @@ namespace labcoreWS
                     if (readerDatosAten.HasRows)
                     {
                         readerDatosAten.Read();
-                        if (readerDatosAten.GetInt16(1) == 8 || readerDatosAten.GetInt16( 1) == 27)
+                        if (readerDatosAten.GetInt16(1) == 8 || readerDatosAten.GetInt16(1) == 27)
                         {
                             rpta = "Atencion Ambulatorios/No se Envia";
                         }
@@ -311,10 +311,11 @@ namespace labcoreWS
                     }
                     else // Se envia a Labcore y Se escribe a LOG
                     {
-                        logLabcore.Info("Enviando Solicitud MSG HL7 :" + resultado);
+                        logLabcore.Info("******************************   !!!    Enviando Solicitud MSG HL7 Enviado:" + resultado);
                         srLabcoreTAT.LabLinkHUSIClient cliente = new srLabcoreTAT.LabLinkHUSIClient();
                         rpta = cliente.SetHl7(resultado);
                         logLabcore.Info("Respuesta Labcore Para Solicitud:" + solicitud + ":::Respuesta Labcore:::" + rpta);
+                        logLabcore.Info($"******************************          !!!   Finalizacion del Envio   !!!          ******************************");
                     }
                 }
             }
@@ -1205,6 +1206,7 @@ namespace labcoreWS
                                     Detalle1 = Detalle1 + utilLocal.lineaResultado(objOBX.OBX4.Split('^')[1].ToString().Substring(0, longuitud), objOBX.OBX6, objOBX.OBX7, objOBX.OBX8) + " \r\n";
                                     //Detalle1 = Detalle1 + objOBX.OBX4.Split('^')[1].ToString().Substring(0, longuitud) + " " + objOBX.OBX6 + "  " + objOBX.OBX7 + "  " + objOBX.OBX8 + " \r\n";
                                     Detalle2 = "";
+
                                     foreach (string[] segmentoNTE in msg.segmentosNTE)
                                     {
                                         NTEClass objNTE = new NTEClass(segmentoNTE);

@@ -18,13 +18,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://10.10.100.6:8123/labcore/LabLinkHUSI.svc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.8.10.50:8123/labcore/LabLinkHUSI.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="LabLinkHUSI.wsdl" MetadataType="Wsdl" ID="0deb5211-61c8-4bda-a99a-587ca87cd4cc" SourceId="1" SourceUrl="http://10.10.100.6:8123/labcore/LabLinkHUSI.svc?wsdl" />
-    <MetadataFile FileName="LabLinkHUSI.xsd" MetadataType="Schema" ID="0a200788-edbc-48c4-bfec-4989e3193f6c" SourceId="1" SourceUrl="http://10.10.100.6:8123/LabCore/LabLinkHUSI.svc?xsd=xsd2" />
-    <MetadataFile FileName="LabLinkHUSI1.xsd" MetadataType="Schema" ID="23bd1c5f-4f2b-4ba7-b62b-2094390902d0" SourceId="1" SourceUrl="http://10.10.100.6:8123/LabCore/LabLinkHUSI.svc?xsd=xsd1" />
-    <MetadataFile FileName="LabLinkHUSI2.xsd" MetadataType="Schema" ID="8e9be941-7cca-4bd9-be9a-93e0184835d3" SourceId="1" SourceUrl="http://10.10.100.6:8123/LabCore/LabLinkHUSI.svc?xsd=xsd0" />
+    <MetadataFile FileName="LabLinkHUSI1.wsdl" MetadataType="Wsdl" ID="d0953c70-46f8-4d4d-a7ed-8df082333cda" SourceId="1" SourceUrl="http://10.8.10.50:8123/labcore/LabLinkHUSI.svc?wsdl" />
+    <MetadataFile FileName="LabLinkHUSI3.xsd" MetadataType="Schema" ID="b8f02e52-ed4e-4a7c-b370-b4e87981b66d" SourceId="1" SourceUrl="http://10.8.10.50:8123/LabCore/LabLinkHUSI.svc?xsd=xsd0" />
+    <MetadataFile FileName="LabLinkHUSI31.xsd" MetadataType="Schema" ID="42899955-a41b-43c3-a563-9a57f4f6e8b7" SourceId="1" SourceUrl="http://10.8.10.50:8123/LabCore/LabLinkHUSI.svc?xsd=xsd1" />
+    <MetadataFile FileName="LabLinkHUSI32.xsd" MetadataType="Schema" ID="0bd99172-2a9f-4d9a-8085-bfed6bec101d" SourceId="1" SourceUrl="http://10.8.10.50:8123/LabCore/LabLinkHUSI.svc?xsd=xsd2" />
+    <MetadataFile FileName="LabLinkHUSI33.xsd" MetadataType="Schema" ID="2749fb19-5a1f-4838-875a-a48f8046589c" SourceId="1" SourceUrl="http://10.8.10.50:8123/LabCore/LabLinkHUSI.svc?xsd=xsd3" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -183,14 +183,20 @@
     <None Include="Service References\srLabcoreResultados\LabLinkHUSI3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\srLabcoreTAT\LabLinkHUSI.wsdl" />
-    <None Include="Service References\srLabcoreTAT\LabLinkHUSI.xsd">
+    <Content Include="Service References\srLabcoreTAT\labcoreWS.srLabcoreTAT.ResultadoPdf.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\srLabcoreTAT\LabLinkHUSI1.wsdl" />
+    <None Include="Service References\srLabcoreTAT\LabLinkHUSI3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\srLabcoreTAT\LabLinkHUSI1.xsd">
+    <None Include="Service References\srLabcoreTAT\LabLinkHUSI31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\srLabcoreTAT\LabLinkHUSI2.xsd">
+    <None Include="Service References\srLabcoreTAT\LabLinkHUSI32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\srLabcoreTAT\LabLinkHUSI33.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\srProxyOrdenar\configuration91.svcinfo" />

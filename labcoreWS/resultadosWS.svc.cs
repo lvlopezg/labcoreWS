@@ -112,7 +112,7 @@ namespace labcoreWS
                         //resultados.Item(0).InnerText;
                         if (cadenaBase64.Length > 10)
                         {
-                            Int32 i = 0;
+                            //Int32 i = 0;
                             //ResultadosResultado resXX = new ResultadosResultado();
                             rpta.Resultado.Add(cadenaBase64);
                             //foreach (XmlElement resultado in resultados)

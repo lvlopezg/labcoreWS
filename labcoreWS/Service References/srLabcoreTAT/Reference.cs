@@ -9,7 +9,304 @@
 //------------------------------------------------------------------------------
 
 namespace labcoreWS.srLabcoreTAT {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultadoPdf", Namespace="http://schemas.datacontract.org/2004/07/WebLabLinkHUSI.dto")]
+    [System.SerializableAttribute()]
+    public partial class ResultadoPdf : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private labcoreWS.srLabcoreTAT.Orden OrdenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private labcoreWS.srLabcoreTAT.Paciente PacienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResultadoBase64Field;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public labcoreWS.srLabcoreTAT.Orden Orden {
+            get {
+                return this.OrdenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrdenField, value) != true)) {
+                    this.OrdenField = value;
+                    this.RaisePropertyChanged("Orden");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public labcoreWS.srLabcoreTAT.Paciente Paciente {
+            get {
+                return this.PacienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PacienteField, value) != true)) {
+                    this.PacienteField = value;
+                    this.RaisePropertyChanged("Paciente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ResultadoBase64 {
+            get {
+                return this.ResultadoBase64Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResultadoBase64Field, value) != true)) {
+                    this.ResultadoBase64Field = value;
+                    this.RaisePropertyChanged("ResultadoBase64");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Orden", Namespace="http://schemas.datacontract.org/2004/07/WebLabLinkHUSI.dto")]
+    [System.SerializableAttribute()]
+    public partial class Orden : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoLabRefField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FechaIngresoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreLabRefField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumeroField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumeroLabRefField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ResConfidencialesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ResPendientesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodigoLabRef {
+            get {
+                return this.CodigoLabRefField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoLabRefField, value) != true)) {
+                    this.CodigoLabRefField = value;
+                    this.RaisePropertyChanged("CodigoLabRef");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FechaIngreso {
+            get {
+                return this.FechaIngresoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FechaIngresoField, value) != true)) {
+                    this.FechaIngresoField = value;
+                    this.RaisePropertyChanged("FechaIngreso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreLabRef {
+            get {
+                return this.NombreLabRefField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreLabRefField, value) != true)) {
+                    this.NombreLabRefField = value;
+                    this.RaisePropertyChanged("NombreLabRef");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Numero {
+            get {
+                return this.NumeroField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumeroField, value) != true)) {
+                    this.NumeroField = value;
+                    this.RaisePropertyChanged("Numero");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NumeroLabRef {
+            get {
+                return this.NumeroLabRefField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumeroLabRefField, value) != true)) {
+                    this.NumeroLabRefField = value;
+                    this.RaisePropertyChanged("NumeroLabRef");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ResConfidenciales {
+            get {
+                return this.ResConfidencialesField;
+            }
+            set {
+                if ((this.ResConfidencialesField.Equals(value) != true)) {
+                    this.ResConfidencialesField = value;
+                    this.RaisePropertyChanged("ResConfidenciales");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ResPendientes {
+            get {
+                return this.ResPendientesField;
+            }
+            set {
+                if ((this.ResPendientesField.Equals(value) != true)) {
+                    this.ResPendientesField = value;
+                    this.RaisePropertyChanged("ResPendientes");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Paciente", Namespace="http://schemas.datacontract.org/2004/07/WebLabLinkHUSI.dto")]
+    [System.SerializableAttribute()]
+    public partial class Paciente : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ApellidoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DocumentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Apellido {
+            get {
+                return this.ApellidoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApellidoField, value) != true)) {
+                    this.ApellidoField = value;
+                    this.RaisePropertyChanged("Apellido");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Documento {
+            get {
+                return this.DocumentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DocumentoField, value) != true)) {
+                    this.DocumentoField = value;
+                    this.RaisePropertyChanged("Documento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="srLabcoreTAT.ILabLinkHUSI")]
@@ -23,6 +320,9 @@ namespace labcoreWS.srLabcoreTAT {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILabLinkHUSI/GetPDF", ReplyAction="http://tempuri.org/ILabLinkHUSI/GetPDFResponse")]
         System.IO.Stream GetPDF(string numero);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILabLinkHUSI/GetResultado", ReplyAction="http://tempuri.org/ILabLinkHUSI/GetResultadoResponse")]
+        labcoreWS.srLabcoreTAT.ResultadoPdf GetResultado(string numero);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -62,6 +362,10 @@ namespace labcoreWS.srLabcoreTAT {
         
         public System.IO.Stream GetPDF(string numero) {
             return base.Channel.GetPDF(numero);
+        }
+        
+        public labcoreWS.srLabcoreTAT.ResultadoPdf GetResultado(string numero) {
+            return base.Channel.GetResultado(numero);
         }
     }
 }
