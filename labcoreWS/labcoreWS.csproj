@@ -167,9 +167,22 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\clienteSMS\smsHUSI.wsdl" />
+    <None Include="Service References\servicioPruebasLabcore\configuration91.svcinfo" />
+    <None Include="Service References\servicioPruebasLabcore\configuration.svcinfo" />
+    <Content Include="Service References\servicioPruebasLabcore\labcoreWS.servicioPruebasLabcore.ordenesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\servicioPruebasLabcore\labcoreWS.servicioPruebasLabcore.solicitudesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\servicioPruebasLabcore\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Service References\srLabcoreResultados\labcoreWS.srLabcoreResultados.ResultadoPdf.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\servicioPruebasLabcore\item.wsdl" />
     <None Include="Service References\srLabcoreResultados\LabLinkHUSI.wsdl" />
     <None Include="Service References\srLabcoreResultados\LabLinkHUSI.xsd">
       <SubType>Designer</SubType>
@@ -291,6 +304,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\servicioPruebasLabcore\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\srLabcoreResultados\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -341,6 +359,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\clienteDatosPcte\" />
     <WCFMetadataStorage Include="Service References\clienteSMS\" />
+    <WCFMetadataStorage Include="Service References\servicioPruebasLabcore\" />
     <WCFMetadataStorage Include="Service References\srLabcoreResultados\" />
     <WCFMetadataStorage Include="Service References\srLabcoreTAT\" />
     <WCFMetadataStorage Include="Service References\srProxyOrdenar\" />

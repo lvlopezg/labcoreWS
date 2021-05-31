@@ -73,8 +73,9 @@ namespace labcoreWS
         DBConexion.Open();
         string qryConsulta = @"SELECT cod_usua,UsuarioWin,nom_usua,B.NumRegistro,A.ind_esta FROM ASI_USUA A
 INNER JOIN hcePersonal B ON A.IdUsuario = B.IdPersonal
- WHERE A.idUsuario = " + Idusuario;  //+@" AND A.ind_esta = 'A'"  se quita la condicion, y se retorna el estado en la respuesta
+ WHERE A.idUsuario =@Idusuario";  //+@" AND A.ind_esta = 'A'"  se quita la condicion, y se retorna el estado en la respuesta
         SqlCommand cmdConsulta = new SqlCommand(qryConsulta, DBConexion);
+        cmdConsulta.Parameters.Add("@Idusuario",SqlDbType.Int).Value= Idusuario;
         SqlDataReader rdConsulta = cmdConsulta.ExecuteReader();
         if (rdConsulta.HasRows)
         {

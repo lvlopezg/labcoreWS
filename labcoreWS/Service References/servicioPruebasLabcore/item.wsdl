@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://husi.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://husi.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://husi.org/">
+      <s:element name="ordenes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ordenesInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ordenesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ordenesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="solicitudes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="solicitudInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="solicitudesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="solicitudesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="solicitudesSoapOut">
+    <wsdl:part name="parameters" element="tns:solicitudesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ordenesSoapOut">
+    <wsdl:part name="parameters" element="tns:ordenesResponse" />
+  </wsdl:message>
+  <wsdl:message name="solicitudesSoapIn">
+    <wsdl:part name="parameters" element="tns:solicitudes" />
+  </wsdl:message>
+  <wsdl:message name="ordenesSoapIn">
+    <wsdl:part name="parameters" element="tns:ordenes" />
+  </wsdl:message>
+  <wsdl:portType name="wsLabcoreSahiSoap">
+    <wsdl:operation name="ordenes">
+      <wsdl:input message="tns:ordenesSoapIn" />
+      <wsdl:output message="tns:ordenesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="solicitudes">
+      <wsdl:input message="tns:solicitudesSoapIn" />
+      <wsdl:output message="tns:solicitudesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsLabcoreSahiSoap12" type="tns:wsLabcoreSahiSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ordenes">
+      <soap12:operation soapAction="http://husi.org/ordenes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="solicitudes">
+      <soap12:operation soapAction="http://husi.org/solicitudes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsLabcoreSahiSoap" type="tns:wsLabcoreSahiSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ordenes">
+      <soap:operation soapAction="http://husi.org/ordenes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="solicitudes">
+      <soap:operation soapAction="http://husi.org/solicitudes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsLabcoreSahi">
+    <wsdl:port name="wsLabcoreSahiSoap12" binding="tns:wsLabcoreSahiSoap12">
+      <soap12:address location="http://localhost:11406/wsLabcoreSahi.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsLabcoreSahiSoap" binding="tns:wsLabcoreSahiSoap">
+      <soap:address location="http://ACDTI01971:8080/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
