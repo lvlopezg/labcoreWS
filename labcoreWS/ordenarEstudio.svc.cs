@@ -1278,7 +1278,7 @@ namespace labcoreWS
                                                 if (especialidad.Length > 0)
                                                 {
                                                    var util = new Utilidades();
-                                                    var task = util.validationResultadoCritico(atencionSol,especialidad);                                                    
+                                                    var task = util.validationResultadoCritico(atencionSol,especialidad);//ultimos cambios                                                    
                                                     Task.WhenAny(task);        
                                                 }
                                             }
