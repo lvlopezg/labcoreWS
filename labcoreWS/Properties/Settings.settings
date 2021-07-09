@@ -56,5 +56,11 @@
     <Setting Name="destinoCritico" Type="System.String" Scope="Application">
       <Value Profile="(Default)">cgrojas@husi.org.co</Value>
     </Setting>
+    <Setting Name="origenCritico" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">notificacionessahi@husi.org.co</Value>
+    </Setting>
+    <Setting Name="destinoCritico" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">cgrojas@husi.org.co</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -80,18 +80,6 @@ namespace labcoreWS.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=wintvtibd01\\hsi_tst;Initial Catalog=HSI_TST;User ID=husi_usr;Password" +
-            "=pwdHUSI;Min Pool Size=10;Max Pool Size=800;MultipleActiveResultSets=True;Connec" +
-            "t Timeout=60;ConnectRetryCount=3")]
-        public string DBConexionXX {
-            get {
-                return ((string)(this["DBConexionXX"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("notificacionessahi@husi.org.co")]
         public string origenCritico {
             get {

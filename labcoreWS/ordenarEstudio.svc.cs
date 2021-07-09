@@ -1215,8 +1215,8 @@ namespace labcoreWS
                                                 if (especialidad.Length > 0)
                                                 {
                                                     var util = new Utilidades();
-                                                    var task = util.validationResultadoCritico(atencionSol,especialidad);                                                    
-                                                    Task.WhenAny(task);                                                   
+                                                    var task = util.validationResultadoCritico(atencionSol, especialidad);
+                                                    Task.WhenAny(task);
                                                 }
                                             }
                                             else
@@ -1285,9 +1285,9 @@ namespace labcoreWS
                                                 string especialidad = especialidadRCritico(atencionSol);
                                                 if (especialidad.Length > 0)
                                                 {
-                                                    var util = new Utilidades();
-                                                    var task = util.validationResultadoCritico(atencionSol, especialidad);
-                                                    Task.WhenAny(task);
+                                                   var util = new Utilidades();
+                                                    var task = util.validationResultadoCritico(atencionSol,especialidad);                                                    
+                                                    Task.WhenAny(task);        
                                                 }
                                             }
                                             else
