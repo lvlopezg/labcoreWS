@@ -15,7 +15,7 @@ namespace labcoreWS
         public string usrWindows(string usrWindows)
         {
             string respuesta = string.Empty;
-            using (SqlConnection DBConexion = new SqlConnection(Properties.Settings.Default.DBConexionXX))
+            using (SqlConnection DBConexion = new SqlConnection(Properties.Settings.Default.DBConexion))
             {
                 DBConexion.Open();
                 string qryConsulta = "SELECT IdUsuario,cod_usua,nom_usua FROM ASI_USUA WHERE UsuarioWin='" + usrWindows + "' AND  ind_esta='A'";
@@ -41,7 +41,7 @@ namespace labcoreWS
             //string qryConsulta = "SELECT IdUsuario,UsuarioWin,nom_usua FROM ASI_USUA WHERE cod_usua='" + usrSAHI + "'  ind_esta='A'";
 
             string respuesta = string.Empty;
-            using (SqlConnection DBConexion = new SqlConnection(Properties.Settings.Default.DBConexionXX))
+            using (SqlConnection DBConexion = new SqlConnection(Properties.Settings.Default.DBConexion))
             {
                 DBConexion.Open();
                 string qryConsulta = "SELECT IdUsuario,UsuarioWin,nom_usua FROM ASI_USUA WHERE cod_usua='" + usrSAHI + "' AND  ind_esta='A'";
@@ -67,7 +67,7 @@ namespace labcoreWS
         public string idUsuaXcodUsua(int Idusuario)
         {
             string respuesta = string.Empty;
-            using (SqlConnection DBConexion = new SqlConnection(Properties.Settings.Default.DBConexionXX))
+            using (SqlConnection DBConexion = new SqlConnection(Properties.Settings.Default.DBConexion))
             {
                 DBConexion.Open();
                 string qryConsulta = @"SELECT cod_usua,UsuarioWin,nom_usua,B.NumRegistro,A.ind_esta FROM ASI_USUA A
@@ -101,7 +101,7 @@ INNER JOIN hcePersonal B ON A.IdUsuario = B.IdPersonal
         public string usuarioXidPersonal(string idPersonal)
         {
             string respuesta = string.Empty;
-            using (SqlConnection DBConexion = new SqlConnection(Properties.Settings.Default.DBConexionXX))
+            using (SqlConnection DBConexion = new SqlConnection(Properties.Settings.Default.DBConexion))
             {
                 DBConexion.Open();
                 string qryConsulta = @"SELECT cod_usua,UsuarioWin,nom_usua,B.NumRegistro,A.ind_esta FROM ASI_USUA A

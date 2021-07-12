@@ -128,7 +128,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel">
+      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.ServiceModel.dll</HintPath>
+    </Reference>
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -165,16 +167,7 @@
     </Content>
     <None Include="Service References\clienteSMS\smsHUSI1.wsdl" />
     <None Include="Service References\srLabcoreResultados\IWSSolicitudesservice.wsdl" />
-    <None Include="Service References\srLabcoreTAT\LabLinkHUSI.wsdl" />
-    <None Include="Service References\srLabcoreTAT\LabLinkHUSI.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\srLabcoreTAT\LabLinkHUSI1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\srLabcoreTAT\LabLinkHUSI2.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Service References\srLabcoreTAT\IWSSolicitudesservice.wsdl" />
     <None Include="Service References\srProxyOrdenar\configuration91.svcinfo" />
     <None Include="Service References\srProxyOrdenar\configuration.svcinfo" />
     <None Include="Service References\srProxyOrdenar\ordenarEstudio1.wsdl" />
