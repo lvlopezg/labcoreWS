@@ -20,25 +20,40 @@ namespace labcoreWS.srLabcoreTAT {
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         labcoreWS.srLabcoreTAT.RecResultsResponse RecResults(labcoreWS.srLabcoreTAT.RecResultsRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#RecResults", ReplyAction="*")]
+        System.Threading.Tasks.Task<labcoreWS.srLabcoreTAT.RecResultsResponse> RecResultsAsync(labcoreWS.srLabcoreTAT.RecResultsRequest request);
+        
         // CODEGEN: Generating message contract since the wrapper namespace (urn:WSSolicitudesIntf-IWSSolicitudes) of message RecSolicitudesRequest does not match the default value (http://tempuri.org/)
         [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#RecSolicitudes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         labcoreWS.srLabcoreTAT.RecSolicitudesResponse RecSolicitudes(labcoreWS.srLabcoreTAT.RecSolicitudesRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#RecSolicitudes", ReplyAction="*")]
+        System.Threading.Tasks.Task<labcoreWS.srLabcoreTAT.RecSolicitudesResponse> RecSolicitudesAsync(labcoreWS.srLabcoreTAT.RecSolicitudesRequest request);
         
         // CODEGEN: Generating message contract since the wrapper namespace (urn:WSSolicitudesIntf-IWSSolicitudes) of message GetResultPdfRequest does not match the default value (http://tempuri.org/)
         [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#GetResultPdf", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         labcoreWS.srLabcoreTAT.GetResultPdfResponse GetResultPdf(labcoreWS.srLabcoreTAT.GetResultPdfRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#GetResultPdf", ReplyAction="*")]
+        System.Threading.Tasks.Task<labcoreWS.srLabcoreTAT.GetResultPdfResponse> GetResultPdfAsync(labcoreWS.srLabcoreTAT.GetResultPdfRequest request);
+        
         // CODEGEN: Generating message contract since the wrapper namespace (urn:WSSolicitudesIntf-IWSSolicitudes) of message GetHL7MsgRequest does not match the default value (http://tempuri.org/)
         [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#GetHL7Msg", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         labcoreWS.srLabcoreTAT.GetHL7MsgResponse GetHL7Msg(labcoreWS.srLabcoreTAT.GetHL7MsgRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#GetHL7Msg", ReplyAction="*")]
+        System.Threading.Tasks.Task<labcoreWS.srLabcoreTAT.GetHL7MsgResponse> GetHL7MsgAsync(labcoreWS.srLabcoreTAT.GetHL7MsgRequest request);
+        
         // CODEGEN: Generating message contract since the wrapper namespace (urn:WSSolicitudesIntf-IWSSolicitudes) of message CambioEstadoRequest does not match the default value (http://tempuri.org/)
         [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#CambioEstado", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         labcoreWS.srLabcoreTAT.CambioEstadoResponse CambioEstado(labcoreWS.srLabcoreTAT.CambioEstadoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:WSSolicitudesIntf-IWSSolicitudes#CambioEstado", ReplyAction="*")]
+        System.Threading.Tasks.Task<labcoreWS.srLabcoreTAT.CambioEstadoResponse> CambioEstadoAsync(labcoreWS.srLabcoreTAT.CambioEstadoRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -251,6 +266,17 @@ namespace labcoreWS.srLabcoreTAT {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<labcoreWS.srLabcoreTAT.RecResultsResponse> labcoreWS.srLabcoreTAT.IWSSolicitudes.RecResultsAsync(labcoreWS.srLabcoreTAT.RecResultsRequest request) {
+            return base.Channel.RecResultsAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<labcoreWS.srLabcoreTAT.RecResultsResponse> RecResultsAsync(string xmlRes) {
+            labcoreWS.srLabcoreTAT.RecResultsRequest inValue = new labcoreWS.srLabcoreTAT.RecResultsRequest();
+            inValue.xmlRes = xmlRes;
+            return ((labcoreWS.srLabcoreTAT.IWSSolicitudes)(this)).RecResultsAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         labcoreWS.srLabcoreTAT.RecSolicitudesResponse labcoreWS.srLabcoreTAT.IWSSolicitudes.RecSolicitudes(labcoreWS.srLabcoreTAT.RecSolicitudesRequest request) {
             return base.Channel.RecSolicitudes(request);
         }
@@ -260,6 +286,17 @@ namespace labcoreWS.srLabcoreTAT {
             inValue.xmlSol = xmlSol;
             labcoreWS.srLabcoreTAT.RecSolicitudesResponse retVal = ((labcoreWS.srLabcoreTAT.IWSSolicitudes)(this)).RecSolicitudes(inValue);
             return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<labcoreWS.srLabcoreTAT.RecSolicitudesResponse> labcoreWS.srLabcoreTAT.IWSSolicitudes.RecSolicitudesAsync(labcoreWS.srLabcoreTAT.RecSolicitudesRequest request) {
+            return base.Channel.RecSolicitudesAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<labcoreWS.srLabcoreTAT.RecSolicitudesResponse> RecSolicitudesAsync(string xmlSol) {
+            labcoreWS.srLabcoreTAT.RecSolicitudesRequest inValue = new labcoreWS.srLabcoreTAT.RecSolicitudesRequest();
+            inValue.xmlSol = xmlSol;
+            return ((labcoreWS.srLabcoreTAT.IWSSolicitudes)(this)).RecSolicitudesAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -275,6 +312,17 @@ namespace labcoreWS.srLabcoreTAT {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<labcoreWS.srLabcoreTAT.GetResultPdfResponse> labcoreWS.srLabcoreTAT.IWSSolicitudes.GetResultPdfAsync(labcoreWS.srLabcoreTAT.GetResultPdfRequest request) {
+            return base.Channel.GetResultPdfAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<labcoreWS.srLabcoreTAT.GetResultPdfResponse> GetResultPdfAsync(string numorden) {
+            labcoreWS.srLabcoreTAT.GetResultPdfRequest inValue = new labcoreWS.srLabcoreTAT.GetResultPdfRequest();
+            inValue.numorden = numorden;
+            return ((labcoreWS.srLabcoreTAT.IWSSolicitudes)(this)).GetResultPdfAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         labcoreWS.srLabcoreTAT.GetHL7MsgResponse labcoreWS.srLabcoreTAT.IWSSolicitudes.GetHL7Msg(labcoreWS.srLabcoreTAT.GetHL7MsgRequest request) {
             return base.Channel.GetHL7Msg(request);
         }
@@ -287,6 +335,17 @@ namespace labcoreWS.srLabcoreTAT {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<labcoreWS.srLabcoreTAT.GetHL7MsgResponse> labcoreWS.srLabcoreTAT.IWSSolicitudes.GetHL7MsgAsync(labcoreWS.srLabcoreTAT.GetHL7MsgRequest request) {
+            return base.Channel.GetHL7MsgAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<labcoreWS.srLabcoreTAT.GetHL7MsgResponse> GetHL7MsgAsync(string msg) {
+            labcoreWS.srLabcoreTAT.GetHL7MsgRequest inValue = new labcoreWS.srLabcoreTAT.GetHL7MsgRequest();
+            inValue.msg = msg;
+            return ((labcoreWS.srLabcoreTAT.IWSSolicitudes)(this)).GetHL7MsgAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         labcoreWS.srLabcoreTAT.CambioEstadoResponse labcoreWS.srLabcoreTAT.IWSSolicitudes.CambioEstado(labcoreWS.srLabcoreTAT.CambioEstadoRequest request) {
             return base.Channel.CambioEstado(request);
         }
@@ -296,6 +355,17 @@ namespace labcoreWS.srLabcoreTAT {
             inValue.msg = msg;
             labcoreWS.srLabcoreTAT.CambioEstadoResponse retVal = ((labcoreWS.srLabcoreTAT.IWSSolicitudes)(this)).CambioEstado(inValue);
             return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<labcoreWS.srLabcoreTAT.CambioEstadoResponse> labcoreWS.srLabcoreTAT.IWSSolicitudes.CambioEstadoAsync(labcoreWS.srLabcoreTAT.CambioEstadoRequest request) {
+            return base.Channel.CambioEstadoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<labcoreWS.srLabcoreTAT.CambioEstadoResponse> CambioEstadoAsync(string msg) {
+            labcoreWS.srLabcoreTAT.CambioEstadoRequest inValue = new labcoreWS.srLabcoreTAT.CambioEstadoRequest();
+            inValue.msg = msg;
+            return ((labcoreWS.srLabcoreTAT.IWSSolicitudes)(this)).CambioEstadoAsync(inValue);
         }
     }
 }

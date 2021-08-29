@@ -81,7 +81,7 @@ namespace labcoreWS
             {
                 string[] identificacion = new string[2];
                 Conex.Open();
-                string strConsultar = "SELECT idTipoDoc, NumDocumento from admCliente A, admAtencion B where A.IdCliente=B.IdCliente AND B.IdAtencion=" + atencion;
+                string strConsultar = $"SELECT idTipoDoc, NumDocumento FROM admCliente A, admAtencion B WHERE A.IdCliente = B.IdCliente AND B.IdAtencion={atencion}";
                 SqlCommand cmdConsulta = new SqlCommand(strConsultar, Conex);
                 SqlDataReader conCursor = cmdConsulta.ExecuteReader();
                 if (conCursor.HasRows)
@@ -365,11 +365,9 @@ namespace labcoreWS
         }
         public async Task validationResultadoCritico(string atencion, string especialidad)
         {
-
             clienteDatosPcte.IdatosPacienteClient clientePcte = new clienteDatosPcte.IdatosPacienteClient();
             clienteDatosPcte.pacienteS1 paciente = clientePcte.datosXatencion(Int32.Parse(atencion));
             string mensajeR = "<br> Paciente: " + paciente.Nombre + " " + paciente.Apellidos + " Doc:" + paciente.numDocumento + " tiene resultado crítico de laboratorio.";
-
             //consultar tipo del atencion
             bool envioCorreo = true;
             using (SqlConnection Conex = new SqlConnection(Properties.Settings.Default.DBConexion))
@@ -396,7 +394,6 @@ namespace labcoreWS
                 {
                     logLabcore.Info("Error al enviar el resultado critico correo/msn:: " + e.Message);
                 }
-
             }
             try
             {
@@ -405,7 +402,6 @@ namespace labcoreWS
                     mensajeR += " Numero de atención: " + atencion;
                     var destino = Properties.Settings.Default.destinoCritico;
                     var origen = Properties.Settings.Default.origenCritico;
-
                     var correo = new clienteSMS.smsHUSISoapClient("smsHUSISoap");
                     var response = correo.correoHusi(origen, destino, " Resultado crítico laboratorio", mensajeR);
                     logLabcore.Info(" Se envio correo");
@@ -423,6 +419,30 @@ namespace labcoreWS
                 logLabcore.Info("Error al enviar el resultado critico correo/msn:: " + e.Message);
             }
         }
-    
+
+    public DateTime fechaOrdenTAT(int nroOrden)
+    {
+      DateTime fechaOrden;
+      using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.LabcoreDBCon))
+      {
+        conn.Open();
+        string qryOrdenes = "SELECT FECHA_EVT FROM TAT_TRAZA_ORDEN WHERE NRO_ORDEN=@orden AND EVT_ORD='ORD_MED' AND NRO_SOLIC=0 ";
+        SqlCommand cmdOrdenes = new SqlCommand(qryOrdenes, conn);
+        cmdOrdenes.Parameters.Add("@orden", SqlDbType.Int).Value = nroOrden;
+        SqlDataReader rdOrdenes = cmdOrdenes.ExecuteReader();
+        if (rdOrdenes.HasRows)
+        {
+          rdOrdenes.Read();
+          fechaOrden = (DateTime)rdOrdenes.GetSqlDateTime(0);
+        }
+        else
+        {
+          fechaOrden = DateTime.Now;
+        }
+        return fechaOrden;
+      }
+    }
+
+
     }
 }

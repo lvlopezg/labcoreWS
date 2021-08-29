@@ -168,6 +168,21 @@
     <None Include="Service References\clienteSMS\smsHUSI1.wsdl" />
     <None Include="Service References\srLabcoreResultados\IWSSolicitudesservice.wsdl" />
     <None Include="Service References\srLabcoreTAT\IWSSolicitudesservice.wsdl" />
+    <Content Include="Service References\srLabcoreTAT\labcoreWS.srLabcoreTAT.CambioEstadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\srLabcoreTAT\labcoreWS.srLabcoreTAT.GetHL7MsgResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\srLabcoreTAT\labcoreWS.srLabcoreTAT.GetResultPdfResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\srLabcoreTAT\labcoreWS.srLabcoreTAT.RecResultsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\srLabcoreTAT\labcoreWS.srLabcoreTAT.RecSolicitudesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\srProxyOrdenar\configuration91.svcinfo" />
     <None Include="Service References\srProxyOrdenar\configuration.svcinfo" />
     <None Include="Service References\srProxyOrdenar\ordenarEstudio1.wsdl" />
@@ -189,12 +204,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\srLabcoreTAT\configuration91.svcinfo" />
-    <None Include="Service References\srLabcoreTAT\configuration.svcinfo" />
-    <None Include="Service References\srLabcoreTAT\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Service References\clienteDatosPcte\configuration91.svcinfo" />
     <None Include="Service References\clienteDatosPcte\configuration.svcinfo" />
     <None Include="Service References\clienteDatosPcte\Reference.svcmap">
@@ -208,6 +217,12 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\srProxyOrdenar\ordenarEstudio1.disco" />
+    <None Include="Service References\srLabcoreTAT\configuration91.svcinfo" />
+    <None Include="Service References\srLabcoreTAT\configuration.svcinfo" />
+    <None Include="Service References\srLabcoreTAT\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="usuariosWShusi.svc" />
     <Content Include="wsLabcoreSahi.asmx" />
     <None Include="Properties\PublishProfiles\despliegueKioskos.pubxml" />

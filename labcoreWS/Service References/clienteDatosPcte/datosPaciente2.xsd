@@ -15,4 +15,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="datosXatencionXFactura">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nroAtencion" type="xs:int" />
+        <xs:element minOccurs="0" name="nroFactura" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="datosXatencionXFacturaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/husiWSGeneral.Modelos" minOccurs="0" name="datosXatencionXFacturaResult" nillable="true" type="q2:pacienteS1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

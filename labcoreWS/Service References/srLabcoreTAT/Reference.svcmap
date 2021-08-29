@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d23c8d0e-4e3b-4fdc-a0de-006532dc1e5a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="29961903-2290-4de4-9f01-4661ac44bbd8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
@@ -18,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://10.10.100.6:81/wsdl_pruebass/WSDLL.dll/wsdl/IWSSolicitudes?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.8.10.50:81/wsdl_pruebass/WSDLL.dll/wsdl/IWSSolicitudes?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="IWSSolicitudesservice.wsdl" MetadataType="Wsdl" ID="3438cdb6-795a-44b3-9017-fa5bb397e6fc" SourceId="1" SourceUrl="http://10.10.100.6:81/wsdl_pruebass/WSDLL.dll/wsdl/IWSSolicitudes?wsdl" />
+    <MetadataFile FileName="IWSSolicitudesservice.wsdl" MetadataType="Wsdl" ID="e5db240e-3760-47ea-8bf7-d855c437a52d" SourceId="1" SourceUrl="http://10.8.10.50:81/wsdl_pruebass/WSDLL.dll/wsdl/IWSSolicitudes?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -13,16 +13,35 @@
   <wsdl:message name="IdatosPaciente_datosXatencion_OutputMessage">
     <wsdl:part name="parameters" element="tns:datosXatencionResponse" />
   </wsdl:message>
+  <wsdl:message name="IdatosPaciente_datosXatencionXFactura_InputMessage">
+    <wsdl:part name="parameters" element="tns:datosXatencionXFactura" />
+  </wsdl:message>
+  <wsdl:message name="IdatosPaciente_datosXatencionXFactura_OutputMessage">
+    <wsdl:part name="parameters" element="tns:datosXatencionXFacturaResponse" />
+  </wsdl:message>
   <wsdl:portType name="IdatosPaciente">
     <wsdl:operation name="datosXatencion">
       <wsdl:input wsaw:Action="http://tempuri.org/IdatosPaciente/datosXatencion" message="tns:IdatosPaciente_datosXatencion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IdatosPaciente/datosXatencionResponse" message="tns:IdatosPaciente_datosXatencion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="datosXatencionXFactura">
+      <wsdl:input wsaw:Action="http://tempuri.org/IdatosPaciente/datosXatencionXFactura" message="tns:IdatosPaciente_datosXatencionXFactura_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IdatosPaciente/datosXatencionXFacturaResponse" message="tns:IdatosPaciente_datosXatencionXFactura_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IdatosPaciente" type="tns:IdatosPaciente">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="datosXatencion">
       <soap:operation soapAction="http://tempuri.org/IdatosPaciente/datosXatencion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="datosXatencionXFactura">
+      <soap:operation soapAction="http://tempuri.org/IdatosPaciente/datosXatencionXFactura" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
