@@ -51,7 +51,7 @@ namespace labcoreWS
                     }
                 case "SOL_ENF":
                     {
-                        actualizar = "UPDATE TAT_TRAZA_TAT SET EVT_SOLI=@fechaEvento,TAT_SOLI=" + solicitud + " WHERE TAT_ATEN=" + atencion + " AND TAT_ORDEN=" + orden + " AND TAT_CUPS='" + cups + "'";
+                        actualizar = "UPDATE TAT_TRAZA_TAT SET EVT_SOLI=@fechaEvento WHERE TAT_ATEN=" + atencion + " AND TAT_ORDEN=" + orden + " AND TAT_CUPS='" + cups + "' and TAT_SOLI=" + solicitud + "";
                         break;
                     }
                 case "EVT_VAL":
@@ -75,7 +75,7 @@ namespace labcoreWS
                     {
                         txResultado.Commit();
                         respuesta = true;
-                        logLabcore.Info("Se actualiza Trazabilidad: " + actualizar);
+                        logLabcore.Info($"78:Se Actualiza Trazabilidad desde(Trazabilidad.cs): {actualizar}");
                     }
                     else
                     {

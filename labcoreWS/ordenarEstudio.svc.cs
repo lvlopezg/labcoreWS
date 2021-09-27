@@ -299,8 +299,9 @@ namespace labcoreWS
                 using (Conex)
                 {
                     Conex.Open();
-                    string strDatosAten = "SELECT IndActivado,IdAtencionTipo FROM admAtencion WHERE IdAtencion=" + atencion + " AND (IndActivado=0 OR (IdAtencionTipo=8 OR IdAtencionTipo=27))";
+                    string strDatosAten = "SELECT IndActivado,IdAtencionTipo FROM admAtencion WHERE IdAtencion=@atencion AND (IndActivado=0 OR (IdAtencionTipo=8 OR IdAtencionTipo=27))";
                     SqlCommand cmdDatosAten = new SqlCommand(strDatosAten, Conex);
+                    cmdDatosAten.Parameters.Add("@atencion",SqlDbType.Int).Value=Int32.Parse(atencion);
                     SqlDataReader readerDatosAten = cmdDatosAten.ExecuteReader();
                     if (readerDatosAten.HasRows)
                     {

@@ -17,6 +17,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Runtime.Remoting.Contexts;
 using System.Web.Services.Protocols;
+using System.Threading;
 
 namespace labcoreWS
 {
@@ -191,14 +192,18 @@ namespace labcoreWS
                                 {
                                     TX1.Commit();
                                     logLabcore.Info($"Orden: {ordenWrk.nroOrden} en Proceso. Recepcion Y Confirmacion Exitosa en Trazabilidad");
+                                    Thread.Sleep(500);
                                     using (SqlConnection ConnCons = new SqlConnection(Properties.Settings.Default.alterno))
                                     {
+
+
                                         ConnCons.Open();
                                         string qrySolicitudAut = "SELECT idAccion,idAtencion,idOrden,idSolicitud,paramXML,fecRegistro " +
                                           "FROM hceLabCliTATinvocaWS sa WHERE sa.idAccion='SA' AND sa.idAtencion=@idAtencion AND sa.idOrden=@idOrden1 " +
                                           "ORDER BY sa.idSolicitud";
                                         logLabcore.Info("Buscando Solicitudes (SA) de Urgencias Por Procesar....");
-                                        logLabcore.Info($"Query:{qrySolicitudAut}");
+
+                                        logLabcore.Info($"Query:{qrySolicitudAut} atencion {ordenWrk.idAtencion} orden {ordenWrk.nroOrden}"  );
                                         SqlCommand cmdSolicitudAut = new SqlCommand(qrySolicitudAut, ConnCons);
                                         cmdSolicitudAut.Parameters.Add("@idAtencion", SqlDbType.Int).Value = Int32.Parse(ordenWrk.idAtencion);
                                         cmdSolicitudAut.Parameters.Add("@idOrden1", SqlDbType.Int).Value = Int32.Parse(ordenWrk.nroOrden);
@@ -207,10 +212,11 @@ namespace labcoreWS
                                         {
                                             while (rdSolicitudAut.Read())
                                             {
+                                                logLabcore.Info($"Item a Procesar: idAccion:{rdSolicitudAut.GetString(0)} Solicitud: {rdSolicitudAut.GetInt32(3)}  Orden:{rdSolicitudAut.GetInt32(2)}");
                                                 logLabcore.Info($"Se Encuentra Solicitud (SA) para Procesar:{rdSolicitudAut.GetString(4)}");
                                                 string respuestasol=solicitudes(rdSolicitudAut.GetString(4));
                                                 logLabcore.Info($"*****Respuesta de Servicio de solictudes:{respuestasol}");
-                                                logLabcore.Info($"Se Proceso Solicitud Automatica:idAtencion:{rdSolicitudAut.GetInt32(1)} idOrden:{rdSolicitudAut.GetInt32(2)} idSolicitud:{rdSolicitudAut.GetInt32(1)}");
+                                                logLabcore.Info($"Se Proceso Solicitud Automatica:idAtencion:{rdSolicitudAut.GetInt32(1)} idOrden:{rdSolicitudAut.GetInt32(2)} idSolicitud:{rdSolicitudAut.GetInt32(3)}");
                                             }
                                         }
                                         else
@@ -218,7 +224,7 @@ namespace labcoreWS
                                             logLabcore.Info($"No se recibe Solicitud Automatica, para la Orden:{ordenWrk.nroOrden} Orden de Procedimiento Originada Diferentea a Urgencias");
                                         }
                                     }
-                                    return "00:Recepcion Existosa";
+                                    return "00:Recepcion de Orden Existosa";
                                 }
                                 else
                                 {
@@ -284,7 +290,7 @@ namespace labcoreWS
                 StringReader reader = new StringReader(solicitudInput);
                 object obj = deserializar.Deserialize(reader);
                 solicitud solicitudWrk = (solicitud)obj;   // Solicitud Deserializada
-                solicitudProducto[ ] cupsSolicWrk = solicitudWrk.producto; // CUPS de la solicitud.
+                solicitudProducto[ ] cupsSolicWrk = solicitudWrk.producto; // CUPS de la solicitud recibida.
                 solicitudProducto[ ] cupsTabSolicSync = null; // CUPS  de la solicitud extraidos de la tabla de sincronia
 
                 SqlConnection Conex = new SqlConnection(Properties.Settings.Default.LabcoreDBConXX);
@@ -312,7 +318,7 @@ namespace labcoreWS
                                 XmlSerializer deserTblSol = new XmlSerializer(typeof(solicitud));
                                 StringReader lector = new StringReader(conCursor.GetString(0));
                                 object objII = deserTblSol.Deserialize(lector);
-                                solicitud solicitudTablaSync = (solicitud)objII;// solicitudTablaSync es Solicitud Deserializada
+                                solicitud solicitudTablaSync = (solicitud)objII;// solicitudTablaSync es Solicitud de la Tabla de Intercambio Deserializada
                                 cupsTabSolicSync = solicitudTablaSync.producto; // Asigna los CUPS obtenidos de la Tabla de Sincronia
                             }
                             else
@@ -387,11 +393,11 @@ namespace labcoreWS
                                     else
                                     {
                                         logLabcore.Info("*****386 Se insertó registro TAT_TRAZA_ORDEN *****");
-                                        Int32 solcitudExiste = 0;
+                                        Int32 solcitudExiste = -1;
                                         using (SqlConnection Conn = new SqlConnection(Properties.Settings.Default.LabcoreDBConXX))
                                         {
                                             Conn.Open();
-                                            string strConsultaSolicitud = "SELECT TAT_SOLI FROM TAT_TRAZA_TAT WHERE TAT_ATEN=@atencion AND TAT_ORDEN=@orden AND TAT_CUPS=@cups AND TAT_SOLI=@Solicitud";
+                                            string strConsultaSolicitud = "SELECT TAT_SOLI FROM TAT_TRAZA_TAT WHERE TAT_ATEN=@atencion AND TAT_ORDEN=@orden AND TAT_CUPS=@cups AND (TAT_SOLI=@Solicitud or TAT_SOLI=0)";
                                             // string strConsultaSolicitud = "SELECT TAT_SOLI FROM TAT_TRAZA_TAT WHERE TAT_ATEN=@atencion AND TAT_ORDEN=@orden AND TAT_CUPS=@cups";
                                             logLabcore.Info($"Consulta TAT_TRAZA_TAT, Para Actualizar:{strConsultaSolicitud}");
                                             logLabcore.Info($"Parametros Utilizados:Atencion: {solicitudWrk.idAtencion} Orden:{solicitudWrk.nroOrden}  Cup:{cups.cups.Trim()} Solicitud:{solicitudWrk.nroSolicitud.Trim()}");
@@ -404,23 +410,28 @@ namespace labcoreWS
                                             if (rdSolicitud.HasRows)
                                             {
                                                 rdSolicitud.Read();
-                                                solcitudExiste = rdSolicitud.GetInt32(0);
+                                                solcitudExiste = rdSolicitud.GetInt32(0); //
                                                 logLabcore.Info($"404*****Validacion de Solicitud Existe:{solcitudExiste}");
                                             }
                                         }
 
-                                        if (Int32.Parse(solicitudWrk.nroSolicitud) > 0 && solcitudExiste == 0)  //todo: validar oportunidad de codigo-
+                                        if (Int32.Parse(solicitudWrk.nroSolicitud) > 0 && solcitudExiste >= 0)  //todo: validar oportunidad de codigo-
                                         {
-                                            DateTime fechaOrden = utilLocal.fechaOrdenTAT(Int32.Parse(solicitudWrk.nroOrden));
-                                            string strActualizaTraza = "UPDATE TAT_TRAZA_TAT SET TAT_SOLI=@solicitud_tat, EVT_SOLI=@fecha,EVT_ORD=@fechaorden " +
-                                              "WHERE TAT_ATEN=@atencion AND TAT_ORDEN=@orden AND TAT_CUPS=@cups AND (TAT_SOLI=0 OR TAT_SOLI=@solicitud_tat)";
+                                           // DateTime fechaOrden = utilLocal.fechaOrdenTAT(Int32.Parse(solicitudWrk.nroOrden));
+                                            string strActualizaTraza = "UPDATE TAT_TRAZA_TAT SET TAT_SOLI=@solicitud_tat, EVT_SOLI=@fecha" + // se quita el update a la fecha orden EVT_ORD=@fechaorden 
+                                              " WHERE TAT_ATEN=@atencion AND TAT_ORDEN=@orden AND TAT_CUPS=@cups AND (TAT_SOLI=0 OR TAT_SOLI=@solicitud_tat)";
+
+
+
+                                            //string strActualizaTraza = "UPDATE TAT_TRAZA_TAT SET TAT_SOLI=@solicitud_tat, EVT_SOLI=@fecha " +
+                                            //"WHERE TAT_ATEN=@atencion AND TAT_ORDEN=@orden AND TAT_CUPS=@cups";
                                             SqlCommand cmdActualizaTraza = new SqlCommand(strActualizaTraza, Conex, TX1_1);
                                             cmdActualizaTraza.Parameters.Add("@orden", SqlDbType.Int).Value = solicitudWrk.nroOrden;
                                             cmdActualizaTraza.Parameters.Add("@solicitud_tat", SqlDbType.Int).Value = solicitudWrk.nroSolicitud;
                                             cmdActualizaTraza.Parameters.Add("@atencion", SqlDbType.Int).Value = solicitudWrk.idAtencion;
                                             cmdActualizaTraza.Parameters.Add("@cups", SqlDbType.VarChar).Value = cups.cups.Trim();
                                             cmdActualizaTraza.Parameters.Add("@fecha", SqlDbType.DateTime).Value = DateTime.Parse(solicitudWrk.fechaSolicitud);
-                                            cmdActualizaTraza.Parameters.Add("@fechaOrden", SqlDbType.DateTime).Value = fechaOrden;
+                                           // cmdActualizaTraza.Parameters.Add("@fechaOrden", SqlDbType.DateTime).Value = fechaOrden;
                                             if (cmdActualizaTraza.ExecuteNonQuery() > 0)
                                             {
                                                 cups_Procesados.Add(cups);
@@ -437,6 +448,24 @@ namespace labcoreWS
                                         }
                                         else
                                         {
+                                            var dateFechaOrden= DateTime.Parse(solicitudWrk.fechaSolicitud);
+                                            using (SqlConnection Conn = new SqlConnection(Properties.Settings.Default.LabcoreDBConXX))
+                                            {
+                                                Conn.Open();
+                                                string strConsultaFecha = $"select top 1 EVT_ORD from TAT_TRAZA_TAT where TAT_ATEN={solicitudWrk.idAtencion} and TAT_ORDEN={solicitudWrk.nroOrden} order by EVT_ORD  ";
+                                                SqlCommand cmdConsultaFecha = new SqlCommand(strConsultaFecha, Conn);
+                                                SqlDataReader rdConsultaFecha = cmdConsultaFecha.ExecuteReader();
+                                                if (rdConsultaFecha.HasRows)
+                                                {
+                                                    rdConsultaFecha.Read();
+                                                    dateFechaOrden = rdConsultaFecha.GetDateTime(0); //
+                                                    logLabcore.Info($"**Fecha Orden anterior " + dateFechaOrden.ToString());
+
+                                                }
+                                            }
+                                            
+
+                                            logLabcore.Info($" !!!! No se Actualiza--Solictud Enviada {solicitudWrk.nroSolicitud} Datos en TAT_TRAZA_TAT para:{solcitudExiste}");
                                             string strInsertarTraza = "INSERT INTO TAT_TRAZA_TAT (TAT_ATEN,TAT_ORDEN,TAT_SOLI,TAT_CUPS,EVT_ORD) VALUES (@atencion,@orden,@solicitud,@cups,@fechaEvento)";
                                             SqlCommand cmdInsertarTraza = new SqlCommand(strInsertarTraza, Conex, TX1_1);
                                             cmdInsertarTraza.Parameters.Add("@atencion", SqlDbType.Int).Value = solicitudWrk.idAtencion;
@@ -444,7 +473,7 @@ namespace labcoreWS
                                             cmdInsertarTraza.Parameters.Add("@solicitud", SqlDbType.Int).Value = solicitudWrk.nroSolicitud;
                                             // insertar la fecha de orden
                                             cmdInsertarTraza.Parameters.Add("@cups", SqlDbType.VarChar).Value = cups.cups.Trim();
-                                            cmdInsertarTraza.Parameters.Add("@fechaEvento", SqlDbType.DateTime).Value = DateTime.Parse(solicitudWrk.fechaSolicitud);
+                                            cmdInsertarTraza.Parameters.Add("@fechaEvento", SqlDbType.DateTime).Value = dateFechaOrden;
                                             cmdInsertarTraza.Connection = Conex;
                                             //cmdTraza.Transaction = TX1;
                                             if (cmdInsertarTraza.ExecuteNonQuery() < 1)
@@ -472,11 +501,11 @@ namespace labcoreWS
                                 SqlTransaction TX2;
                                 TX2 = Conex.BeginTransaction("TRx2");
 
-                                foreach (solicitudProducto  itemProcesar in cups_Procesados)
-                                {
+                                //foreach (solicitudProducto  itemProcesar in cups_Procesados)
+                                //{
                                     try
                                     {
-                                        if (cupsSolicWrk.Length == cupsTabSolicSync.Length)
+                                        if (cupsSolicWrk.Length == cupsTabSolicSync.Length)  //cupsSolicWrk
                                         {
                                             try
                                             {
@@ -551,7 +580,7 @@ namespace labcoreWS
                                         logLabcore.Warn($"********* Se ha Presentado una excepcion. mensaje: {exp1.Message}     Pila de LLamados:{ exp1.StackTrace}");
                                         return "*** Se ha presentado una excepcion. ***";
                                     } 
-                                }
+                                //}
                                 //************ Final de Actualizacion de Tabla de Intercambio
                             }
                             else
@@ -606,8 +635,6 @@ namespace labcoreWS
                 string rpta = clienteOrdenar.ordenar(solicitud, orden, atencion, NumeroMsg);
                 //servicioPruebasLabcore.wsLabcoreSahiSoapClient clientePruebas = new servicioPruebasLabcore.wsLabcoreSahiSoapClient();
                 //string rpta = clientePruebas.solicitudes(solicitud);
-
-
                 logLabcore.Info($"Respuesta Recibida en wsLabcoreSahi.asmx:{solicitud}  Respuesta Recibida: {rpta}");
                 logLabcore.Info($"***** Envio de Solicitud Terminado.");
             }
