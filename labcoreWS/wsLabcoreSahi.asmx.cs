@@ -85,8 +85,8 @@ namespace labcoreWS
                 {
                     Conex.Open();
                     string strInsertar = "INSERT INTO TAT_ENC_ORDSAHI (NRO_ORDEN,NRO_ATEN,USR_ORDEN,FECHA_ORD) VALUES(@orden,@atencion,@usuario,@fecha)";
-                    SqlTransaction TX1 = Conex.BeginTransaction("tr1");
-                    SqlCommand cmdInsertar = new SqlCommand(strInsertar, Conex, TX1);
+                    
+                    SqlCommand cmdInsertar = new SqlCommand(strInsertar, Conex);
                     cmdInsertar.Parameters.Add("@orden", SqlDbType.Int).Value = ordenWrk.nroOrden;
                     cmdInsertar.Parameters.Add("@atencion", SqlDbType.Int).Value = ordenWrk.idAtencion;
                     cmdInsertar.Parameters.Add("@usuario", SqlDbType.Int).Value = ordenWrk.idUsuario;
@@ -128,10 +128,10 @@ namespace labcoreWS
                                 cmdInsertardDetalle.Parameters["@Cantidad"].Value = cups.cant;
                                 cmdInsertardDetalle.Parameters["@Observaciones"].Value = cups.obs;
                                 cmdInsertardDetalle.Connection = Conex;
-                                cmdInsertardDetalle.Transaction = TX1;
+                                
                                 if (cmdInsertardDetalle.ExecuteNonQuery() < 1)
                                 {
-                                    TX1.Rollback("tr1");
+                                    
                                     return "";
                                 }
                                 else
@@ -143,10 +143,10 @@ namespace labcoreWS
                                     cmdInsTraza.Parameters["@cups"].Value = cups.cups;
                                     cmdInsTraza.Parameters["@fecha"].Value = DateTime.Now.ToString();
                                     cmdInsTraza.Connection = Conex;
-                                    cmdInsTraza.Transaction = TX1;
+                                    
                                     if (cmdInsTraza.ExecuteNonQuery() < 1)
                                     {
-                                        TX1.Rollback("tr1");
+                                        
                                         logLabcore.Warn("04:No fue posible Insertar en:TAT_TRAZA_ORDEN para la Orden En Proceso:" + ordenWrk.nroOrden);
                                         return "";
                                     }
@@ -159,10 +159,10 @@ namespace labcoreWS
                                         cmdTraza.Parameters["@cups"].Value = cups.cups;
                                         cmdTraza.Parameters["@fechaEvento"].Value = DateTime.Parse(ordenWrk.fechaOrden);
                                         cmdTraza.Connection = Conex;
-                                        cmdTraza.Transaction = TX1;
+                                        
                                         if (cmdTraza.ExecuteNonQuery() < 1)
                                         {
-                                            TX1.Rollback("tr1");
+                                            
                                             logLabcore.Warn($"04:No fue posible Insertar en:TAT_TRAZA_TAT para la orden en proceso:{ordenWrk.nroOrden}");
                                             return "";
                                         }
@@ -181,16 +181,16 @@ namespace labcoreWS
                             SqlCommand cmdActualizaSincroniza = new SqlCommand(qryActualizaSincroniza, Conex);
                             cmdActualizaSincroniza.Parameters.Add("@idAtencion", SqlDbType.Int).Value = Int32.Parse(ordenWrk.idAtencion);
                             cmdActualizaSincroniza.Parameters.Add("@idOrden", SqlDbType.Int).Value = Int32.Parse(ordenWrk.nroOrden);
-                            cmdActualizaSincroniza.Transaction = TX1;
+                           //cmdActualizaSincroniza.Transaction = TX1;
                             if (cmdActualizaSincroniza.ExecuteNonQuery() > 0)
                             {
                                 logLabcore.Info("***** Se Actualiza Tabla:hceLabCliTATinvocaWSHist de Historicos");
                                 cmdBorrar.CommandText = "DELETE FROM hceLabCliTATinvocaWS WHERE idAtencion=" + ordenWrk.idAtencion + " AND idOrden=" + ordenWrk.nroOrden + " AND idAccion='OP'";
                                 cmdBorrar.Connection = Conex;
-                                cmdBorrar.Transaction = TX1;
+                              //  cmdBorrar.Transaction = TX1;
                                 if (cmdBorrar.ExecuteNonQuery() > 0)
                                 {
-                                    TX1.Commit();
+                                    //TX1.Commit();
                                     logLabcore.Info($"Orden: {ordenWrk.nroOrden} en Proceso. Recepcion Y Confirmacion Exitosa en Trazabilidad");
                                     Thread.Sleep(500);
                                     using (SqlConnection ConnCons = new SqlConnection(Properties.Settings.Default.alterno))
@@ -228,14 +228,14 @@ namespace labcoreWS
                                 }
                                 else
                                 {
-                                    TX1.Rollback("tr1");
+                                   
                                     logLabcore.Warn("Error Limpiando tabla de sincronizacion. Se Procede a hacer Rollback");
                                     return "03: Error Limpiando tabla de Sincronizacion";
                                 }
                             }
                             else
                             {
-                                TX1.Rollback("tr1");
+                                
                                 logLabcore.Warn("****** Error Limpiando tabla de sincronizacion");
                                 return "***** 03: Error Actualizando tabla de Sincronizacion de Historicos";
                             }
@@ -243,7 +243,7 @@ namespace labcoreWS
                         }
                         catch (SqlException sqlEx)
                         {
-                            TX1.Rollback("tr1");
+                            
                             logLabcore.Warn(sqlEx.Message, "04:Error SQL Recibiendo Orden desde SAHI " + ordenWrk.nroOrden);
                             return "04:" + sqlEx.Message;
                         }
